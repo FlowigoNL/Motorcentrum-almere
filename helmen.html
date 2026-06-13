@@ -1,103 +1,746 @@
 <!DOCTYPE html>
 <html lang="nl">
   <head>
-    
-
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Helmen | Motorcentrum Almere</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Scorpion EXO Helmen | Officieel Dealer | Motorcentrum Almere</title>
+    <meta name="description" content="Scorpion EXO helmen bij Motorcentrum Almere. Racing, touring, modulair en urban helmen. Officieel dealer met professioneel advies. Kom langs in Almere." />
+    <link rel="canonical" href="https://www.garagemulder-dekoe.nl/helmen.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+    <style>
+      /* ===== HERO ===== */
+      .hm-hero {
+        background: #090909;
+        min-height: 72vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 24px 80px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hm-hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse at 20% 50%, rgba(232,87,0,0.07) 0%, transparent 50%),
+          radial-gradient(ellipse at 80% 50%, rgba(232,87,0,0.05) 0%, transparent 50%);
+        pointer-events: none;
+      }
+      .hm-hero-eyebrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--mc-orange);
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .hm-hero-eyebrow::before,
+      .hm-hero-eyebrow::after {
+        content: '';
+        width: 30px;
+        height: 1px;
+        background: var(--mc-orange);
+        opacity: 0.6;
+      }
+      .hm-hero h1 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(3rem, 7vw, 6rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .hm-hero h1 span { color: var(--mc-orange); }
+      .hm-hero-sub {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.5);
+        max-width: 520px;
+        line-height: 1.7;
+        margin-bottom: 0;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* ===== FEATURED MODEL (EXO-RACE AIR) ===== */
+      .hm-featured {
+        background: #0d0d0d;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        overflow: hidden;
+      }
+      .hm-featured-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        min-height: 520px;
+      }
+      @media (max-width: 860px) {
+        .hm-featured-inner { grid-template-columns: 1fr; }
+        .hm-featured-img { order: -1; }
+      }
+      .hm-featured-content {
+        padding: 60px 60px 60px 40px;
+      }
+      @media (max-width: 860px) {
+        .hm-featured-content { padding: 40px 24px; }
+      }
+      .hm-featured-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--mc-orange);
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        padding: 5px 12px;
+        border-radius: 3px;
+        margin-bottom: 20px;
+      }
+      .hm-featured-content h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(2rem, 3.5vw, 3.2rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.05;
+        margin-bottom: 8px;
+      }
+      .hm-featured-content h3 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: rgba(255,255,255,0.4);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+      }
+      .hm-featured-desc {
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.55);
+        line-height: 1.75;
+        margin-bottom: 28px;
+        max-width: 420px;
+      }
+      .hm-featured-feats {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 32px;
+      }
+      .hm-feat-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.6);
+      }
+      .hm-feat-item::before {
+        content: '';
+        width: 18px;
+        height: 2px;
+        background: var(--mc-orange);
+        flex-shrink: 0;
+      }
+      .hm-featured-price {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 24px;
+      }
+      .hm-featured-price span {
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: rgba(255,255,255,0.35);
+        font-family: 'Roboto', sans-serif;
+        margin-left: 6px;
+        letter-spacing: 1px;
+      }
+      .hm-featured-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        background: linear-gradient(135deg, rgba(232,87,0,0.04) 0%, transparent 60%);
+      }
+      .hm-featured-img img {
+        max-width: 540px;
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 20px 60px rgba(232,87,0,0.15));
+      }
+
+      /* ===== FILTER BAR ===== */
+      .hm-filter-bar {
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        position: sticky;
+        top: 64px;
+        z-index: 50;
+      }
+      .hm-filter-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .hm-filter-inner::-webkit-scrollbar { display: none; }
+      .hm-filter-btn {
+        flex-shrink: 0;
+        padding: 18px 20px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(0,0,0,0.4);
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: color 0.2s, border-color 0.2s;
+        white-space: nowrap;
+      }
+      .hm-filter-btn:hover { color: #111; }
+      .hm-filter-btn.active {
+        color: var(--mc-orange);
+        border-bottom-color: var(--mc-orange);
+      }
+
+      /* ===== HELMET GRID ===== */
+      .hm-grid-section {
+        background: #f5f5f5;
+        padding: 64px 24px 100px;
+      }
+      .hm-grid-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .hm-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 28px;
+      }
+      @media (max-width: 640px) {
+        .hm-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      }
+      @media (max-width: 400px) {
+        .hm-grid { grid-template-columns: 1fr; }
+      }
+
+      /* helm card */
+      .hm-card {
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+      }
+      .hm-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      }
+      .hm-card.hm-hidden { display: none; }
+
+      .hm-card-img {
+        background: #f9f9f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 20px;
+        height: 240px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hm-card-img img {
+        max-height: 190px;
+        max-width: 100%;
+        object-fit: contain;
+        transition: transform 0.35s ease;
+      }
+      .hm-card:hover .hm-card-img img {
+        transform: scale(1.04);
+      }
+      .hm-card-badges {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        display: flex;
+        gap: 6px;
+      }
+      .hm-badge {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        border-radius: 3px;
+      }
+      .hm-badge-new { background: var(--mc-orange); color: #fff; }
+      .hm-badge-cat { background: #111; color: #fff; }
+      .hm-badge-carbon { background: #222; color: #aaa; }
+
+      .hm-card-body {
+        padding: 20px 22px 22px;
+        border-top: 1px solid #f0f0f0;
+      }
+      .hm-card-model {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(0,0,0,0.35);
+        margin-bottom: 4px;
+      }
+      .hm-card-name {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #111;
+        margin-bottom: 10px;
+        line-height: 1.2;
+      }
+      .hm-card-specs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 14px;
+      }
+      .hm-spec-chip {
+        font-size: 0.65rem;
+        font-family: 'Roboto', sans-serif;
+        color: rgba(0,0,0,0.5);
+        background: #f4f4f4;
+        padding: 3px 8px;
+        border-radius: 20px;
+      }
+      .hm-card-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .hm-card-price {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #111;
+      }
+      .hm-card-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--mc-orange);
+        text-decoration: none;
+        transition: gap 0.2s;
+      }
+      .hm-card-cta:hover { gap: 10px; }
+      .hm-card-cta svg { width: 14px; height: 14px; fill: var(--mc-orange); }
+
+      /* count line */
+      .hm-results-line {
+        font-size: 0.78rem;
+        color: rgba(0,0,0,0.4);
+        font-family: 'Roboto', sans-serif;
+        margin-bottom: 28px;
+      }
+
+      /* ===== CTA SECTION ===== */
+      .hm-cta {
+        background: #0a0a0a;
+        padding: 80px 24px;
+        text-align: center;
+      }
+      .hm-cta h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(1.8rem, 3.5vw, 3rem);
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 14px;
+      }
+      .hm-cta p {
+        color: rgba(255,255,255,0.45);
+        font-size: 0.95rem;
+        max-width: 480px;
+        margin: 0 auto 32px;
+        line-height: 1.7;
+      }
+      .hm-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+      .btn-primary {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: var(--mc-orange); color: #fff;
+        font-family: 'Roboto', sans-serif; font-size: 0.78rem;
+        font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+        padding: 14px 28px; border-radius: 4px; text-decoration: none;
+        transition: background 0.2s;
+      }
+      .btn-primary:hover { background: #c94a00; }
+      .btn-ghost-light {
+        display: inline-flex; align-items: center; gap: 8px;
+        border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6);
+        font-family: 'Roboto', sans-serif; font-size: 0.78rem;
+        font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+        padding: 14px 28px; border-radius: 4px; text-decoration: none;
+        transition: border-color 0.2s, color 0.2s;
+      }
+      .btn-ghost-light:hover { border-color: #fff; color: #fff; }
+    </style>
   </head>
   <body>
     <div id="header-placeholder"></div>
 
-    <section class="sub-hero" style="background-image: url('/headers/nieuw-hero.webp');">
-      <div class="sub-hero-content">
-        <h1>HELMEN</h1>
-        <p style="font-size: 1.2rem; max-width: 600px;">De juiste helm redt levens. Ontdek ons uitgebreide aanbod van gecertificeerde helmen voor elke rijder.</p>
+    <!-- ===== HERO ===== -->
+    <section class="hm-hero">
+      <div class="hm-hero-bg"></div>
+      <div class="hm-hero-eyebrow">Scorpion EXO</div>
+      <h1>BESCHERMING<br /><span>OP NIVEAU</span></h1>
+      <p class="hm-hero-sub">
+        Als officieel Scorpion EXO dealer bieden we het volledige assortiment, van instap-racing tot carbon vlaggenschepen. Professioneel advies op maat.
+      </p>
+    </section>
+
+    <!-- ===== FEATURED: EXO-RACE AIR ===== -->
+    <section class="hm-featured">
+      <div class="hm-featured-inner">
+        <div class="hm-featured-content">
+          <div class="hm-featured-badge">
+            <svg viewBox="0 0 16 16" width="12" height="12" fill="#fff"><path d="M8 1l1.5 4.5H14l-3.5 2.5 1.5 4.5L8 10l-4 2.5 1.5-4.5L2 5.5h4.5z"/></svg>
+            Nieuw 2026 — APEX Series
+          </div>
+          <h2>SCORPION<br />EXO-RACE AIR</h2>
+          <h3>Racing Flagship</h3>
+          <p class="hm-featured-desc">
+            Het absolute vlaggenschip van Scorpion EXO. De EXO-RACE AIR is de eerste helm in de premium APEX-serie, speciaal gebouwd voor professionele racers en hoge snelheden. Carbon matrix constructie, FIM #2 homologatie.
+          </p>
+          <div class="hm-featured-feats">
+            <div class="hm-feat-item">Lite Force Carbon Matrix Shell</div>
+            <div class="hm-feat-item">Optical Class 1 vizier, Pinlock 120 ready</div>
+            <div class="hm-feat-item">AirFit opblaassysteem voor perfecte pasvorm</div>
+            <div class="hm-feat-item">FIM #2 homologatie voor competitie</div>
+            <div class="hm-feat-item">Cool Tech ventilatie, anti-microbieel binnenwerk</div>
+          </div>
+          <div class="hm-featured-price">
+            &euro;649,90 <span>Incl. BTW</span>
+          </div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="/contact.html?interesse=scorpion-exo-race-air" class="btn-primary">Informeer vrijblijvend</a>
+          </div>
+        </div>
+        <div class="hm-featured-img">
+          <img src="/helmen/exo-race-air-kobra.png" alt="Scorpion EXO-RACE AIR KOBRA racing helm" width="540" height="360" />
+        </div>
       </div>
     </section>
 
-    <section class="content-section">
-      <div class="container">
-        <h2>Vind Jouw Helm</h2>
-        <p>Een goede helm is de belangrijkste investering die je maakt als motorrijder. In onze winkel vind je helmen in alle categorieën — van instap tot race-niveau — van de beste merken ter wereld.</p>
+    <!-- ===== FILTER ===== -->
+    <div class="hm-filter-bar">
+      <div class="hm-filter-inner">
+        <button class="hm-filter-btn active" data-filter="all">Alle helmen</button>
+        <button class="hm-filter-btn" data-filter="racing">Racing</button>
+        <button class="hm-filter-btn" data-filter="touring">Touring</button>
+        <button class="hm-filter-btn" data-filter="modulair">Modulair</button>
+        <button class="hm-filter-btn" data-filter="urban">Urban / Open</button>
+      </div>
+    </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px;">
+    <!-- ===== HELMET GRID ===== -->
+    <section class="hm-grid-section">
+      <div class="hm-grid-inner">
+        <div class="hm-results-line" id="hm-count">10 helmen</div>
+        <div class="hm-grid" id="hm-grid">
 
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" style="background-image: url('/occasions/occasion_9.jpg'); min-height: 320px;">
-            <div class="motor-info">
-              <h3>Full Face</h3>
-              <div class="motor-price">Vanaf € 149,-</div>
-              <ul class="motor-specs">
-                <li>Norm: <span>ECE 22.06</span></li>
-                <li>Gewicht: <span>ca. 1.400 g</span></li>
-              </ul>
-              <a href="/contact.html" class="btn btn-primary">Bekijk Aanbod</a>
+          <!-- 1: EXO-RACE AIR SOLID -->
+          <div class="hm-card" data-cat="racing">
+            <div class="hm-card-img">
+              <div class="hm-card-badges">
+                <span class="hm-badge hm-badge-new">Nieuw</span>
+                <span class="hm-badge hm-badge-carbon">Carbon</span>
+              </div>
+              <img src="/helmen/exo-race-air-solid.png" alt="Scorpion EXO-RACE AIR SOLID" width="400" height="300" loading="lazy" />
+            </div>
+            <div class="hm-card-body">
+              <div class="hm-card-model">Scorpion EXO &mdash; Racing</div>
+              <div class="hm-card-name">EXO-RACE AIR SOLID</div>
+              <div class="hm-card-specs">
+                <span class="hm-spec-chip">Full Face</span>
+                <span class="hm-spec-chip">FIM #2</span>
+                <span class="hm-spec-chip">ECE 22.06</span>
+                <span class="hm-spec-chip">Carbon matrix</span>
+              </div>
+              <div class="hm-card-bottom">
+                <div class="hm-card-price">&euro;649,90</div>
+                <a href="/contact.html?interesse=scorpion-exo-race-air-solid" class="hm-card-cta">
+                  Info <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" style="background-image: url('/occasions/occasion_5.jpg'); min-height: 320px;">
-            <div class="motor-info">
-              <h3>Jethelm</h3>
-              <div class="motor-price">Vanaf € 99,-</div>
-              <ul class="motor-specs">
-                <li>Norm: <span>ECE 22.06</span></li>
-                <li>Type: <span>Open vizier</span></li>
-              </ul>
-              <a href="/contact.html" class="btn btn-primary">Bekijk Aanbod</a>
+          <!-- 2: EXO-R1 EVO II CARBON CYNERGY -->
+          <div class="hm-card" data-cat="racing">
+            <div class="hm-card-img">
+              <div class="hm-card-badges">
+                <span class="hm-badge hm-badge-cat">Racing</span>
+                <span class="hm-badge hm-badge-carbon">Carbon</span>
+              </div>
+              <img src="/helmen/exo-r1-carbon-cynergy.png" alt="Scorpion EXO-R1 EVO II CARBON AIR CYNERGY" width="400" height="300" loading="lazy" />
+            </div>
+            <div class="hm-card-body">
+              <div class="hm-card-model">Scorpion EXO &mdash; Racing</div>
+              <div class="hm-card-name">EXO-R1 EVO CARBON AIR CYNERGY</div>
+              <div class="hm-card-specs">
+                <span class="hm-spec-chip">Full Face</span>
+                <span class="hm-spec-chip">ECE 22.06</span>
+                <span class="hm-spec-chip">Carbon fiber</span>
+                <span class="hm-spec-chip">Pinlock 120</span>
+              </div>
+              <div class="hm-card-bottom">
+                <div class="hm-card-price">&euro;529,90</div>
+                <a href="/contact.html?interesse=scorpion-exo-r1-carbon-cynergy" class="hm-card-cta">
+                  Info <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" style="background-image: url('/occasions/occasion_3.jpg'); background-position: center 30%; min-height: 320px;">
-            <div class="motor-info">
-              <h3>Modulaire Helm</h3>
-              <div class="motor-price">Vanaf € 199,-</div>
-              <ul class="motor-specs">
-                <li>Norm: <span>ECE 22.06 P/J</span></li>
-                <li>Type: <span>Opklapbaar</span></li>
-              </ul>
-              <a href="/contact.html" class="btn btn-primary">Bekijk Aanbod</a>
+          <!-- 3: EXO-R1 EVO II AIR ADRENALINE -->
+          <div class="hm-card" data-cat="racing">
+            <div class="hm-card-img">
+              <div class="hm-card-badges">
+                <span class="hm-badge hm-badge-cat">Racing</span>
+              </div>
+              <img src="/helmen/exo-r1-adrenaline.png" alt="Scorpion EXO-R1 EVO II AIR ADRENALINE" width="400" height="300" loading="lazy" />
+            </div>
+            <div class="hm-card-body">
+              <div class="hm-card-model">Scorpion EXO &mdash; Racing</div>
+              <div class="hm-card-name">EXO-R1 EVO II AIR ADRENALINE</div>
+              <div class="hm-card-specs">
+                <span class="hm-spec-chip">Full Face</span>
+                <span class="hm-spec-chip">ECE 22.06</span>
+                <span class="hm-spec-chip">Glasvezel</span>
+                <span class="hm-spec-chip">Pinlock 120</span>
+              </div>
+              <div class="hm-card-bottom">
+                <div class="hm-card-price">&euro;439,90</div>
+                <a href="/contact.html?interesse=scorpion-exo-r1-adrenaline" class="hm-card-cta">
+                  Info <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" style="background-image: url('/occasions/occasion_9.jpg'); min-height: 320px;">
-            <div class="motor-info">
-              <h3>Offroad / Enduro</h3>
-              <div class="motor-price">Vanaf € 129,-</div>
-              <ul class="motor-specs">
-                <li>Norm: <span>ECE 22.06</span></li>
-                <li>Type: <span>Open kin</span></li>
-              </ul>
-              <a href="/contact.html" class="btn btn-primary">Bekijk Aanbod</a>
+          <!-- 4: EXO-R1 EVO II AIR VALERE -->
+          <div class="hm-card" data-cat="racing">
+            <div class="hm-card-img">
+              <div class="hm-card-badges">
+                <span class="hm-badge hm-badge-cat">Racing</span>
+              </div>
+              <img src="/helmen/exo-r1-valere.png" alt="Scorpion EXO-R1 EVO II AIR VALERE" width="400" height="300" loading="lazy" />
+            </div>
+            <div class="hm-card-body">
+              <div class="hm-card-model">Scorpion EXO &mdash; Racing</div>
+              <div class="hm-card-name">EXO-R1 EVO II AIR VALERE</div>
+              <div class="hm-card-specs">
+                <span class="hm-spec-chip">Full Face</span>
+                <span class="hm-spec-chip">ECE 22.06</span>
+                <span class="hm-spec-chip">Glasvezel</span>
+                <span class="hm-spec-chip">Air exhaust</span>
+              </div>
+              <div class="hm-card-bottom">
+                <div class="hm-card-price">&euro;439,90</div>
+                <a href="/contact.html?interesse=scorpion-exo-r1-valere" class="hm-card-cta">
+                  Info <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" style="background-image: url('/occasions/occasion_1.jpg'); min-height: 320px;">
-            <div class="motor-info">
-              <h3>Adventure / Dual Sport</h3>
-              <div class="motor-price">Vanaf € 249,-</div>
-              <ul class="motor-specs">
-                <li>Norm: <span>ECE 22.06</span></li>
-                <li>Type: <span>Piek + vizier</span></li>
-              </ul>
-              <a href="/contact.html" class="btn btn-primary">Bekijk Aanbod</a>
+          <!-- 5: EXO-R1 EVO II AIR CORNERING -->
+          <div class="hm-card" data-cat="racing">
+            <div class="hm-card-img">
+              <div class="hm-card-badges">
+                <span class="hm-badge hm-badge-cat">Racing</span>
+              </div>
+              <img src="/helmen/exo-r1-cornering.png" alt="Scorpion EXO-R1 EVO II AIR CORNERING" width="400" height="300" loading="lazy" />
+            </div>
+            <div class="hm-card-body">
+              <div class="hm-card-model">Scorpion EXO &mdash; Racing</div>
+              <div class="hm-card-name">EXO-R1 EVO II AIR CORNERING</div>
+              <div class="hm-card-specs">
+                <span class="hm-spec-chip">Full Face</span>
+                <span class="hm-spec-chip">ECE 22.06</span>
+                <span class="hm-spec-chip">Glasvezel</span>
+                <span class="hm-spec-chip">KwikWick III</span>
+              </div>
+              <div class="hm-card-bottom">
+                <div class="hm-card-price">&euro;439,90</div>
+                <a href="/contact.html?interesse=scorpion-exo-r1-cornering" class="hm-card-cta">
+                  Info <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" style="background-image: url('/occasions/occasion_2.jpg'); min-height: 320px;">
-            <div class="motor-info">
-              <h3>Race Helm</h3>
-              <div class="motor-price">Vanaf € 499,-</div>
-              <ul class="motor-specs">
-                <li>Norm: <span>FIM / ECE</span></li>
-                <li>Type: <span>Track gebruik</span></li>
-              </ul>
-              <a href="/contact.html" class="btn btn-primary">Bekijk Aanbod</a>
+          <!-- 6: EXO-GT SP AIR ARTEN -->
+          <div class="hm-card" data-cat="touring">
+            <div class="hm-card-img">
+              <div class="hm-card-badges">
+                <span class="hm-badge hm-badge-cat">Touring</span>
+              </div>
+              <img src="/helmen/exo-gt-sp-arten.png" alt="Scorpion EXO-GT SP AIR ARTEN" width="400" height="300" loading="lazy" />
+            </div>
+            <div class="hm-card-body">
+              <div class="hm-card-model">Scorpion EXO &mdash; Sport Touring</div>
+              <div class="hm-card-name">EXO-GT SP AIR ARTEN</div>
+              <div class="hm-card-specs">
+                <span class="hm-spec-chip">Full Face</span>
+                <span class="hm-spec-chip">ECE 22.06</span>
+                <span class="hm-spec-chip">Glasvezel</span>
+                <span class="hm-spec-chip">Photochrom vizier</span>
+              </div>
+              <div class="hm-card-bottom">
+                <div class="hm-card-price">&euro;649,90</div>
+                <a href="/contact.html?interesse=scorpion-exo-gt-sp-arten" class="hm-card-cta">
+                  Info <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7: EXO-1500 CARBON AIR MUNDI -->
+          <div class="hm-card" data-cat="touring">
+            <div class="hm-card-img">
+              <div class="hm-card-badges">
+                <span class="hm-badge hm-badge-cat">Touring</span>
+                <span class="hm-badge hm-badge-carbon">Carbon</span>
+              </div>
+              <img src="/helmen/exo-1500-carbon-mundi.png" alt="Scorpion EXO-1500 CARBON AIR MUNDI" width="400" height="300" loading="lazy" />
+            </div>
+            <div class="hm-card-body">
+              <div class="hm-card-model">Scorpion EXO &mdash; Touring</div>
+              <div class="hm-card-name">EXO-1500 CARBON AIR MUNDI</div>
+              <div class="hm-card-specs">
+                <span class="hm-spec-chip">Full Face</span>
+                <span class="hm-spec-chip">ECE 22.06</span>
+                <span class="hm-spec-chip">Carbon fiber</span>
+                <span class="hm-spec-chip">Pinlock 120</span>
+              </div>
+              <div class="hm-card-bottom">
+                <div class="hm-card-price">&euro;499,90</div>
+                <a href="/contact.html?interesse=scorpion-exo-1500-carbon-mundi" class="hm-card-cta">
+                  Info <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8: EXO-TECH EVO CONQUER -->
+          <div class="hm-card" data-cat="modulair">
+            <div class="hm-card-img">
+              <div class="hm-card-badges">
+                <span class="hm-badge hm-badge-cat">Modulair</span>
+              </div>
+              <img src="/helmen/exo-tech-evo-conquer.png" alt="Scorpion EXO-TECH EVO CONQUER" width="400" height="300" loading="lazy" />
+            </div>
+            <div class="hm-card-body">
+              <div class="hm-card-model">Scorpion EXO &mdash; Modulair</div>
+              <div class="hm-card-name">EXO-TECH EVO CONQUER</div>
+              <div class="hm-card-specs">
+                <span class="hm-spec-chip">Modulair</span>
+                <span class="hm-spec-chip">ECE 22.06 P/J</span>
+                <span class="hm-spec-chip">Tri-Tech Shell</span>
+                <span class="hm-spec-chip">Dubbel vizier</span>
+              </div>
+              <div class="hm-card-bottom">
+                <div class="hm-card-price">&euro;449,90</div>
+                <a href="/contact.html?interesse=scorpion-exo-tech-evo-conquer" class="hm-card-cta">
+                  Info <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9: COVERT FX SOLID -->
+          <div class="hm-card" data-cat="racing">
+            <div class="hm-card-img">
+              <div class="hm-card-badges">
+                <span class="hm-badge hm-badge-cat">Street Fight</span>
+              </div>
+              <img src="/helmen/covert-fx-solid.png" alt="Scorpion COVERT FX SOLID" width="400" height="300" loading="lazy" />
+            </div>
+            <div class="hm-card-body">
+              <div class="hm-card-model">Scorpion EXO &mdash; Street Fight</div>
+              <div class="hm-card-name">COVERT FX SOLID</div>
+              <div class="hm-card-specs">
+                <span class="hm-spec-chip">Full Face</span>
+                <span class="hm-spec-chip">ECE 22.06</span>
+                <span class="hm-spec-chip">Polycarbonaat</span>
+                <span class="hm-spec-chip">Visier &amp; kin open</span>
+              </div>
+              <div class="hm-card-bottom">
+                <div class="hm-card-price">&euro;269,90</div>
+                <a href="/contact.html?interesse=scorpion-covert-fx" class="hm-card-cta">
+                  Info <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10: BELFAST EVO CARBON SOLID -->
+          <div class="hm-card" data-cat="urban">
+            <div class="hm-card-img">
+              <div class="hm-card-badges">
+                <span class="hm-badge hm-badge-cat">Urban</span>
+                <span class="hm-badge hm-badge-carbon">Carbon</span>
+              </div>
+              <img src="/helmen/belfast-evo-carbon.png" alt="Scorpion BELFAST EVO CARBON SOLID" width="400" height="300" loading="lazy" />
+            </div>
+            <div class="hm-card-body">
+              <div class="hm-card-model">Scorpion EXO &mdash; Urban</div>
+              <div class="hm-card-name">BELFAST EVO CARBON SOLID</div>
+              <div class="hm-card-specs">
+                <span class="hm-spec-chip">Open Face</span>
+                <span class="hm-spec-chip">ECE 22.06</span>
+                <span class="hm-spec-chip">Carbon fiber</span>
+                <span class="hm-spec-chip">Dubbel vizier</span>
+              </div>
+              <div class="hm-card-bottom">
+                <div class="hm-card-price">&euro;329,90</div>
+                <a href="/contact.html?interesse=scorpion-belfast-evo-carbon" class="hm-card-cta">
+                  Info <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -105,33 +748,41 @@
       </div>
     </section>
 
-    <section class="content-section" style="background-color: var(--kw-grey-light);">
-      <div class="container">
-        <h2>Populaire Merken</h2>
-        <p>Wij voeren helmen van de meest gerespecteerde merken in de industrie:</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 25px;">
-          <span style="background: var(--mc-black); color: var(--mc-white); padding: 10px 25px; font-family: var(--font-heading); font-weight: bold; letter-spacing: 1px; font-size: 1rem;">SHOEI</span>
-          <span style="background: var(--mc-black); color: var(--mc-white); padding: 10px 25px; font-family: var(--font-heading); font-weight: bold; letter-spacing: 1px; font-size: 1rem;">ARAI</span>
-          <span style="background: var(--mc-black); color: var(--mc-white); padding: 10px 25px; font-family: var(--font-heading); font-weight: bold; letter-spacing: 1px; font-size: 1rem;">AGV</span>
-          <span style="background: var(--mc-black); color: var(--mc-white); padding: 10px 25px; font-family: var(--font-heading); font-weight: bold; letter-spacing: 1px; font-size: 1rem;">HJC</span>
-          <span style="background: var(--mc-black); color: var(--mc-white); padding: 10px 25px; font-family: var(--font-heading); font-weight: bold; letter-spacing: 1px; font-size: 1rem;">BELL</span>
-          <span style="background: var(--mc-black); color: var(--mc-white); padding: 10px 25px; font-family: var(--font-heading); font-weight: bold; letter-spacing: 1px; font-size: 1rem;">NOLAN</span>
-          <span style="background: #0090D0; color: #fff; padding: 10px 25px; font-family: var(--font-heading); font-weight: bold; letter-spacing: 1px; font-size: 1rem;">CFMOTO</span>
-        </div>
+    <!-- ===== CTA ===== -->
+    <section class="hm-cta">
+      <h2>Niet zeker welke helm?</h2>
+      <p>Kom langs in onze winkel in Almere. Onze specialisten helpen je aan de juiste helm met de perfecte pasvorm en het beste beschermingsniveau.</p>
+      <div class="hm-cta-btns">
+        <a href="/contact.html" class="btn-primary">Afspraak maken</a>
+        <a href="/nieuwe-motoren.html" class="btn-ghost-light">Bekijk ook onze motoren</a>
       </div>
-    </section>
-
-    <section class="feature-section">
-      <div class="feature-text" data-aos="fade-right" data-aos-duration="800">
-        <h2>GRATIS PASADVIES</h2>
-        <p>Een helm moet perfect passen. Kom langs in onze winkel voor persoonlijk pasadvies — wij meten je hoofdomtrek op en helpen je de veiligste en comfortabelste keuze te maken.</p>
-        <a href="/contact.html" class="btn btn-primary">Kom Langs</a>
-      </div>
-      <div class="feature-image" data-aos="fade-left" data-aos-duration="800" style="background-image: url('/occasions/occasion_9.jpg');"></div>
     </section>
 
     <div id="footer-placeholder"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
     <script type="module" src="/main.js"></script>
+    <script>
+      const btns = document.querySelectorAll('.hm-filter-btn');
+      const cards = document.querySelectorAll('.hm-card');
+      const countEl = document.getElementById('hm-count');
+
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.dataset.filter;
+          let visible = 0;
+
+          cards.forEach(card => {
+            const match = filter === 'all' || card.dataset.cat === filter;
+            card.classList.toggle('hm-hidden', !match);
+            if (match) visible++;
+          });
+
+          countEl.textContent = visible + (visible === 1 ? ' helm' : ' helmen');
+        });
+      });
+    </script>
   </body>
 </html>

@@ -2,47 +2,401 @@
 <html lang="nl">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kleding & Helmen | Motorcentrum Almere</title>
-    <meta name="description" content="Motorkleding, helmen en accessoires bij Motorcentrum Almere. Merken: Modeka, Bering, Buse (kleding) en Scorpion (helmen). Eerlijke prijs, deskundig advies." />
-    <link rel="canonical" href="https://www.motorcentrum-almere.nl/kleding.html" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Rijkleding | Motorcentrum Almere</title>
+    <meta name="description" content="Motorkleding bij Motorcentrum Almere. Merken: Modeka, Bering en Buse. Kwaliteitskleding voor elke rijder, eerlijke prijs, deskundig advies." />
+    <link rel="canonical" href="https://www.garagemulder-dekoe.nl/kleding.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+    <style>
+      .kl-hero {
+        background: #0f0f0f;
+        padding: 130px clamp(20px,5vw,80px) 80px;
+        position: relative;
+        overflow: hidden;
+      }
+      .kl-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 80% 50%, rgba(232,93,4,0.08) 0%, transparent 60%);
+        pointer-events: none;
+      }
+      .kl-hero-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .kl-eyebrow {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--mc-orange);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .kl-eyebrow::before { content: ''; width: 36px; height: 2px; background: var(--mc-orange); }
+      .kl-hero h1 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(3rem, 6vw, 5rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 16px;
+      }
+      .kl-hero p {
+        font-size: 1.05rem;
+        color: rgba(255,255,255,0.5);
+        max-width: 520px;
+        line-height: 1.7;
+        font-weight: 300;
+      }
+
+      /* ===== MERKEN ===== */
+      .kl-merken {
+        background: #0a0a0a;
+        padding: 80px clamp(20px,5vw,80px);
+      }
+      .kl-merken-inner { max-width: 1400px; margin: 0 auto; }
+      .kl-section-label {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--mc-orange);
+        margin-bottom: 10px;
+      }
+      .kl-merken h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 12px;
+      }
+      .kl-merken-intro {
+        color: rgba(255,255,255,0.5);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        max-width: 640px;
+        margin-bottom: 52px;
+      }
+      .kl-merk-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      @media (max-width: 768px) { .kl-merk-grid { grid-template-columns: 1fr; } }
+      .kl-merk-card {
+        background: #181818;
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 10px;
+        padding: 40px 36px;
+        transition: border-color 0.25s, transform 0.25s;
+      }
+      .kl-merk-card:hover {
+        border-color: rgba(232,93,4,0.3);
+        transform: translateY(-3px);
+      }
+      .kl-merk-name {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+      .kl-merk-desc {
+        color: rgba(255,255,255,0.45);
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 24px;
+      }
+      .kl-merk-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .kl-tag {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 5px 12px;
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 4px;
+        color: rgba(255,255,255,0.5);
+      }
+
+      /* ===== CATEGORIEËN ===== */
+      .kl-cats {
+        background: #111;
+        padding: 80px clamp(20px,5vw,80px);
+      }
+      .kl-cats-inner { max-width: 1400px; margin: 0 auto; }
+      .kl-cats h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 36px;
+      }
+      .kl-cat-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      @media (max-width: 900px) { .kl-cat-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 480px) { .kl-cat-grid { grid-template-columns: 1fr; } }
+      .kl-cat-card {
+        background: #1a1a1a;
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 8px;
+        padding: 30px 24px;
+        transition: border-color 0.2s;
+      }
+      .kl-cat-card:hover { border-color: rgba(232,93,4,0.25); }
+      .kl-cat-icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(232,93,4,0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+      .kl-cat-icon svg { width: 22px; height: 22px; fill: var(--mc-orange); }
+      .kl-cat-name {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .kl-cat-desc {
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.4);
+        line-height: 1.6;
+      }
+
+      /* ===== HELMEN CROSSLINK ===== */
+      .kl-helmen-cta {
+        background: #0a0a0a;
+        padding: 80px clamp(20px,5vw,80px);
+        border-top: 1px solid rgba(255,255,255,0.05);
+      }
+      .kl-helmen-cta-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 40px;
+        align-items: center;
+      }
+      @media (max-width: 640px) { .kl-helmen-cta-inner { grid-template-columns: 1fr; } }
+      .kl-helmen-cta h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 8px;
+      }
+      .kl-helmen-cta p {
+        color: rgba(255,255,255,0.45);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        max-width: 480px;
+      }
+      .kl-btn-blue {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 50px;
+        padding: 0 28px;
+        background: #0090D0;
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 4px;
+        white-space: nowrap;
+        transition: background 0.2s, transform 0.2s;
+        flex-shrink: 0;
+      }
+      .kl-btn-blue:hover { background: #006fa0; transform: translateY(-2px); }
+
+      /* ===== CTA ===== */
+      .kl-cta {
+        background: var(--mc-orange);
+        padding: 80px clamp(20px,5vw,80px);
+        text-align: center;
+      }
+      .kl-cta-inner { max-width: 700px; margin: 0 auto; }
+      .kl-cta h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 12px;
+      }
+      .kl-cta p { color: rgba(255,255,255,0.8); font-size: 1rem; line-height: 1.6; margin-bottom: 32px; }
+      .kl-btn-dark {
+        display: inline-flex;
+        align-items: center;
+        height: 50px;
+        padding: 0 32px;
+        background: #fff;
+        color: #111;
+        font-family: 'Oswald', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background 0.2s, transform 0.2s;
+      }
+      .kl-btn-dark:hover { background: #f0f0f0; transform: translateY(-2px); }
+    </style>
   </head>
   <body>
     <div id="header-placeholder"></div>
-    <section class="sub-hero" style="background-image: url('/occasions/occasion_1.jpg');">
-      <div class="sub-hero-content">
-        <h1>KLEDING & HELMEN</h1>
-        <p>Motorrijden valt en staat letterlijk en figuurlijk met goede en veilige motorkleding.</p>
+
+    <!-- HERO -->
+    <section class="kl-hero">
+      <div class="kl-hero-inner">
+        <div class="kl-eyebrow">Kleding &amp; uitrusting</div>
+        <h1>Rijkleding</h1>
+        <p>Kwaliteitsmerken voor elke rijder. We kiezen bewust voor kleding die we zelf ook dragen, met de beste prijs-kwaliteitverhouding.</p>
       </div>
     </section>
-    <section class="content-section">
-      <div class="container">
-        <h2>Kleding</h2>
-        <p>Motorrijden valt en staat letterlijk en figuurlijk met goede en veilige motorkleding. Bij Motorcentrum Almere vindt u een zorgvuldig geselecteerd aanbod motorkleding dat het verschil maakt. Wij kiezen bewust voor kwaliteitsmerken en vermijden goedkope alternatieven: we rijden immers zelf ook met onze producten!</p>
-        <p>Kwalitatieve motorkleding hoeft geen vermogen te kosten. Wij bieden u de beste prijs-kwaliteitverhouding bij de volgende merken:</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 30px 0; align-items: center;" data-aos="fade-up">
-          <div style="padding: 20px 30px; background: var(--mc-grey-light); font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">MODEKA</div>
-          <div style="padding: 20px 30px; background: var(--mc-grey-light); font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">BERING</div>
-          <div style="padding: 20px 30px; background: var(--mc-grey-light); font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">BUSE</div>
-        </div>
-        <h2 style="margin-top: 60px;">Helmen</h2>
-        <p>Een goede helm is de belangrijkste investering voor elke motorrijder. Wij voeren helmen van Scorpion, een merk dat staat voor innovatie, veiligheid en comfort.</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 30px 0; align-items: center;" data-aos="fade-up">
-          <div style="padding: 20px 30px; background: var(--mc-grey-light); font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">SCORPION</div>
-        </div>
-        <div style="margin-top: 50px; text-align: center;" data-aos="fade-up">
-          <p style="color: var(--mc-grey); margin-bottom: 25px;">Kom langs in onze showroom voor persoonlijk advies op maat. Wij helpen u graag bij de juiste keuze.</p>
-          <a href="/contact.html" class="btn btn-primary">Bezoek Onze Showroom</a>
+
+    <!-- MERKEN -->
+    <section class="kl-merken">
+      <div class="kl-merken-inner">
+        <div class="kl-section-label">Ons aanbod</div>
+        <h2>Drie merken, één keuze</h2>
+        <p class="kl-merken-intro">Bij Motorcentrum Almere voeren we een bewust geselecteerd aanbod motorkleding. Geen stapels merken, maar drie waarvoor we instaan met onze eigen naam.</p>
+        <div class="kl-merk-grid">
+
+          <div class="kl-merk-card">
+            <div class="kl-merk-name">Modeka</div>
+            <p class="kl-merk-desc">Duits vakmanschap voor motorrijders die comfort en veiligheid niet willen inleveren. Modeka biedt een breed gamma voor de alledaagse rijder tot de toerrijder.</p>
+            <div class="kl-merk-tags">
+              <span class="kl-tag">Jacks</span>
+              <span class="kl-tag">Broeken</span>
+              <span class="kl-tag">Handschoenen</span>
+              <span class="kl-tag">Laarzen</span>
+            </div>
+          </div>
+
+          <div class="kl-merk-card">
+            <div class="kl-merk-name">Bering</div>
+            <p class="kl-merk-desc">Frans ontwerp met een focus op techniek en aerodynamica. Bering staat voor lichte, goed zittende motorkleding die ook er goed uitziet buiten de motor.</p>
+            <div class="kl-merk-tags">
+              <span class="kl-tag">Textiel</span>
+              <span class="kl-tag">Leder</span>
+              <span class="kl-tag">Urban</span>
+              <span class="kl-tag">Sport</span>
+            </div>
+          </div>
+
+          <div class="kl-merk-card">
+            <div class="kl-merk-name">Buse</div>
+            <p class="kl-merk-desc">Al meer dan 40 jaar een begrip in de motowereld. Buse maakt duurzame motorkleding die generaties meegaat. Ideaal voor de serieuze rijder die waarde hecht aan kwaliteit.</p>
+            <div class="kl-merk-tags">
+              <span class="kl-tag">Toerkleding</span>
+              <span class="kl-tag">Allwear</span>
+              <span class="kl-tag">Regenpakken</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
+
+    <!-- CATEGORIEËN -->
+    <section class="kl-cats">
+      <div class="kl-cats-inner">
+        <h2>Wat je bij ons vindt</h2>
+        <div class="kl-cat-grid">
+
+          <div class="kl-cat-card">
+            <div class="kl-cat-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            </div>
+            <div class="kl-cat-name">Jacks</div>
+            <p class="kl-cat-desc">Zomer, winter en allseason. Textiel, leder en combinatie.</p>
+          </div>
+
+          <div class="kl-cat-card">
+            <div class="kl-cat-icon">
+              <svg viewBox="0 0 24 24"><path d="M7 5h10v2H7zm-2 4h14v2H5zm2 4h10v2H7zm-2 4h14v2H5z"/></svg>
+            </div>
+            <div class="kl-cat-name">Broeken</div>
+            <p class="kl-cat-desc">Motorbroeken met CE-protectie voor knie en heup.</p>
+          </div>
+
+          <div class="kl-cat-card">
+            <div class="kl-cat-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 11.75A1.25 1.25 0 0 0 7.75 13 1.25 1.25 0 0 0 9 14.25 1.25 1.25 0 0 0 10.25 13 1.25 1.25 0 0 0 9 11.75M15 11.75A1.25 1.25 0 0 0 13.75 13 1.25 1.25 0 0 0 15 14.25 1.25 1.25 0 0 0 16.25 13 1.25 1.25 0 0 0 15 11.75M12 2a10 10 0 0 0-10 10 10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2z"/></svg>
+            </div>
+            <div class="kl-cat-name">Handschoenen</div>
+            <p class="kl-cat-desc">Zomer en winter, met of zonder knokkelprotectie.</p>
+          </div>
+
+          <div class="kl-cat-card">
+            <div class="kl-cat-icon">
+              <svg viewBox="0 0 24 24"><path d="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1l-4-4h3V7h2v2h3l-4 4zm7 4H1v2h16v-2z"/></svg>
+            </div>
+            <div class="kl-cat-name">Laarzen</div>
+            <p class="kl-cat-desc">Van sportlaarzen tot tourmodellen met enkelbescherming.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HELMEN CROSSLINK -->
+    <section class="kl-helmen-cta">
+      <div class="kl-helmen-cta-inner">
+        <div>
+          <h2>Ook op zoek naar een helm?</h2>
+          <p>We voeren Scorpion EXO helmen. Van racehelmmen tot toermodellen. Bekijk het volledige aanbod op onze helmenpagina.</p>
+        </div>
+        <a href="/helmen.html" class="kl-btn-blue">
+          Bekijk helmen
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="kl-cta">
+      <div class="kl-cta-inner">
+        <h2>Kom langs in de showroom</h2>
+        <p>Persoonlijk advies op maat. Wij helpen je de juiste kleding te vinden voor jouw rijstijl, budget en lichaam.</p>
+        <a href="/contact.html" class="kl-btn-dark">Plan een bezoek</a>
+      </div>
+    </section>
+
     <div id="footer-placeholder"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

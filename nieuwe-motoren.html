@@ -26,9 +26,7 @@
       background: #060a10;
       position: relative;
       overflow: hidden;
-      padding: 130px clamp(20px,5vw,80px) 100px;
-      display: flex;
-      align-items: center;
+      min-height: 90vh;
     }
     .nm-hero::before {
       content: '';
@@ -48,15 +46,12 @@
       background-size: 60px 60px;
     }
     .nm-hero-inner {
-      max-width: 1400px;
       width: 100%;
-      margin: 0 auto;
+      min-height: 90vh;
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
+      grid-template-columns: 42% 58%;
     }
     @media (max-width: 900px) {
       .nm-hero-inner { grid-template-columns: 1fr; }
@@ -138,16 +133,24 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .nm-btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+    .nm-hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 140px clamp(30px,5vw,80px) 80px clamp(30px,5vw,80px);
+    }
     .nm-hero-visual {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
+      min-height: 90vh;
     }
     .nm-hero-visual img {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      max-width: 600px;
-      filter: drop-shadow(0 30px 60px rgba(0,144,208,0.25));
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
     .nm-hero-badge {
       position: absolute;
@@ -175,24 +178,24 @@
     }
     .nm-hero-stats {
       display: flex;
-      gap: 36px;
-      margin-bottom: 36px;
+      gap: 24px;
+      margin-bottom: 24px;
       flex-wrap: wrap;
     }
     .nm-hero-stat-num {
       font-family: 'Oswald', sans-serif;
-      font-size: 1.8rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--cfmoto-blue);
       line-height: 1;
     }
     .nm-hero-stat-lbl {
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       font-weight: 500;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: rgba(255,255,255,0.4);
-      margin-top: 4px;
+      margin-top: 3px;
     }
 
     /* ============================
@@ -459,7 +462,7 @@
     .nm-card-cover {
       position: absolute;
       inset: 0;
-      z-index: 1;
+      z-index: 10;
     }
     .nm-card-img,
     .nm-card-body { position: relative; z-index: 2; }
@@ -736,8 +739,8 @@
           <a href="#modellen" class="nm-btn-ghost">Bekijk modellen &darr;</a>
         </div>
       </div>
-      <div class="nm-hero-visual" data-aos="fade-left" data-aos-delay="100">
-        <img src="/cfmoto/800MT-Sport.jpg" alt="CFMoto 800MT Sport" width="600" height="380" />
+      <div class="nm-hero-visual">
+        <img src="/cfmoto/675sr-r-hero.webp" alt="CFMoto 675 SR-R" width="600" height="380" />
         <div class="nm-hero-badge">
           <span class="nm-hero-badge-num">5</span>
           <span class="nm-hero-badge-lbl">jaar garantie</span>
@@ -821,7 +824,7 @@
 
         <!-- 800MT Sport -->
         <div class="nm-card" data-category="adventure" data-license="a">
-          <a href="/contact.html?interesse=cfmoto-800mt-sport" class="nm-card-cover" aria-label="Informeer naar CFMoto 800MT Sport"></a>
+          <a href="/cfmoto-800mt-sport.html" class="nm-card-cover" aria-label="Bekijk CFMoto 800MT Sport"></a>
           <div class="nm-card-img">
             <img src="/cfmoto/800MT-Sport.jpg" alt="CFMoto 800MT Sport" width="500" height="300" loading="lazy" />
             <div class="nm-card-badges">
@@ -925,7 +928,7 @@
 
         <!-- 450MT -->
         <div class="nm-card" data-category="adventure" data-license="a2">
-          <a href="/contact.html?interesse=cfmoto-450mt" class="nm-card-cover" aria-label="Informeer naar CFMoto 450MT"></a>
+          <a href="/cfmoto-450mt.html" class="nm-card-cover" aria-label="Bekijk CFMoto 450MT"></a>
           <div class="nm-card-img">
             <img src="/cfmoto/450MT.jpg" alt="CFMoto 450MT" width="500" height="300" loading="lazy" />
             <div class="nm-card-badges">
@@ -977,7 +980,7 @@
 
         <!-- 675NK -->
         <div class="nm-card" data-category="naked" data-license="a">
-          <a href="/contact.html?interesse=cfmoto-675nk" class="nm-card-cover" aria-label="Informeer naar CFMoto 675NK"></a>
+          <a href="/cfmoto-675nk.html" class="nm-card-cover" aria-label="Bekijk CFMoto 675NK"></a>
           <div class="nm-card-img">
             <img src="/cfmoto/675NK.jpg" alt="CFMoto 675NK" width="500" height="300" loading="lazy" />
             <div class="nm-card-badges">
@@ -1003,7 +1006,7 @@
 
         <!-- 450NK -->
         <div class="nm-card" data-category="naked" data-license="a2">
-          <a href="/contact.html?interesse=cfmoto-450nk" class="nm-card-cover" aria-label="Informeer naar CFMoto 450NK"></a>
+          <a href="/cfmoto-450nk.html" class="nm-card-cover" aria-label="Bekijk CFMoto 450NK"></a>
           <div class="nm-card-img">
             <img src="/cfmoto/450NK.jpg" alt="CFMoto 450NK" width="500" height="300" loading="lazy" />
             <div class="nm-card-badges">
@@ -1081,7 +1084,7 @@
 
         <!-- 700CL-X Heritage -->
         <div class="nm-card" data-category="classic" data-license="a">
-          <a href="/contact.html?interesse=cfmoto-700clx-heritage" class="nm-card-cover" aria-label="Informeer naar CFMoto 700CL-X Heritage"></a>
+          <a href="/cfmoto-700clx-heritage.html" class="nm-card-cover" aria-label="Bekijk CFMoto 700CL-X Heritage"></a>
           <div class="nm-card-img">
             <img src="/cfmoto/700CL-X-Heritage.jpg" alt="CFMoto 700CL-X Heritage" width="500" height="300" loading="lazy" />
             <div class="nm-card-badges">

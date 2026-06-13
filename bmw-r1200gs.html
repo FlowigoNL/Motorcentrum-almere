@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMW R 1200 GS 2018 | Occasion | Motorcentrum Almere</title>
+    <meta name="description" content="BMW R 1200 GS ABS-ASC-ESA 2018 occasion bij Motorcentrum Almere. 1170cc boxer, 125 pk, 45.985 km. Vraagprijs €15.449 incl. BTW." />
+    <link rel="canonical" href="https://www.garagemulder-dekoe.nl/bmw-r1200gs.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      :root { --bmw-blue: #1c69d4; --bmw-dark: #0a0a0a; }
+
+      /* ===== HERO ===== */
+      .gs-hero {
+        min-height: 90vh;
+        display: grid;
+        grid-template-columns: 42% 58%;
+        overflow: hidden;
+        background: #080c12;
+      }
+      @media (max-width: 860px) {
+        .gs-hero { grid-template-columns: 1fr; min-height: auto; }
+        .gs-hero-visual { min-height: 55vw; order: -1; }
+      }
+      .gs-hero-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 130px clamp(24px,5vw,72px) 72px clamp(24px,5vw,72px);
+        position: relative;
+        z-index: 1;
+      }
+      .gs-eyebrow {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--bmw-blue);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .gs-eyebrow::before { content: ''; width: 36px; height: 2px; background: var(--bmw-blue); }
+      .gs-hero h1 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(2.6rem, 4.5vw, 4.5rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 6px;
+        letter-spacing: -1px;
+      }
+      .gs-hero-year {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(1rem, 2vw, 1.4rem);
+        font-weight: 400;
+        color: rgba(255,255,255,0.35);
+        letter-spacing: 4px;
+        margin-bottom: 32px;
+      }
+      .gs-occasion-badges {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+      }
+      .gs-badge {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border-radius: 4px;
+        border: 1px solid rgba(255,255,255,0.15);
+        color: rgba(255,255,255,0.65);
+      }
+      .gs-badge.accent { background: var(--bmw-blue); border-color: var(--bmw-blue); color: #fff; }
+      .gs-price-block { margin-bottom: 36px; }
+      .gs-price-from {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.4);
+        margin-bottom: 4px;
+      }
+      .gs-price {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(2.2rem, 3.5vw, 3rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+      }
+      .gs-price-sub {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.75rem;
+        color: rgba(255,255,255,0.35);
+        margin-top: 4px;
+      }
+      .gs-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+      .gs-btn-primary {
+        display: inline-flex; align-items: center; gap: 8px;
+        height: 50px; padding: 0 28px;
+        background: var(--mc-orange); color: #fff;
+        font-family: 'Oswald', sans-serif; font-size: 0.88rem; font-weight: 600;
+        letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+        border-radius: 4px; transition: background 0.2s, transform 0.2s;
+      }
+      .gs-btn-primary:hover { background: #c94e00; transform: translateY(-2px); }
+      .gs-btn-ghost {
+        display: inline-flex; align-items: center; height: 50px; padding: 0 24px;
+        border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.7);
+        font-family: 'Oswald', sans-serif; font-size: 0.88rem; font-weight: 500;
+        letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+        border-radius: 4px; transition: border-color 0.2s, color 0.2s;
+      }
+      .gs-btn-ghost:hover { border-color: #fff; color: #fff; }
+      .gs-hero-visual {
+        position: relative;
+        overflow: hidden;
+        min-height: 90vh;
+      }
+      .gs-hero-visual img {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: center;
+      }
+      .gs-hero-visual::after {
+        content: '';
+        position: absolute; inset: 0;
+        background: linear-gradient(to right, rgba(8,12,18,0.5) 0%, transparent 40%);
+      }
+
+      /* ===== QUICK STATS ===== */
+      .gs-stats {
+        background: #111;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        border-top: 1px solid rgba(255,255,255,0.06);
+      }
+      @media (max-width: 700px) { .gs-stats { grid-template-columns: repeat(3, 1fr); } }
+      .gs-stat {
+        padding: 28px 16px;
+        text-align: center;
+        border-right: 1px solid rgba(255,255,255,0.06);
+      }
+      .gs-stat:last-child { border-right: none; }
+      .gs-stat-val {
+        font-family: 'Oswald', sans-serif; font-size: 1.5rem;
+        font-weight: 700; color: #fff; line-height: 1; margin-bottom: 4px;
+      }
+      .gs-stat-lbl {
+        font-family: 'Roboto', sans-serif; font-size: 0.62rem;
+        font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+        color: rgba(255,255,255,0.35);
+      }
+
+      /* ===== FOTO GALLERY ===== */
+      .gs-gallery {
+        background: #0a0a0a;
+        padding: 70px 0;
+      }
+      .gs-gallery-head {
+        max-width: 1400px; margin: 0 auto 36px;
+        padding: 0 clamp(24px,5vw,72px);
+      }
+      .gs-gallery-head h2 {
+        font-family: 'Oswald', sans-serif; font-size: clamp(1.6rem,2.5vw,2.2rem);
+        font-weight: 700; color: #fff;
+      }
+      .gs-gallery-track {
+        display: flex; gap: 10px;
+        padding: 0 clamp(24px,5vw,72px);
+        overflow-x: auto; scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+      .gs-gallery-track::-webkit-scrollbar { display: none; }
+      .gs-gallery-item {
+        flex: 0 0 auto;
+        width: clamp(280px,40vw,560px); aspect-ratio: 3/2;
+        border-radius: 8px; overflow: hidden; scroll-snap-align: start;
+      }
+      .gs-gallery-item img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .gs-gallery-item:hover img { transform: scale(1.05); }
+
+      /* ===== FEATURES ===== */
+      .gs-feature {
+        display: grid; grid-template-columns: 1fr 1fr;
+        min-height: 460px;
+      }
+      @media (max-width: 768px) { .gs-feature { grid-template-columns: 1fr; } }
+      .gs-feature-img { position: relative; overflow: hidden; min-height: 300px; }
+      .gs-feature-img img {
+        position: absolute; inset: 0; width: 100%; height: 100%;
+        object-fit: cover; transition: transform 0.6s;
+      }
+      .gs-feature:hover .gs-feature-img img { transform: scale(1.04); }
+      .gs-feature-body {
+        background: #111; display: flex; flex-direction: column;
+        justify-content: center;
+        padding: clamp(36px,5vw,72px) clamp(24px,4vw,64px);
+      }
+      .gs-feature.reverse .gs-feature-img { order: 2; }
+      .gs-feature.reverse .gs-feature-body { order: 1; background: #0f0f0f; }
+      @media (max-width: 768px) {
+        .gs-feature.reverse .gs-feature-img,
+        .gs-feature.reverse .gs-feature-body { order: unset; }
+      }
+      .gs-feat-label {
+        font-family: 'Roboto', sans-serif; font-size: 0.66rem; font-weight: 700;
+        letter-spacing: 4px; text-transform: uppercase;
+        color: var(--bmw-blue); margin-bottom: 12px;
+      }
+      .gs-feature h2 {
+        font-family: 'Oswald', sans-serif; font-size: clamp(1.6rem,2.5vw,2.2rem);
+        font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 14px;
+      }
+      .gs-feature p { color: rgba(255,255,255,0.5); font-size: 0.92rem; line-height: 1.8; margin-bottom: 24px; max-width: 400px; }
+      .gs-feat-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px; }
+      .gs-feat-list li {
+        display: flex; align-items: center; gap: 12px;
+        font-family: 'Roboto', sans-serif; font-size: 0.86rem;
+        color: rgba(255,255,255,0.7);
+      }
+      .gs-feat-list li::before {
+        content: ''; flex-shrink: 0; width: 6px; height: 6px;
+        border-radius: 50%; background: var(--bmw-blue);
+      }
+
+      /* ===== SPECS ===== */
+      .gs-specs { background: #0d0d0d; padding: 72px clamp(24px,5vw,72px); }
+      .gs-specs-inner { max-width: 960px; margin: 0 auto; }
+      .gs-specs-tabs { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 32px; }
+      .gs-specs-tab {
+        padding: 10px 20px; font-family: 'Roboto', sans-serif; font-size: 0.78rem;
+        font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+        color: rgba(255,255,255,0.4); cursor: pointer; border: none; background: none;
+        border-bottom: 2px solid transparent; margin-bottom: -1px;
+        transition: color 0.2s, border-color 0.2s;
+      }
+      .gs-specs-tab.active { color: #fff; border-bottom-color: var(--bmw-blue); }
+      .gs-specs-panel { display: none; }
+      .gs-specs-panel.active { display: block; }
+      .gs-specs-table { width: 100%; border-collapse: collapse; }
+      .gs-specs-table tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .gs-specs-table tr:last-child { border-bottom: none; }
+      .gs-specs-table td { padding: 13px 8px; font-family: 'Roboto', sans-serif; font-size: 0.86rem; vertical-align: top; }
+      .gs-specs-table td:first-child { color: rgba(255,255,255,0.4); width: 45%; }
+      .gs-specs-table td:last-child { color: #fff; font-weight: 500; }
+
+      /* ===== CTA ===== */
+      .gs-cta {
+        background: var(--mc-orange); padding: 80px clamp(24px,5vw,72px);
+        text-align: center;
+      }
+      .gs-cta-inner { max-width: 640px; margin: 0 auto; }
+      .gs-cta h2 {
+        font-family: 'Oswald', sans-serif; font-size: clamp(2rem,3.5vw,3rem);
+        font-weight: 700; color: #fff; margin-bottom: 12px;
+      }
+      .gs-cta p { color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.6; margin-bottom: 32px; }
+      .gs-cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+      .gs-btn-dark {
+        display: inline-flex; align-items: center; gap: 8px;
+        height: 50px; padding: 0 30px;
+        background: #fff; color: #111;
+        font-family: 'Oswald', sans-serif; font-size: 0.88rem; font-weight: 700;
+        letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+        border-radius: 4px; transition: background 0.2s, transform 0.2s;
+      }
+      .gs-btn-dark:hover { background: #f0f0f0; transform: translateY(-2px); }
+      .gs-btn-outline-white {
+        display: inline-flex; align-items: center; height: 50px; padding: 0 28px;
+        border: 2px solid rgba(255,255,255,0.6); color: #fff;
+        font-family: 'Oswald', sans-serif; font-size: 0.88rem; font-weight: 600;
+        letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+        border-radius: 4px; transition: border-color 0.2s, background 0.2s;
+      }
+      .gs-btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+      .gs-cta-note { margin-top: 28px; font-size: 0.78rem; color: rgba(255,255,255,0.6); }
+
+      /* section label shared */
+      .gs-section-label {
+        font-family: 'Roboto', sans-serif; font-size: 0.66rem; font-weight: 700;
+        letter-spacing: 4px; text-transform: uppercase; color: var(--bmw-blue); margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <!-- HERO -->
+    <section class="gs-hero">
+      <div class="gs-hero-content">
+        <div class="gs-eyebrow">Occasion &mdash; Motorcentrum Almere</div>
+        <h1>BMW R 1200 GS</h1>
+        <div class="gs-hero-year">ABS &bull; ASC &bull; ESA &bull; 2018</div>
+        <div class="gs-occasion-badges">
+          <span class="gs-badge accent">Occasion</span>
+          <span class="gs-badge">45.985 km</span>
+          <span class="gs-badge">Rijbewijs A</span>
+          <span class="gs-badge">1170 cc</span>
+        </div>
+        <div class="gs-price-block">
+          <div class="gs-price-from">Vraagprijs</div>
+          <div class="gs-price">&euro; 15.449</div>
+          <div class="gs-price-sub">incl. BTW &mdash; rijklaar</div>
+        </div>
+        <div class="gs-hero-actions">
+          <a href="/contact.html?interesse=bmw-r1200gs-2018" class="gs-btn-primary">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Informatie aanvragen
+          </a>
+          <a href="#specificaties" class="gs-btn-ghost">Specificaties &darr;</a>
+        </div>
+      </div>
+      <div class="gs-hero-visual">
+        <img src="/occasions/bmw-r1200gs-2018.jpg" alt="BMW R 1200 GS 2018 occasion Motorcentrum Almere" width="900" height="600" />
+      </div>
+    </section>
+
+    <!-- QUICK STATS -->
+    <div class="gs-stats">
+      <div class="gs-stat"><div class="gs-stat-val">1170 cc</div><div class="gs-stat-lbl">Boxer twin</div></div>
+      <div class="gs-stat"><div class="gs-stat-val">125 pk</div><div class="gs-stat-lbl">@ 7.750 tpm</div></div>
+      <div class="gs-stat"><div class="gs-stat-val">125 Nm</div><div class="gs-stat-lbl">Max. koppel</div></div>
+      <div class="gs-stat"><div class="gs-stat-val">45.985</div><div class="gs-stat-lbl">Kilometerstand</div></div>
+      <div class="gs-stat"><div class="gs-stat-val">2018</div><div class="gs-stat-lbl">Bouwjaar</div></div>
+    </div>
+
+    <!-- FOTOGALERIE -->
+    <section class="gs-gallery">
+      <div class="gs-gallery-head">
+        <div class="gs-section-label">De motor van dichtbij</div>
+        <h2>Bekijk de occasion</h2>
+      </div>
+      <div class="gs-gallery-track">
+        <div class="gs-gallery-item">
+          <img src="/occasions/bmw-r1200gs-2018.jpg" alt="BMW R 1200 GS 2018 zijkant" width="560" height="373" loading="lazy" />
+        </div>
+        <div class="gs-gallery-item">
+          <img src="/occasions/bmw-r1200gs-triple-black-2013.jpg" alt="BMW R 1200 GS Triple Black" width="560" height="373" loading="lazy" />
+        </div>
+        <div class="gs-gallery-item">
+          <img src="/occasions/bmw-r1200gs-adventure-2015.jpg" alt="BMW R 1200 GS Adventure" width="560" height="373" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE 1: MOTOR -->
+    <section class="gs-feature">
+      <div class="gs-feature-img">
+        <img src="/occasions/bmw-r1200gs-2018.jpg" alt="BMW R 1200 GS boxer motor" width="700" height="460" loading="lazy" />
+      </div>
+      <div class="gs-feature-body">
+        <div class="gs-feat-label">Boxer twin</div>
+        <h2>1170 cc. 125 pk.<br>Op elke weg thuis.</h2>
+        <p>De lucht/vloeistofgekoelde boxer is het kloppende hart van de GS. Soepel vermogen over het hele toerengebied, karakteristiek boxergeluid, en genoeg koppel om zowel stad als lange tochten te rijden.</p>
+        <ul class="gs-feat-list">
+          <li>1170 cc, lucht/vloeistofgekoeld boxer</li>
+          <li>125 pk @ 7.750 tpm</li>
+          <li>125 Nm @ 6.500 tpm</li>
+          <li>6-versnellingsbak, koppeling met antihop</li>
+          <li>Rijmodi: Rain, Road, Dynamic, Enduro</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FEATURE 2: VEILIGHEID -->
+    <section class="gs-feature reverse">
+      <div class="gs-feature-img">
+        <img src="/occasions/bmw-r1200gs-adventure-2015.jpg" alt="BMW R 1200 GS vering en technologie" width="700" height="460" loading="lazy" />
+      </div>
+      <div class="gs-feature-body">
+        <div class="gs-feat-label">Technologie &amp; veiligheid</div>
+        <h2>ABS. ASC. ESA.<br>Volledig uitgerust.</h2>
+        <p>Deze R 1200 GS heeft de volledige veiligheidstechnologie van BMW aan boord. ABS Pro remt je veilig ook in bochten. ASC houdt tractie op elk oppervlak. ESA past de vering aan terwijl je rijdt.</p>
+        <ul class="gs-feat-list">
+          <li>ABS Pro (inclusief bochten)</li>
+          <li>ASC Automatic Stability Control</li>
+          <li>ESA Electronic Suspension Adjustment</li>
+          <li>Telelever voorvork + Paralever achteras</li>
+          <li>Veerweg voor 190 mm / achter 200 mm</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SPECS -->
+    <section class="gs-specs" id="specificaties">
+      <div class="gs-specs-inner">
+        <div class="gs-section-label">Technische gegevens</div>
+        <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:700;color:#fff;margin-bottom:32px;">Specificaties</h2>
+        <div class="gs-specs-tabs" role="tablist">
+          <button class="gs-specs-tab active" role="tab" data-tab="motor" aria-selected="true">Motor</button>
+          <button class="gs-specs-tab" role="tab" data-tab="rijwiel" aria-selected="false">Rijwielgedeelte</button>
+          <button class="gs-specs-tab" role="tab" data-tab="maten" aria-selected="false">Maten &amp; gewicht</button>
+        </div>
+        <div class="gs-specs-panel active" data-panel="motor">
+          <table class="gs-specs-table">
+            <tr><td>Motortype</td><td>2-cilinder boxer, 4-takt, lucht/vloeistofgekoeld, OHV</td></tr>
+            <tr><td>Cilinderinhoud</td><td>1.170 cc</td></tr>
+            <tr><td>Boring &times; slag</td><td>101 mm &times; 73 mm</td></tr>
+            <tr><td>Max. vermogen</td><td>92 kW (125 pk) @ 7.750 tpm</td></tr>
+            <tr><td>Max. koppel</td><td>125 Nm @ 6.500 tpm</td></tr>
+            <tr><td>Brandstoftoevoer</td><td>BMW BMS-X injectie</td></tr>
+            <tr><td>Versnellingsbak</td><td>6 versnellingen, koppeling met antihopfunctie</td></tr>
+            <tr><td>Rijmodi</td><td>Rain / Road / Dynamic / Enduro (optioneel)</td></tr>
+          </table>
+        </div>
+        <div class="gs-specs-panel" data-panel="rijwiel">
+          <table class="gs-specs-table">
+            <tr><td>Frame</td><td>Stalen brugframe, motor als draagend element</td></tr>
+            <tr><td>Voorvork</td><td>BMW Telelever, &Oslash; 41 mm, veerweg 190 mm</td></tr>
+            <tr><td>Achtervering</td><td>BMW Paralever, centrale veer/demper (ESA)</td></tr>
+            <tr><td>Veerweg achter</td><td>200 mm</td></tr>
+            <tr><td>Voorrem</td><td>2 &times; 305 mm schijf, 4-zuiger radiaalremklauw</td></tr>
+            <tr><td>Achterrem</td><td>265 mm schijf, 2-zuiger remklauw</td></tr>
+            <tr><td>ABS</td><td>BMW Motorrad ABS Pro (incl. bochten)</td></tr>
+            <tr><td>Banden voor</td><td>120/70 ZR 19</td></tr>
+            <tr><td>Banden achter</td><td>170/60 ZR 17</td></tr>
+          </table>
+        </div>
+        <div class="gs-specs-panel" data-panel="maten">
+          <table class="gs-specs-table">
+            <tr><td>Rijklaar gewicht</td><td>244 kg</td></tr>
+            <tr><td>Toegestaan totaalgewicht</td><td>470 kg</td></tr>
+            <tr><td>Wielbasis</td><td>1.507 mm</td></tr>
+            <tr><td>Zadelhoogte</td><td>850 / 870 mm (variabel)</td></tr>
+            <tr><td>Brandstoftank</td><td>20 liter</td></tr>
+            <tr><td>Topsnelheid</td><td>200+ km/h</td></tr>
+            <tr><td>Bouwjaar (deze motor)</td><td>2018</td></tr>
+            <tr><td>Kilometerstand</td><td>45.985 km</td></tr>
+            <tr><td>Rijbewijs</td><td>A</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="gs-cta">
+      <div class="gs-cta-inner">
+        <h2>Interesse in deze GS?</h2>
+        <p>Kom langs bij Motorcentrum Almere voor een kijkje of stuur ons een bericht. We vertellen je alles over de staat, onderhoud en mogelijkheden van deze motor.</p>
+        <div class="gs-cta-actions">
+          <a href="/contact.html?interesse=bmw-r1200gs-2018" class="gs-btn-dark">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Stuur een bericht
+          </a>
+          <a href="tel:0365498036" class="gs-btn-outline-white">036-5498036</a>
+        </div>
+        <p class="gs-cta-note">Motorcentrum Almere &mdash; Laan van Enterprise 3-07, Almere</p>
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script type="module" src="/main.js"></script>
+    <script>
+      const tabs = document.querySelectorAll('.gs-specs-tab');
+      const panels = document.querySelectorAll('.gs-specs-panel');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+          panels.forEach(p => p.classList.remove('active'));
+          tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+          document.querySelector(`.gs-specs-panel[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CFMoto 800MT Sport | Adventure Touring | Motorcentrum Almere</title>
+    <meta name="description" content="CFMoto 800MT Sport bij Motorcentrum Almere. 799cc parallel-twin, 95 pk, cruise control. Officieel dealer. Proefrit aanvragen." />
+    <link rel="canonical" href="https://www.garagemulder-dekoe.nl/cfmoto-800mt-sport.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* ===== HERO ===== */
+      .srr-hero {
+        background: #0a0a0a;
+        min-height: 90vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 100px clamp(20px,5vw,80px) 60px;
+        gap: 40px;
+      }
+      @media (max-width: 900px) {
+        .srr-hero { grid-template-columns: 1fr; min-height: auto; padding-top: 120px; }
+        .srr-hero-img-wrap { order: -1; }
+      }
+      .srr-hero-bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 70% 50%, rgba(232,87,0,0.08) 0%, transparent 60%);
+        pointer-events: none;
+      }
+      .srr-hero-content { position: relative; z-index: 2; }
+      .srr-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--mc-orange);
+        margin-bottom: 20px;
+      }
+      .srr-eyebrow::before {
+        content: '';
+        width: 40px;
+        height: 2px;
+        background: var(--mc-orange);
+      }
+      .srr-hero h1 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 16px;
+      }
+      .srr-hero h1 span { color: var(--mc-orange); }
+      .srr-hero-sub {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.55);
+        font-weight: 300;
+        max-width: 440px;
+        line-height: 1.7;
+        margin-bottom: 36px;
+      }
+      .srr-hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 36px;
+      }
+      .srr-badge {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border-radius: 4px;
+        border: 1px solid rgba(255,255,255,0.15);
+        color: rgba(255,255,255,0.7);
+      }
+      .srr-badge.accent { background: var(--mc-orange); border-color: var(--mc-orange); color: #fff; }
+      .srr-hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+
+      /* Hero image */
+      .srr-hero-img-wrap {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .srr-hero-img {
+        width: 100%;
+        max-width: 640px;
+        height: auto;
+        filter: drop-shadow(0 30px 80px rgba(232,87,0,0.2));
+      }
+
+      /* ===== QUICK SPECS STRIP ===== */
+      .srr-strip {
+        background: var(--mc-orange);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        text-align: center;
+      }
+      @media (max-width: 640px) { .srr-strip { grid-template-columns: repeat(2,1fr); } }
+      .srr-strip-item {
+        padding: 28px 20px;
+        border-right: 1px solid rgba(255,255,255,0.2);
+      }
+      .srr-strip-item:last-child { border-right: none; }
+      .srr-strip-val {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+      }
+      .srr-strip-lbl {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.75);
+        margin-top: 4px;
+      }
+
+      /* ===== FEATURES ===== */
+      .srr-features {
+        padding: 100px clamp(20px,5vw,80px);
+        background: #fff;
+      }
+      .srr-features-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      @media (max-width: 900px) { .srr-features-inner { grid-template-columns: 1fr; gap: 40px; } }
+      .srr-section-label {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--mc-orange);
+        margin-bottom: 14px;
+      }
+      .srr-section-title {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        font-weight: 700;
+        color: #111;
+        line-height: 1.1;
+        margin-bottom: 24px;
+      }
+      .srr-features-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .srr-features-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        font-size: 0.92rem;
+        color: #444;
+        line-height: 1.5;
+      }
+      .srr-features-list li .icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: rgba(232,87,0,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .srr-features-list li .icon svg { width: 18px; height: 18px; fill: var(--mc-orange); }
+      .srr-features-list li strong { display: block; color: #111; font-size: 0.85rem; margin-bottom: 2px; }
+      .srr-img-block img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      }
+
+      /* ===== FULL SPECS TABLE ===== */
+      .srr-specs-section {
+        padding: 100px clamp(20px,5vw,80px);
+        background: #f7f7f7;
+      }
+      .srr-specs-inner {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .srr-specs-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        margin-top: 48px;
+      }
+      @media (max-width: 640px) { .srr-specs-grid { grid-template-columns: 1fr; } }
+      .srr-spec-group h3 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #111;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--mc-orange);
+        margin-bottom: 16px;
+      }
+      .srr-spec-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 9px 0;
+        border-bottom: 1px solid rgba(0,0,0,0.07);
+        font-size: 0.85rem;
+        gap: 12px;
+      }
+      .srr-spec-row:last-child { border-bottom: none; }
+      .srr-spec-key { color: rgba(0,0,0,0.5); font-weight: 400; }
+      .srr-spec-val { color: #111; font-weight: 600; text-align: right; }
+
+      /* ===== CTA ===== */
+      .srr-cta-section {
+        background: #0a0a0a;
+        padding: 100px clamp(20px,5vw,80px);
+        text-align: center;
+      }
+      .srr-cta-section h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 16px;
+      }
+      .srr-cta-section p {
+        color: rgba(255,255,255,0.5);
+        font-size: 1rem;
+        margin-bottom: 36px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .srr-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+      /* btn styles */
+      .btn-primary {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: var(--mc-orange); color: #fff;
+        font-family: 'Roboto', sans-serif; font-size: 0.8rem;
+        font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+        padding: 14px 28px; border-radius: 4px; text-decoration: none;
+        transition: background 0.2s;
+      }
+      .btn-primary:hover { background: #c94a00; }
+      .btn-ghost-light {
+        display: inline-flex; align-items: center; gap: 8px;
+        border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.7);
+        font-family: 'Roboto', sans-serif; font-size: 0.8rem;
+        font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+        padding: 14px 28px; border-radius: 4px; text-decoration: none;
+        transition: border-color 0.2s, color 0.2s;
+      }
+      .btn-ghost-light:hover { border-color: #fff; color: #fff; }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <!-- ===== HERO ===== -->
+    <section class="srr-hero">
+      <div class="srr-hero-bg"></div>
+      <div class="srr-hero-content">
+        <div class="srr-eyebrow">Adventure / Touring</div>
+        <h1>CFMoto<br /><span>800MT Sport</span></h1>
+        <p class="srr-hero-sub">
+          De 800MT Sport is CFMoto's veelzijdige adventure tourer. Met een 799cc parallel-twin, cruise control en cornering ABS ben je klaar voor elke rit, van dagelijkse woon-werkroute tot meerdaagse toertocht.
+        </p>
+        <div class="srr-hero-badges">
+          <span class="srr-badge accent">Adventure Touring</span>
+          <span class="srr-badge">799 cc</span>
+          <span class="srr-badge">95 pk</span>
+          <span class="srr-badge">A rijbewijs</span>
+          <span class="srr-badge">5 jaar garantie</span>
+        </div>
+        <div class="srr-hero-cta">
+          <a href="/contact.html?interesse=cfmoto-800mt-sport" class="btn-primary">Proefrit aanvragen</a>
+          <a href="#specs" class="btn-ghost-light">Bekijk specs</a>
+        </div>
+      </div>
+      <div class="srr-hero-img-wrap">
+        <img src="/cfmoto/800MT-Sport.jpg" alt="CFMoto 800MT Sport Adventure Touring" class="srr-hero-img" width="640" height="420" />
+      </div>
+    </section>
+
+    <!-- ===== QUICK STATS ===== -->
+    <div class="srr-strip">
+      <div class="srr-strip-item">
+        <div class="srr-strip-val">799 cc</div>
+        <div class="srr-strip-lbl">Cilinderinhoud</div>
+      </div>
+      <div class="srr-strip-item">
+        <div class="srr-strip-val">95 pk</div>
+        <div class="srr-strip-lbl">Max vermogen</div>
+      </div>
+      <div class="srr-strip-item">
+        <div class="srr-strip-val">80 Nm</div>
+        <div class="srr-strip-lbl">Max koppel</div>
+      </div>
+      <div class="srr-strip-item">
+        <div class="srr-strip-val">228 kg</div>
+        <div class="srr-strip-lbl">Gewicht</div>
+      </div>
+    </div>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="srr-features">
+      <div class="srr-features-inner">
+        <div>
+          <div class="srr-section-label">Uitrusting</div>
+          <h2 class="srr-section-title">Klaar voor<br />elk avontuur</h2>
+          <ul class="srr-features-list">
+            <li>
+              <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div>
+              <div><strong>3 rijmodi</strong>Kies tussen Sport, Road en Rain. De motor past gasvliegwiel en vermogensverdeling automatisch aan op de omstandigheden.</div>
+            </li>
+            <li>
+              <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
+              <div><strong>Cornering ABS</strong>Bosch cornering ABS bewaakt de remkracht ook tijdens het schuinliggen in een bocht. Maximale veiligheid op elk wegdek.</div>
+            </li>
+            <li>
+              <div class="icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+              <div><strong>Cruise control</strong>Standaard cruise control voor ontspannen snelwegritten en lange toertochten. Instelbaar via het stuur.</div>
+            </li>
+            <li>
+              <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 6.5l-4-4-9 9-2 4 4-2 9-9zm-14.12 8.71l-1.59-1.59 7.71-7.71 1.59 1.59-7.71 7.71z"/></svg></div>
+              <div><strong>TFT display en USB-C</strong>Helder TFT kleurendisplay met alle rij-informatie in een oogopslag. USB-C aansluiting houdt je navigatie opgeladen.</div>
+            </li>
+            <li>
+              <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2L4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-3zm-1 12l-3-3 1.41-1.41L11 11.17l4.59-4.58L17 8l-6 6z"/></svg></div>
+              <div><strong>Verwarmde handvatten en LED</strong>Standaard verwarmde handvatten voor vroege ochtendritten en herfsttoertochten. Volledige LED-verlichting voor optimaal zicht.</div>
+            </li>
+          </ul>
+        </div>
+        <div class="srr-img-block">
+          <img src="/cfmoto/800MT-Sport.jpg" alt="CFMoto 800MT Sport detail" width="600" height="400" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FULL SPECS ===== -->
+    <section class="srr-specs-section" id="specs">
+      <div class="srr-specs-inner">
+        <div class="srr-section-label">Technische gegevens</div>
+        <h2 class="srr-section-title">Volledige specificaties</h2>
+        <div class="srr-specs-grid">
+
+          <div class="srr-spec-group">
+            <h3>Motor</h3>
+            <div class="srr-spec-row"><span class="srr-spec-key">Motortype</span><span class="srr-spec-val">Parallel-twin, DOHC, 8 kleppen</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Cilinderinhoud</span><span class="srr-spec-val">799 cc</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Max vermogen</span><span class="srr-spec-val">70 kW (95 pk) @ 8.500 tpm</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Max koppel</span><span class="srr-spec-val">80 Nm @ 7.000 tpm</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Koeling</span><span class="srr-spec-val">Vloeistofgekoeld</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Versnellingen</span><span class="srr-spec-val">6-bak</span></div>
+          </div>
+
+          <div class="srr-spec-group">
+            <h3>Rijwielgedeelte</h3>
+            <div class="srr-spec-row"><span class="srr-spec-key">Voorbrug</span><span class="srr-spec-val">USD telescoopvork &Oslash;43 mm, 150 mm veerweg</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Achterbrug</span><span class="srr-spec-val">Linkage mono-shock, instelbaar</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Voorrem</span><span class="srr-spec-val">2 &times; 320 mm schijf, Bosch ABS</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Remhulp</span><span class="srr-spec-val">Bosch cornering ABS</span></div>
+          </div>
+
+          <div class="srr-spec-group">
+            <h3>Afmetingen</h3>
+            <div class="srr-spec-row"><span class="srr-spec-key">Gewicht</span><span class="srr-spec-val">228 kg</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Zadelhoogte</span><span class="srr-spec-val">830 mm</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Tankinhoud</span><span class="srr-spec-val">19 liter</span></div>
+          </div>
+
+          <div class="srr-spec-group">
+            <h3>Elektronica &amp; rijhulp</h3>
+            <div class="srr-spec-row"><span class="srr-spec-key">Display</span><span class="srr-spec-val">TFT kleurendisplay</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Rijmodi</span><span class="srr-spec-val">Sport / Road / Rain (3 modi)</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Cruise control</span><span class="srr-spec-val">Ja, standaard</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">ABS</span><span class="srr-spec-val">Bosch cornering ABS</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Verwarmde handvatten</span><span class="srr-spec-val">Ja, standaard</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Verlichting</span><span class="srr-spec-val">Volledige LED</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">USB-C</span><span class="srr-spec-val">Ja, standaard</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Rijbewijs</span><span class="srr-spec-val">A</span></div>
+            <div class="srr-spec-row"><span class="srr-spec-key">Garantie</span><span class="srr-spec-val">5 jaar via CFMoto Benelux</span></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="srr-cta-section">
+      <h2>Klaar om de 800MT Sport te rijden?</h2>
+      <p>Plan een proefrit bij Motorcentrum Almere. Wij zijn officieel CFMoto dealer en begeleiden je graag bij je keuze.</p>
+      <div class="srr-cta-btns">
+        <a href="/contact.html?interesse=cfmoto-800mt-sport" class="btn-primary">Proefrit aanvragen</a>
+        <a href="/nieuwe-motoren.html" class="btn-ghost-light">Bekijk alle modellen</a>
+      </div>
+      <p style="margin-top:32px;font-size:0.8rem;color:rgba(255,255,255,0.3);">Prijs vanaf &euro;11.499 incl. BPM &amp; BTW &mdash; 5 jaar garantie &mdash; Officieel CFMoto dealer Almere</p>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

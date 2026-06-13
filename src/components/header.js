@@ -9,8 +9,9 @@ export const headerContent = `
       <nav class="mca-nav" id="mca-nav" aria-label="Hoofdnavigatie">
         <a href="/occasions.html" class="mca-nav-link">Occasions</a>
         <a href="/nieuwe-motoren.html" class="mca-nav-link">Nieuwe Motoren</a>
+        <a href="/helmen.html" class="mca-nav-link">Helmen</a>
+        <a href="/kleding.html" class="mca-nav-link">Kleding</a>
         <a href="/werkplaats.html" class="mca-nav-link">Werkplaats</a>
-        <a href="/kleding.html" class="mca-nav-link">Kleding &amp; Helmen</a>
         <a href="/verhuur-motoren.html" class="mca-nav-link">Verhuur</a>
         <a href="/over-ons.html" class="mca-nav-link">Over Ons</a>
       </nav>
@@ -67,6 +68,7 @@ export const headerContent = `
     .mca-nav {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 4px;
       flex: 1;
     }
