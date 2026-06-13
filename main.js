@@ -17,39 +17,38 @@ function injectComponents() {
 
 function highlightActiveLink() {
   const path = window.location.pathname;
-  const links = document.querySelectorAll('.main-nav a');
+  const links = document.querySelectorAll('.mca-nav-link');
   links.forEach(link => {
-    if (link.getAttribute('href') === path || (path === '/' && link.getAttribute('href') === '/')) {
-      link.style.color = 'var(--mc-orange)';
+    const href = link.getAttribute('href');
+    if (href === path || (path === '/' && href === '/') ||
+        (path !== '/' && href !== '/' && path.startsWith(href.replace('.html', '')))) {
+      link.classList.add('active');
     }
   });
 }
 
 injectComponents();
 
-console.log('Motorcentrum Almere geladen');
-
-// ==== AOS (Animate On Scroll) Initialization ====
-document.addEventListener('DOMContentLoaded', () => {
-  if (typeof AOS !== 'undefined') {
-    AOS.init({
-      once: true,
-      duration: 700,
-      easing: 'ease-out-cubic',
-      offset: 60,
-    });
-  }
+// ==== Hamburger menu ====
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('#mca-hamburger');
+  if (!btn) return;
+  const nav = document.getElementById('mca-nav');
+  const open = btn.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+  nav.classList.toggle('open', open);
 });
 
-// ==== Sticky header logic ====
+// ==== Scroll: header shadow ====
 window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  if (window.scrollY > 50) {
-    header.style.backgroundColor = 'var(--kw-black)';
-    header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.5)';
-  } else {
-    header.style.backgroundColor = 'var(--kw-black-soft)';
-    header.style.boxShadow = 'none';
+  const header = document.getElementById('mca-header');
+  if (header) header.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ==== AOS ====
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof AOS !== 'undefined') {
+    AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic', offset: 60 });
   }
 });
 

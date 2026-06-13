@@ -171,7 +171,7 @@
          CFMOTO SHOWROOM CONFIGURATOR
       ============================ */
       .showroom-section {
-        background: #080808;
+        background: #fff;
         position: relative;
         overflow: hidden;
         min-height: 100vh;
@@ -210,7 +210,7 @@
         font-family: 'Oswald', sans-serif;
         font-size: clamp(2rem, 4vw, 3.5rem);
         font-weight: 700;
-        color: #fff;
+        color: #111;
         line-height: 1.1;
         margin-top: 16px;
         padding: 0 clamp(20px, 5vw, 80px);
@@ -225,7 +225,7 @@
       .showroom-stage {
         flex: 1;
         display: grid;
-        grid-template-columns: 1fr 400px;
+        grid-template-columns: 1.4fr 320px;
         gap: 0;
         position: relative;
         padding: 40px clamp(20px, 5vw, 80px) 0;
@@ -242,7 +242,7 @@
       /* Model image */
       .showroom-model-img-wrap {
         position: relative;
-        height: 420px;
+        height: 500px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -257,7 +257,7 @@
         transition: opacity 0.4s ease, transform 0.4s ease;
         opacity: 1;
         transform: scale(1);
-        filter: drop-shadow(0 20px 60px rgba(232,93,4,0.15));
+        filter: drop-shadow(0 20px 50px rgba(0,0,0,0.08));
       }
       .showroom-model-img.leaving {
         opacity: 0;
@@ -274,7 +274,7 @@
         transform: translateX(-50%);
         width: 60%;
         height: 60px;
-        background: radial-gradient(ellipse, rgba(232,93,4,0.25) 0%, transparent 70%);
+        background: radial-gradient(ellipse, rgba(0,0,0,0.04) 0%, transparent 70%);
         pointer-events: none;
       }
 
@@ -310,13 +310,13 @@
         font-family: 'Oswald', sans-serif;
         font-size: clamp(2.5rem, 4vw, 4rem);
         font-weight: 700;
-        color: #fff;
+        color: #111;
         line-height: 1;
         margin-bottom: 8px;
         transition: opacity 0.3s ease;
       }
       .showroom-model-slogan {
-        color: rgba(255,255,255,0.45);
+        color: rgba(0,0,0,0.5);
         font-size: 0.9rem;
         font-weight: 300;
         margin-bottom: 30px;
@@ -329,25 +329,25 @@
         margin-bottom: 28px;
       }
       .showroom-spec {
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.07);
-        border-radius: 8px;
-        padding: 14px 16px;
+        background: rgba(0,0,0,0.04);
+        border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 6px;
+        padding: 9px 12px;
         transition: opacity 0.3s ease;
       }
       .showroom-spec-label {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
         font-weight: 500;
         letter-spacing: 2px;
         text-transform: uppercase;
-        color: rgba(255,255,255,0.35);
-        margin-bottom: 4px;
+        color: rgba(0,0,0,0.45);
+        margin-bottom: 2px;
       }
       .showroom-spec-value {
         font-family: 'Oswald', sans-serif;
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 600;
-        color: #fff;
+        color: #111;
       }
       .showroom-features {
         list-style: none;
@@ -363,7 +363,7 @@
         align-items: center;
         gap: 8px;
         font-size: 0.82rem;
-        color: rgba(255,255,255,0.55);
+        color: rgba(0,0,0,0.6);
       }
       .showroom-features li::before {
         content: '';
@@ -392,7 +392,7 @@
         display: flex;
         gap: 0;
         padding: 0 clamp(20px, 5vw, 80px) 50px;
-        border-top: 1px solid rgba(255,255,255,0.06);
+        border-top: 1px solid rgba(0,0,0,0.1);
         margin-top: 40px;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -417,19 +417,19 @@
         border-right: none;
         text-align: left;
       }
-      .showroom-tab:hover .tab-name { color: rgba(255,255,255,0.8); }
+      .showroom-tab:hover .tab-name { color: rgba(0,0,0,0.75); }
       .showroom-tab.active {
         border-bottom-color: var(--mc-orange);
       }
-      .showroom-tab.active .tab-name { color: #fff; }
+      .showroom-tab.active .tab-name { color: #111; }
       .showroom-tab.active .tab-type { color: var(--mc-orange); }
       .tab-thumb {
         width: 60px;
         height: 36px;
         object-fit: contain;
-        opacity: 0.5;
+        opacity: 0.45;
         transition: opacity 0.25s;
-        filter: brightness(1.2);
+        filter: none;
       }
       .showroom-tab.active .tab-thumb { opacity: 1; }
       .tab-info {}
@@ -437,7 +437,7 @@
         font-family: 'Oswald', sans-serif;
         font-size: 0.95rem;
         font-weight: 600;
-        color: rgba(255,255,255,0.4);
+        color: rgba(0,0,0,0.35);
         display: block;
         line-height: 1.2;
         transition: color 0.25s;
@@ -447,9 +447,35 @@
         font-weight: 400;
         letter-spacing: 1.5px;
         text-transform: uppercase;
-        color: rgba(255,255,255,0.25);
+        color: rgba(0,0,0,0.4);
         transition: color 0.25s;
       }
+
+      /* Arrow navigation */
+      .showroom-arrows {
+        display: flex;
+        gap: 10px;
+        margin-top: 24px;
+      }
+      .showroom-arrow {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 2px solid rgba(0,0,0,0.15);
+        background: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: border-color 0.2s, background 0.2s;
+        flex-shrink: 0;
+      }
+      .showroom-arrow:hover {
+        border-color: var(--mc-orange);
+        background: var(--mc-orange);
+      }
+      .showroom-arrow svg { width: 20px; height: 20px; fill: #111; transition: fill 0.2s; }
+      .showroom-arrow:hover svg { fill: #fff; }
 
       /* Background number */
       .showroom-bg-number {
@@ -459,7 +485,7 @@
         font-family: 'Oswald', sans-serif;
         font-size: 20vw;
         font-weight: 700;
-        color: rgba(255,255,255,0.02);
+        color: rgba(0,0,0,0.04);
         line-height: 1;
         pointer-events: none;
         user-select: none;
@@ -910,6 +936,33 @@
       .service-card:hover .service-card-link svg {
         transform: translateX(4px);
       }
+
+      /* ============================
+         CFMOTO SHOWROOM: BLAUW IPSO ORANJE
+      ============================ */
+      .showroom-label-line { background: var(--cfmoto-blue) !important; }
+      .showroom-label-text { color: var(--cfmoto-blue) !important; }
+      .showroom-title span { color: var(--cfmoto-blue) !important; }
+      .showroom-model-img {
+        filter: drop-shadow(0 20px 60px rgba(0,144,208,0.2)) !important;
+      }
+      .showroom-model-glow {
+        background: radial-gradient(ellipse, rgba(0,144,208,0.22) 0%, transparent 70%) !important;
+      }
+      .showroom-info-tag { color: var(--cfmoto-blue) !important; }
+      .showroom-info-tag::after { background: rgba(0,144,208,0.3) !important; }
+      .showroom-features li::before { background: var(--cfmoto-blue) !important; }
+      .showroom-price { color: var(--cfmoto-blue) !important; }
+      .showroom-tab.active { border-bottom-color: var(--cfmoto-blue) !important; }
+      .showroom-tab.active .tab-type { color: var(--cfmoto-blue) !important; }
+      .showroom-section .btn-dark {
+        background: var(--cfmoto-blue) !important;
+        border-color: var(--cfmoto-blue) !important;
+      }
+      .showroom-section .btn-dark:hover {
+        background: var(--cfmoto-blue-dark) !important;
+        border-color: var(--cfmoto-blue-dark) !important;
+      }
     </style>
   </head>
   <body>
@@ -1015,7 +1068,7 @@
         <div class="showroom-model-img-wrap">
           <img
             id="showroom-img"
-            src="/cfmoto/CFmoto-800MTsport.jpg"
+            src="/cfmoto/800MT-Sport.jpg"
             alt="CFMoto 800 MT Sport"
             class="showroom-model-img"
             width="700"
@@ -1056,11 +1109,20 @@
             <li>Navigatie Ready</li>
           </ul>
 
-          <div class="showroom-price" id="showroom-price">Vanaf &euro;11.499</div>
+          <div class="showroom-price" id="showroom-price">Vanaf &euro;9.899</div>
 
           <div class="showroom-cta">
             <a href="/contact.html?interesse=cfmoto-800mt" class="btn-dark">Plan een proefrit</a>
             <a href="/nieuwe-motoren.html" class="btn-ghost">Meer info</a>
+          </div>
+
+          <div class="showroom-arrows">
+            <button class="showroom-arrow" id="showroom-prev" aria-label="Vorig model">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button class="showroom-arrow" id="showroom-next" aria-label="Volgend model">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -1068,31 +1130,45 @@
       <!-- Model tabs -->
       <div class="showroom-tabs" role="tablist" aria-label="CFMoto modellen">
         <button class="showroom-tab active" role="tab" aria-selected="true" data-model="0">
-          <img src="/cfmoto/CFmoto-800MTsport.jpg" alt="" class="tab-thumb" loading="lazy" />
+          <img src="/cfmoto/800MT-Sport.jpg" alt="" class="tab-thumb" loading="lazy" />
           <div class="tab-info">
             <span class="tab-name">800 MT Sport</span>
             <span class="tab-type">Adventure &bull; A</span>
           </div>
         </button>
         <button class="showroom-tab" role="tab" aria-selected="false" data-model="1">
-          <img src="/cfmoto/CFmoto-675NK.jpg" alt="" class="tab-thumb" loading="lazy" />
+          <img src="/cfmoto/675NK.jpg" alt="" class="tab-thumb" loading="lazy" />
           <div class="tab-info">
             <span class="tab-name">675 NK</span>
             <span class="tab-type">Naked &bull; A</span>
           </div>
         </button>
         <button class="showroom-tab" role="tab" aria-selected="false" data-model="2">
-          <img src="/cfmoto/CFmoto-450NK.jpg" alt="" class="tab-thumb" loading="lazy" />
+          <img src="/cfmoto/450NK.jpg" alt="" class="tab-thumb" loading="lazy" />
           <div class="tab-info">
             <span class="tab-name">450 NK</span>
             <span class="tab-type">Naked &bull; A2</span>
           </div>
         </button>
         <button class="showroom-tab" role="tab" aria-selected="false" data-model="3">
-          <img src="/cfmoto/CFmoto-450MT.jpg" alt="" class="tab-thumb" loading="lazy" />
+          <img src="/cfmoto/450MT.jpg" alt="" class="tab-thumb" loading="lazy" />
           <div class="tab-info">
             <span class="tab-name">450 MT</span>
             <span class="tab-type">Adventure &bull; A2</span>
+          </div>
+        </button>
+        <button class="showroom-tab" role="tab" aria-selected="false" data-model="4">
+          <img src="/cfmoto/675SR-R.jpg" alt="" class="tab-thumb" loading="lazy" />
+          <div class="tab-info">
+            <span class="tab-name">675 SR-R</span>
+            <span class="tab-type">Sport &bull; A</span>
+          </div>
+        </button>
+        <button class="showroom-tab" role="tab" aria-selected="false" data-model="5">
+          <img src="/cfmoto/700CL-X-Heritage.jpg" alt="" class="tab-thumb" loading="lazy" />
+          <div class="tab-info">
+            <span class="tab-name">700 CL-X Heritage</span>
+            <span class="tab-type">Classic &bull; A</span>
           </div>
         </button>
       </div>
@@ -1109,61 +1185,61 @@
           <a href="/occasions.html" class="btn btn-outline" style="color:#111;border-color:#ccc;">Bekijk alles &rarr;</a>
         </div>
         <div class="occasion-grid">
-          <!-- Card 1 -->
+          <!-- Aprilia SL 750 Shiver -->
           <a href="/occasions.html" class="occasion-card" data-aos="fade-up" data-aos-delay="0">
             <div class="occasion-img">
-              <img src="/showroom/MG_0208-HDR.jpg" alt="Motor in showroom" loading="lazy" width="400" height="210" />
+              <img src="/occasions/aprilia-sl750-shiver.jpg" alt="Aprilia SL 750 Shiver 2011" loading="lazy" width="400" height="210" />
               <div class="occasion-badge">Occasion</div>
             </div>
             <div class="occasion-body">
-              <div class="occasion-make">Honda</div>
-              <div class="occasion-model">CB 650 R</div>
+              <div class="occasion-make">Aprilia</div>
+              <div class="occasion-model">SL 750 Shiver</div>
               <div class="occasion-meta">
                 <span class="occasion-meta-item">
                   <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                   Almere
                 </span>
-                <span class="occasion-meta-item">2021 &bull; 12.400 km &bull; A</span>
+                <span class="occasion-meta-item">2011 &bull; 9.304 km &bull; A</span>
               </div>
-              <div class="occasion-price">&euro; 7.950 <span class="occasion-price-sub">incl. BTW</span></div>
+              <div class="occasion-price">&euro; 5.289 <span class="occasion-price-sub">incl. BTW</span></div>
             </div>
           </a>
-          <!-- Card 2 -->
+          <!-- BMW C 400 GT -->
           <a href="/occasions.html" class="occasion-card" data-aos="fade-up" data-aos-delay="100">
             <div class="occasion-img">
-              <img src="/showroom/MG_0214-HDR.jpg" alt="Motor in showroom" loading="lazy" width="400" height="210" />
-              <div class="occasion-badge">Occasion</div>
-            </div>
-            <div class="occasion-body">
-              <div class="occasion-make">Yamaha</div>
-              <div class="occasion-model">MT-07</div>
-              <div class="occasion-meta">
-                <span class="occasion-meta-item">
-                  <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  Almere
-                </span>
-                <span class="occasion-meta-item">2020 &bull; 18.200 km &bull; A</span>
-              </div>
-              <div class="occasion-price">&euro; 8.250 <span class="occasion-price-sub">incl. BTW</span></div>
-            </div>
-          </a>
-          <!-- Card 3 -->
-          <a href="/occasions.html" class="occasion-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="occasion-img">
-              <img src="/showroom/MG_0220-HDR.jpg" alt="Motor in showroom" loading="lazy" width="400" height="210" />
+              <img src="/occasions/bmw-c400gt-2021.jpg" alt="BMW C 400 GT 2021" loading="lazy" width="400" height="210" />
               <div class="occasion-badge">Occasion</div>
             </div>
             <div class="occasion-body">
               <div class="occasion-make">BMW</div>
-              <div class="occasion-model">F 900 R</div>
+              <div class="occasion-model">C 400 GT</div>
               <div class="occasion-meta">
                 <span class="occasion-meta-item">
                   <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                   Almere
                 </span>
-                <span class="occasion-meta-item">2022 &bull; 9.800 km &bull; A</span>
+                <span class="occasion-meta-item">2021 &bull; 5.366 km &bull; A1/B</span>
               </div>
-              <div class="occasion-price">&euro; 11.950 <span class="occasion-price-sub">incl. BTW</span></div>
+              <div class="occasion-price">&euro; 7.989 <span class="occasion-price-sub">incl. BTW</span></div>
+            </div>
+          </a>
+          <!-- BMW F 750 GS -->
+          <a href="/occasions.html" class="occasion-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="occasion-img">
+              <img src="/occasions/bmw-f750gs-2021.jpg" alt="BMW F 750 GS 2021" loading="lazy" width="400" height="210" />
+              <div class="occasion-badge">Occasion</div>
+            </div>
+            <div class="occasion-body">
+              <div class="occasion-make">BMW</div>
+              <div class="occasion-model">F 750 GS</div>
+              <div class="occasion-meta">
+                <span class="occasion-meta-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  Almere
+                </span>
+                <span class="occasion-meta-item">2021 &bull; 7.222 km &bull; A</span>
+              </div>
+              <div class="occasion-price">&euro; 10.989 <span class="occasion-price-sub">incl. BTW</span></div>
             </div>
           </a>
         </div>
@@ -1405,43 +1481,31 @@
       <div class="brand-marquee-label">Occasions van alle merken</div>
       <div class="brand-marquee-track-wrap">
         <div class="brand-marquee-track">
-          <div class="brand-logo-item">
-            <img src="/brand-logos/cfmoto.jpg" alt="CFMoto" loading="lazy" width="120" height="60" />
-          </div>
-          <div class="brand-logo-item">
-            <img src="/brand-logos/yamaha.png" alt="Yamaha" loading="lazy" width="120" height="60" />
-          </div>
-          <div class="brand-logo-item">
-            <img src="/brand-logos/ktm.jpg" alt="KTM" loading="lazy" width="120" height="60" />
-          </div>
-          <div class="brand-logo-item">
-            <img src="/brand-logos/ducati.png" alt="Ducati" loading="lazy" width="120" height="60" />
-          </div>
-          <div class="brand-logo-item">
-            <img src="/brand-logos/honda.jpg" alt="Honda" loading="lazy" width="120" height="60" />
-          </div>
-          <div class="brand-logo-item">
-            <img src="/brand-logos/bmw.jpg" alt="BMW Motorrad" loading="lazy" width="120" height="60" />
-          </div>
-          <!-- duplicate for loop -->
-          <div class="brand-logo-item">
-            <img src="/brand-logos/cfmoto.jpg" alt="CFMoto" loading="lazy" width="120" height="60" />
-          </div>
-          <div class="brand-logo-item">
-            <img src="/brand-logos/yamaha.png" alt="Yamaha" loading="lazy" width="120" height="60" />
-          </div>
-          <div class="brand-logo-item">
-            <img src="/brand-logos/ktm.jpg" alt="KTM" loading="lazy" width="120" height="60" />
-          </div>
-          <div class="brand-logo-item">
-            <img src="/brand-logos/ducati.png" alt="Ducati" loading="lazy" width="120" height="60" />
-          </div>
-          <div class="brand-logo-item">
-            <img src="/brand-logos/honda.jpg" alt="Honda" loading="lazy" width="120" height="60" />
-          </div>
-          <div class="brand-logo-item">
-            <img src="/brand-logos/bmw.jpg" alt="BMW Motorrad" loading="lazy" width="120" height="60" />
-          </div>
+          <div class="brand-logo-item"><img src="/brand-logos/cfmoto.svg" alt="CFMoto" loading="lazy" width="140" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/yamaha.png" alt="Yamaha" loading="lazy" width="120" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/honda.svg" alt="Honda" loading="lazy" width="120" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/bmw.jpg" alt="BMW Motorrad" loading="lazy" width="120" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/kawasaki.svg" alt="Kawasaki" loading="lazy" width="140" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/suzuki.svg" alt="Suzuki" loading="lazy" width="120" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/ducati.png" alt="Ducati" loading="lazy" width="120" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/ktm.svg" alt="KTM" loading="lazy" width="100" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/aprilia.svg" alt="Aprilia" loading="lazy" width="120" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/triumph.svg" alt="Triumph" loading="lazy" width="130" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/harley.svg" alt="Harley-Davidson" loading="lazy" width="130" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/husqvarna.svg" alt="Husqvarna" loading="lazy" width="140" height="60" /></div>
+          <!-- duplicate for seamless loop -->
+          <div class="brand-logo-item"><img src="/brand-logos/cfmoto.svg" alt="CFMoto" loading="lazy" width="140" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/yamaha.png" alt="Yamaha" loading="lazy" width="120" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/honda.svg" alt="Honda" loading="lazy" width="120" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/bmw.jpg" alt="BMW Motorrad" loading="lazy" width="120" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/kawasaki.svg" alt="Kawasaki" loading="lazy" width="140" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/suzuki.svg" alt="Suzuki" loading="lazy" width="120" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/ducati.png" alt="Ducati" loading="lazy" width="120" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/ktm.svg" alt="KTM" loading="lazy" width="100" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/aprilia.svg" alt="Aprilia" loading="lazy" width="120" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/triumph.svg" alt="Triumph" loading="lazy" width="130" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/harley.svg" alt="Harley-Davidson" loading="lazy" width="130" height="60" /></div>
+          <div class="brand-logo-item"><img src="/brand-logos/husqvarna.svg" alt="Husqvarna" loading="lazy" width="140" height="60" /></div>
         </div>
       </div>
     </section>
@@ -1549,22 +1613,22 @@
           license: 'A',
           type: 'Adventure',
           features: ['Quick Shifter', 'Traction Control', 'Rijmodi', 'Navigatie Ready'],
-          price: 'Vanaf €11.499',
-          img: '/cfmoto/CFmoto-800MTsport.jpg',
+          price: 'Vanaf €9.899',
+          img: '/cfmoto/800MT-Sport.jpg',
           bgNum: '800',
-          contactHref: '/contact.html?interesse=cfmoto-800mt'
+          contactHref: '/contact.html?interesse=cfmoto-800mt-sport'
         },
         {
           tag: 'NAKED',
           name: '675 NK',
           slogan: 'Krachtig, minimalistisch, puur',
           cc: '675 cc',
-          power: '77 pk',
+          power: '90 pk',
           license: 'A',
           type: 'Naked',
           features: ['TFT Display', 'LED Verlichting', 'Slipper Koppeling', 'Compact Design'],
-          price: 'Vanaf €8.199',
-          img: '/cfmoto/CFmoto-675NK.jpg',
+          price: 'Vanaf €7.999',
+          img: '/cfmoto/675NK.jpg',
           bgNum: '675',
           contactHref: '/contact.html?interesse=cfmoto-675nk'
         },
@@ -1573,12 +1637,12 @@
           name: '450 NK',
           slogan: 'Krachtig rijgenot voor elke rijder',
           cc: '449 cc',
-          power: '46 pk',
+          power: '47 pk',
           license: 'A2',
           type: 'Naked',
           features: ['Paralleltwin Motor', 'USB Lading', 'Instelbare Vering', 'A2 Geschikt'],
-          price: 'Vanaf €6.499',
-          img: '/cfmoto/CFmoto-450NK.jpg',
+          price: 'Vanaf €5.999',
+          img: '/cfmoto/450NK.jpg',
           bgNum: '450',
           contactHref: '/contact.html?interesse=cfmoto-450nk'
         },
@@ -1587,14 +1651,42 @@
           name: '450 MT',
           slogan: 'Avontuur zonder grenzen voor A2',
           cc: '449 cc',
-          power: '46 pk',
+          power: '42 pk',
           license: 'A2',
           type: 'Adventure',
           features: ['21" Voorwiel', 'Lange Veerweg', 'USB Lading', 'Hoog Zitcomfort'],
-          price: 'Vanaf €7.499',
-          img: '/cfmoto/CFmoto-450MT.jpg',
+          price: 'Vanaf €7.399',
+          img: '/cfmoto/450MT.jpg',
           bgNum: '450',
           contactHref: '/contact.html?interesse=cfmoto-450mt'
+        },
+        {
+          tag: 'SPORT',
+          name: '675 SR-R',
+          slogan: 'Sportief tot op het bot',
+          cc: '675 cc',
+          power: '90 pk',
+          license: 'A',
+          type: 'Sport',
+          features: ['Ohlins Vering', 'Brembo Remmen', 'Quickshifter', 'Race ABS'],
+          price: 'Vanaf €8.999',
+          img: '/cfmoto/675SR-R.jpg',
+          bgNum: '675',
+          contactHref: '/contact.html?interesse=cfmoto-675sr-r'
+        },
+        {
+          tag: 'CLASSIC',
+          name: '700 CL-X Heritage',
+          slogan: 'Tijdloze stijl, moderne techniek',
+          cc: '693 cc',
+          power: '75 pk',
+          license: 'A',
+          type: 'Classic',
+          features: ['Retro Design', 'TFT Display', 'LED Verlichting', 'Slipper Koppeling'],
+          price: 'Vanaf €6.799',
+          img: '/cfmoto/700CL-X-Heritage.jpg',
+          bgNum: '700',
+          contactHref: '/contact.html?interesse=cfmoto-700clx-heritage'
         }
       ];
 
@@ -1666,14 +1758,30 @@
         }, 350);
       }
 
+      let paused = false;
+      let autoTimer = setInterval(() => {
+        if (!paused) switchModel((current + 1) % models.length);
+      }, 6000);
+
       tabs.forEach((tab, i) => {
-        tab.addEventListener('click', () => switchModel(i));
+        tab.addEventListener('click', () => {
+          paused = true;
+          clearInterval(autoTimer);
+          switchModel(i);
+        });
       });
 
-      // Auto-advance every 6 seconds
-      setInterval(() => {
+      document.getElementById('showroom-prev').addEventListener('click', () => {
+        paused = true;
+        clearInterval(autoTimer);
+        switchModel((current - 1 + models.length) % models.length);
+      });
+
+      document.getElementById('showroom-next').addEventListener('click', () => {
+        paused = true;
+        clearInterval(autoTimer);
         switchModel((current + 1) % models.length);
-      }, 6000);
+      });
     </script>
   </body>
 </html>
