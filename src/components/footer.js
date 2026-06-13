@@ -37,8 +37,6 @@ export const footerContent = `
             <ul>
               <li><a href="/over-ons.html">Over Motorcentrum Almere</a></li>
               <li><a href="/contact.html">Contact</a></li>
-              <li><a href="/motor-lelystad/">Motor Lelystad</a></li>
-              <li><a href="/motor-zeewolde/">Motor Zeewolde</a></li>
             </ul>
           </div>
           <div class="footer-col">
