@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Occasions | Motorcentrum Almere</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preload" href="/headers/occasions-hero.webp" as="image" type="image/webp" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+      <meta name="description" content="Ruim aanbod tweedehands motoren bij Motorcentrum Almere. Alle merken, technisch gekeurd en rijklaar geleverd. Filter op merk, kilometerstand en prijs." />
+    <link rel="canonical" href="https://www.motorcentrum-almere.nl/occasions.html" />
+</head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <!-- Sub Hero -->
+    <section class="sub-hero" style="background-image: url('/headers/occasions-hero.webp');">
+      <div class="sub-hero-content">
+        <h1>OCCASIONS</h1>
+        <p style="font-size: 1.2rem; max-width: 600px;">Ons sterk wisselend aanbod tweedehands motoren van alle topmerken. Technisch gekeurd, rijklaar en met garantie geleverd vanuit Almere.</p>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="content-section">
+      <div class="container">
+        <h2>Ons Actuele Aanbod</h2>
+        <p>In onze showroom vindt u een breed aanbod occasions van BMW, Ducati, Honda, Yamaha, CFMoto en meer. Gebruik de filters om uw droommotor te vinden.</p>
+        
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label for="filter-brand">Merk</label>
+            <select id="filter-brand" class="filter-select">
+              <option value="all">Alle Merken</option>
+              <option value="kawasaki">Kawasaki</option>
+              <option value="cfmoto">CFMoto</option>
+              <option value="honda">Honda</option>
+              <option value="yamaha">Yamaha</option>
+              <option value="bmw">BMW</option>
+              <option value="ducati">Ducati</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-kms">Kilometerstand</label>
+            <select id="filter-kms" class="filter-select">
+              <option value="all">Alle Kilometerstanden</option>
+              <option value="15000">Max 15.000 km</option>
+              <option value="30000">Max 30.000 km</option>
+              <option value="50000">Max 50.000 km</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-price">Prijsklasse</label>
+            <select id="filter-price" class="filter-select">
+              <option value="all">Alle Prijzen</option>
+              <option value="12000">Max € 12.000</option>
+              <option value="16000">Max € 16.000</option>
+              <option value="22000">Max € 22.000</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- MOTOREN GRID -->
+        <div class="motor-grid" id="occasions-grid">
+          
+          <!-- 7 -->
+          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="ducati" data-price="10250" data-kms="4500" style="background-image: url('/occasions/occasion_7.jpg');">
+            <div class="motor-info">
+              <h3>Ducati 996</h3>
+              <div class="motor-price">€ 10.250,-</div>
+              <ul class="motor-specs">
+                <li>Bouwjaar: <span>2023</span></li>
+                <li>CC: <span>649 cc</span></li>
+                <li>Kilometerstand: <span>4.500 km</span></li>
+              </ul>
+              <a href="#" class="btn btn-primary">Bekijk Details</a>
+            </div>
+          </div>
+
+          <!-- 8 -->
+          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="bmw" data-price="28500" data-kms="3986" style="background-image: url('/occasions/occasion_8.jpg');">
+            <div class="motor-info">
+              <h3>BMW M1000RR</h3>
+              <div class="motor-price">€ 28.500,-</div>
+              <ul class="motor-specs">
+                <li>Bouwjaar: <span>2022</span></li>
+                <li>CC: <span>1000 cc</span></li>
+                <li>Kilometerstand: <span>3.986 km</span></li>
+              </ul>
+              <a href="/occasion-bmw-m1000rr.html" class="btn btn-primary">Bekijk Details</a>
+            </div>
+          </div>
+
+          <!-- 9 -->
+          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="kawasaki" data-price="21498" data-kms="9800" style="background-image: url('/occasions/occasion_9.jpg');">
+            <div class="motor-info">
+              <h3>Kawasaki ZX-10R</h3>
+              <div class="motor-price">€ 21.498,-</div>
+              <ul class="motor-specs">
+                <li>Bouwjaar: <span>2021</span></li>
+                <li>CC: <span>636 cc</span></li>
+                <li>Kilometerstand: <span>9.800 km</span></li>
+              </ul>
+              <a href="#" class="btn btn-primary">Bekijk Details</a>
+            </div>
+          </div>
+
+          <!-- 1 -->
+          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="bmw" data-price="14450" data-kms="12500" style="background-image: url('/occasions/occasion_1.jpg');">
+            <div class="motor-info">
+              <h3>BMW R1200RT</h3>
+              <div class="motor-price">€ 14.450,-</div>
+              <ul class="motor-specs">
+                <li>Bouwjaar: <span>2022</span></li>
+                <li>CC: <span>948 cc</span></li>
+                <li>Kilometerstand: <span>12.500 km</span></li>
+              </ul>
+              <a href="#" class="btn btn-primary">Bekijk Details</a>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="bmw" data-price="11900" data-kms="8200" style="background-image: url('/occasions/occasion_2.jpg');">
+            <div class="motor-info">
+              <h3>BMW S1000R</h3>
+              <div class="motor-price">€ 11.900,-</div>
+              <ul class="motor-specs">
+                <li>Bouwjaar: <span>2020</span></li>
+                <li>CC: <span>999 cc</span></li>
+                <li>Kilometerstand: <span>8.200 km</span></li>
+              </ul>
+              <a href="#" class="btn btn-primary">Bekijk Details</a>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="ducati" data-price="10249" data-kms="24300" style="background-image: url('/occasions/occasion_3.jpg'); background-position: center 30%;">
+            <div class="motor-info">
+              <h3>Ducati Monster</h3>
+              <div class="motor-price">€ 10.249,-</div>
+              <ul class="motor-specs">
+                <li>Bouwjaar: <span>2019</span></li>
+                <li>CC: <span>948 cc</span></li>
+                <li>Kilometerstand: <span>24.300 km</span></li>
+              </ul>
+              <a href="#" class="btn btn-primary">Bekijk Details</a>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="kawasaki" data-price="20250" data-kms="18500" style="background-image: url('/occasions/occasion_4.jpg');">
+            <div class="motor-info">
+              <h3>Kawasaki H2 SE</h3>
+              <div class="motor-price">€ 20.250,-</div>
+              <ul class="motor-specs">
+                <li>Bouwjaar: <span>2021</span></li>
+                <li>CC: <span>1043 cc</span></li>
+                <li>Kilometerstand: <span>18.500 km</span></li>
+              </ul>
+              <a href="#" class="btn btn-primary">Bekijk Details</a>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="kawasaki" data-price="15750" data-kms="31000" style="background-image: url('/occasions/occasion_5.jpg');">
+            <div class="motor-info">
+              <h3>Kawasaki Ninja 1000SX</h3>
+              <div class="motor-price">€ 15.750,-</div>
+              <ul class="motor-specs">
+                <li>Bouwjaar: <span>2016</span></li>
+                <li>CC: <span>649 cc</span></li>
+                <li>Kilometerstand: <span>31.000 km</span></li>
+              </ul>
+              <a href="#" class="btn btn-primary">Bekijk Details</a>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="bmw" data-price="14489" data-kms="22000" style="background-image: url('/occasions/occasion_6.jpg');">
+            <div class="motor-info">
+              <h3>BMW R1200GS</h3>
+              <div class="motor-price">€ 14.489,-</div>
+              <ul class="motor-specs">
+                <li>Bouwjaar: <span>2018</span></li>
+                <li>CC: <span>998 cc</span></li>
+                <li>Kilometerstand: <span>22.000 km</span></li>
+              </ul>
+              <a href="#" class="btn btn-primary">Bekijk Details</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

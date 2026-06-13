@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financiering | Motorcentrum Almere</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <section class="sub-hero" style="background-image: url('/headers/finance-hero.webp');">
+      <div class="sub-hero-content">
+        <h1>MAAK HET MOGELIJK</h1>
+        <p style="font-size: 1.2rem; max-width: 600px;">Jouw droommotor is direct bereikbaar met onze op maat gemaakte financieringsplannen.</p>
+      </div>
+    </section>
+
+    <!-- Content & Calculator -->
+    <section class="content-section">
+      <div class="container">
+        <h2>Financiering op Maat</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Wil jij direct kunnen wegrijden maar je spaargeld achter de hand houden? Je nieuwe of gebruikte droommotor rijd je nu al vanaf een klein bedrag per maand dankzij dealerfinanciering. Bereken hieronder direct jouw richtprijs!.</p>
+
+        <!-- The Calculator -->
+        <div class="calc-container">
+          <h3>Bereken Jouw Maandbedrag</h3>
+
+          <div class="calc-grid">
+            <div class="form-group">
+              <label for="calc-motor">Kies jouw motor</label>
+              <select id="calc-motor" class="form-control">
+                <optgroup label="Nieuwe Motoren">
+                  <option value="12999">Nieuwe Z900 SE — € 12.999</option>
+                  <option value="65000">Nieuwe Ninja H2R — € 65.000</option>
+                  <option value="16499">Nieuwe Versys 1000 — € 16.499</option>
+                </optgroup>
+                <optgroup label="Occasions">
+                  <option value="10499">2022 Z900 SE — € 10.499</option>
+                  <option value="5850">2020 Ninja 400 — € 5.850</option>
+                  <option value="6950">2019 Versys 650 — € 6.950</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calc-downpayment">Aanbetaling / Inruilwaarde (€)</label>
+              <input type="number" id="calc-downpayment" class="form-control" value="2500" min="0" step="500">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Looptijd</label>
+            <div class="term-buttons" id="calc-term">
+              <button class="term-btn" data-months="24">24 mnd</button>
+              <button class="term-btn active" data-months="36">36 mnd</button>
+              <button class="term-btn" data-months="48">48 mnd</button>
+              <button class="term-btn" data-months="60">60 mnd</button>
+            </div>
+          </div>
+
+          <div class="calc-result">
+            <div class="calc-result-inner">
+              <div class="calc-result-label">Geschat maandbedrag</div>
+              <div class="monthly-price" id="calc-output">€ 0,-</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary">Offerte Aanvragen</a>
+          </div>
+
+          <div class="calc-disclaimer">
+            Let op: Dit is een online indicatie. Aan deze berekening kunnen geen rechten worden ontleend. Vraag een verkoper in de winkel naar jouw specifieke voorwaarden.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

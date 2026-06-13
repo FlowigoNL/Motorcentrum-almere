@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onze Werkplaats | Motorcentrum Almere Motorcentrum Almere</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preload" href="/headers/werkplaats-hero.webp" as="image" type="image/webp" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+    <style>
+      :root {
+        --glass-bg: rgba(17, 17, 17, 0.85);
+        --glass-border: rgba(102, 255, 0, 0.2);
+      }
+      
+      .service-matrix {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-top: 60px;
+      }
+      
+      .service-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--glass-border);
+        padding: 35px 25px;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 220px;
+      }
+      
+      .service-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--mc-orange);
+        box-shadow: 0 15px 40px rgba(102, 255, 0, 0.15);
+      }
+      
+      .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 4px; height: 0;
+        background: var(--mc-orange);
+        transition: height 0.4s ease;
+      }
+      
+      .service-card:hover::before {
+        height: 100%;
+      }
+      
+      .service-card h3 {
+        color: var(--mc-white);
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+        letter-spacing: 1px;
+      }
+      
+      .service-card p {
+        color: var(--kw-grey-light);
+        font-size: 0.9rem;
+        margin: 0;
+        opacity: 0.8;
+      }
+      
+      .trust-bar {
+        background: var(--mc-black);
+        padding: 30px 0;
+        position: relative;
+        z-index: 10;
+        transform: translateY(-50%);
+        border-radius: 10px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        border: 1px solid rgba(232,93,4,0.1);
+      }
+      
+      .trust-grid {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 30px;
+        text-align: center;
+      }
+      
+      .trust-item {
+        color: var(--mc-white);
+        text-transform: uppercase;
+        font-family: var(--font-heading);
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+      
+      .trust-item span {
+        display: block;
+        color: var(--mc-orange);
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+      }
+      
+      .premium-split {
+        display: flex;
+        align-items: center;
+        min-height: 600px;
+        background: var(--mc-black);
+        overflow: hidden;
+      }
+      
+      .premium-split-info {
+        flex: 1;
+        padding: 100px 8%;
+        position: relative;
+      }
+      
+      .premium-split-img {
+        flex: 1;
+        height: 600px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+      
+      .premium-split-img::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, var(--mc-black), transparent);
+      }
+      
+      .badge-group {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+      }
+      
+      .badge {
+        padding: 8px 15px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: var(--kw-grey-light);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <!-- Premium Hero Section -->
+    <section class="sub-hero" style="background-image: url('/headers/werkplaats-hero.webp'); height: 85vh;">
+      <div class="sub-hero-content" data-aos="zoom-in">
+        <h1 style="color: var(--mc-white); font-size: 5rem; line-height: 1;">EXPERTISE IN ELK DETAIL</h1>
+        <p style="font-size: 1.5rem; color: var(--mc-orange); margin-top: 10px; font-weight: bold;">GEKEURD DOOR EXPERTS. GEREDEN DOOR LIEFHEBBERS.</p>
+      </div>
+    </section>
+
+    <!-- Trust Floating Bar -->
+    <div class="container">
+      <div class="trust-bar" data-aos="fade-up">
+        <div class="trust-grid">
+          <div class="trust-item"><span>CERTIFIED</span>Gecertificeerde Monteurs</div>
+          <div class="trust-item"><span>VAKMANSCHAP</span>12 Maanden Garantie</div>
+          <div class="trust-item"><span>ERKENNING</span>BOVAG & RDW ERKEND</div>
+          <div class="trust-item"><span>OFFICIEEL</span>KDS DIAGNOSE SYSTEEM</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Intro Text -->
+    <section class="content-section" style="padding-top: 30px;">
+      <div class="container">
+        <div style="max-width: 1000px; margin: 0 auto; text-align: center;" data-aos="fade-up">
+          <h2 style="font-size: 3rem; margin-bottom: 30px;">UW MOTOR IN TOPCONDITIE</h2>
+          <p style="font-size: 1.25rem; line-height: 1.8; color: var(--mc-grey); margin-bottom: 40px;">
+            De moderne motor is voorzien van complexe elektronica en geavanceerde mechaniek. Bij Motorcentrum Almere begrijpen we dat passie en precisie hand in hand gaan. Goed motoronderhoud verlengt de levensduur en verhoogt uw veiligheid, zodat u zorgeloos kunt genieten van elke kilometer.
+          </p>
+        </div>
+
+        <!-- Service Matrix -->
+        <div class="service-matrix">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>ONDERHOUD & REPARATIE</h3>
+            <p>Complete service voor alle merken, van kleine beurt tot volledige revisie door experts.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <h3>FOUTCODES UITLEZEN</h3>
+            <p>Diagnoseapparatuur voor alle merken om elektronische storingen snel en nauwkeurig te verhelpen.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <h3>SCHADETAXATIE</h3>
+            <p>Officieel taxatierapport en hoogwaardig schadeherstel voor alle verzekeringsmaatschappijen.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <h3>MONTAGE ACCESSOIRES</h3>
+            <p>Professionele inbouw van navigatie, koffers, uitlaatsystemen en andere upgrades.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>AANKOOPKEURING</h3>
+            <p>Zeker weten wat u koopt? Laat een onafhankelijke keuring uitvoeren door onze monteurs.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <h3>BANDENSERVICE</h3>
+            <p>Demonteren, monteren en balanceren met zorg voor uw velgen. Uit eigen voorraad leverbaar.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <h3>WINTERSTALLING</h3>
+            <p>Vanaf 1 november: Uw motor warm, droog en veilig ondergebracht in onze stalling.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <h3>POEDERCOATEN</h3>
+            <p>Restauratie of custom look? Wij regelen het laten spuiten of poedercoaten van onderdelen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schadeherstel Split Section -->
+    <section class="premium-split" style="margin-top: 100px;">
+      <div class="premium-split-info" data-aos="fade-right">
+        <h2 style="color: var(--mc-white); font-size: 3.5rem; margin-bottom: 25px;">SCHADE EN <span style="color: var(--mc-orange);">HERSTEL</span></h2>
+        <p style="color: var(--kw-grey-light); margin-bottom: 30px; font-size: 1.1rem; line-height: 1.8;">
+          Een ongeluk zit in een klein hoekje. Mocht u schade oplopen, dan staan we voor u klaar met een totaaloplossing. We herstellen uw motor in originele staat of zoeken naar budgetvriendelijke oplossingen met gebruikte kwaliteitsonderdelen.
+        </p>
+        <ul style="color: var(--mc-white); margin-bottom: 40px; line-height: 2.2;">
+          <li><strong style="color: var(--mc-orange);">✓</strong> Officiële schadetaxatie</li>
+          <li><strong style="color: var(--mc-orange);">✓</strong> Leenmotor beschikbaar (op aanvraag)</li>
+          <li><strong style="color: var(--mc-orange);">✓</strong> Direct contact met verzekeraars</li>
+          <li><strong style="color: var(--mc-orange);">✓</strong> Montage en spuitwerk onder één dak</li>
+        </ul>
+        <a href="/werkplaatsafspraak.html" class="btn btn-primary">MELD SCHADE AAN</a>
+      </div>
+      <div class="premium-split-img" style="background-image: url('/occasions/occasion_3.jpg');"></div>
+    </section>
+
+    <!-- Banden & Partners Section -->
+    <section class="content-section" style="background: var(--kw-black-soft); padding: 120px 0; border-bottom: 1px solid rgba(232,93,4,0.1);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+          <div data-aos="fade-up">
+            <h2 style="color: var(--mc-white); font-size: 3rem;">BANDEN <span style="color: var(--mc-orange);">SPECIALIST</span></h2>
+            <p style="color: var(--kw-grey-light); margin-bottom: 30px;">
+              Versleten banden beïnvloeden de stuureigenschappen en veiligheid direct. Wij adviseren u de beste set voor uw rijstijl en merk motor.
+            </p>
+            <p style="color: var(--kw-grey-light);">
+              Dankzij onze samenwerking met topfabrikanten bieden wij zeer scherpe tarieven inclusief professionele montage en balanceren.
+            </p>
+            <div style="display: flex; gap: 30px; margin-top: 50px; flex-wrap: wrap; opacity: 0.6; filter: grayscale(1);">
+               <strong style="color: white; font-size: 1.5rem; letter-spacing: 2px;">MICHELIN</strong>
+               <strong style="color: white; font-size: 1.5rem; letter-spacing: 2px;">BRIDGESTONE</strong>
+               <strong style="color: white; font-size: 1.5rem; letter-spacing: 2px;">CONTINENTAL</strong>
+               <strong style="color: white; font-size: 1.5rem; letter-spacing: 2px;">DUNLOP</strong>
+            </div>
+          </div>
+          <div style="background: var(--mc-black); padding: 60px; border: 1px solid var(--mc-orange); border-radius: 4px;" data-aos="zoom-in">
+             <h3 style="color: var(--mc-white); margin-bottom: 20px;">NU NODIG?</h3>
+             <p style="color: var(--kw-grey-light); margin-bottom: 30px;">Bel direct voor de actuele voorraad en een prijsopgave. Indien niet op voorraad, hebben we de juiste band meestal binnen 24 uur in huis.</p>
+             <div style="font-size: 2rem; color: var(--mc-orange); font-family: var(--font-heading); font-weight: bold;">036-5346886</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pickup & Stalling Cards -->
+    <section class="content-section" style="padding: 120px 0;">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+          <div style="background: url('/headers/werkplaats-hero.jpg') center/cover; padding: 80px 50px; position: relative;" data-aos="fade-right">
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.7);"></div>
+            <div style="position: relative; z-index: 2;">
+              <h3 style="color: var(--mc-orange); font-size: 2.5rem; margin-bottom: 20px;">WINTERSTALLING</h3>
+              <p style="color: var(--mc-white); margin-bottom: 30px;">Heeft u zelf geen ruimte? Uw motor staat van 1 november tot 31 maart warm en veilig ondergebracht bij ons.</p>
+              <a href="/winterstalling.html" class="btn btn-outline">ONTDEK TARIEVEN</a>
+            </div>
+          </div>
+          <div style="background: var(--mc-orange); padding: 80px 50px; display: flex; flex-direction: column; justify-content: center;" data-aos="fade-left">
+            <h3 style="color: var(--mc-black); font-size: 2.5rem; margin-bottom: 20px;">HAAL- EN BRENG SERVICE</h3>
+            <p style="color: var(--mc-black); font-size: 1.1rem; margin-bottom: 30px; font-weight: bold;">
+              Pech onderweg of een motor die niet start? Onze eigen transportservice haalt uw motor op en brengt deze na reparatie weer terug.
+            </p>
+            <div style="font-size: 2.2rem; color: var(--mc-black); font-family: var(--font-heading); font-weight: bold; border-top: 2px solid var(--mc-black); padding-top: 20px;">
+              BEL VOOR TRANSPORT: 036-5346886
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Status -->
+    <section class="content-section" style="background: #fcfcfc; padding: 100px 0; border-top: 1px solid #eee;">
+      <div class="container" style="text-align: center;">
+        <div data-aos="fade-up">
+          <h2 style="margin-bottom: 20px;">MAAK EEN AFSPRAAK</h2>
+          <p style="margin-bottom: 40px; font-size: 1.2rem;">Klaar voor onderhoud? Kom even langs onder het genot van een kopje koffie of neem contact op.</p>
+          <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
+            <div>
+              <div style="font-size: 0.8rem; color: var(--mc-grey); letter-spacing: 1px; text-transform: uppercase;">E-mail</div>
+              <div style="font-size: 1.5rem; font-weight: bold; color: var(--mc-black);">werkplaats@motorplanetalmere.nl</div>
+            </div>
+          </div>
+          <div class="badge-group" style="justify-content: center; margin-top: 50px;">
+            <div class="badge">HONDA SPECIALIST</div>
+            <div class="badge">KAWASAKI SPECIALIST</div>
+            <div class="badge">BOVAG AANGESLOTEN</div>
+            <div class="badge">RDW ERKENNING</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

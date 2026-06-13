@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Motorcentrum Almere</title>
+    <meta name="description" content="Neem contact op met Motorcentrum Almere. Bezoek onze showroom in Almere, bel ons of stuur een bericht. Wij helpen u graag." />
+    <link rel="canonical" href="https://www.motorcentrum-almere.nl/contact.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <section class="sub-hero" style="background-image: url('/headers/werkplaats-hero.webp');">
+      <div class="sub-hero-content">
+        <h1>CONTACT</h1>
+        <p>Wij zijn er voor u. Bezoek onze showroom, bel ons of stuur een bericht.</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+
+          <div data-aos="fade-right">
+            <h2>Onze Gegevens</h2>
+            <table style="margin-top: 25px; font-size: 1.05rem; line-height: 2;">
+              <tr><td style="font-weight: bold; padding-right: 20px;">Adres</td><td>[ADRES INVULLEN], Almere</td></tr>
+              <tr><td style="font-weight: bold;">Telefoon</td><td><a href="tel:+310360000000">[TELEFOON INVULLEN]</a></td></tr>
+              <tr><td style="font-weight: bold;">E-mail</td><td><a href="mailto:info@motorcentrum-almere.nl">info@motorcentrum-almere.nl</a></td></tr>
+            </table>
+
+            <h3 style="margin-top: 40px; margin-bottom: 15px;">Openingstijden</h3>
+            <table style="font-size: 1.05rem; line-height: 2;">
+              <tr><td style="font-weight: bold; padding-right: 20px;">Maandag</td><td>[INVULLEN]</td></tr>
+              <tr><td style="font-weight: bold;">Dinsdag t/m vrijdag</td><td>[INVULLEN]</td></tr>
+              <tr><td style="font-weight: bold;">Zaterdag</td><td>[INVULLEN]</td></tr>
+              <tr><td style="font-weight: bold;">Zondag</td><td>Gesloten</td></tr>
+            </table>
+          </div>
+
+          <div data-aos="fade-left">
+            <h2>Stuur een Bericht</h2>
+            <form action="#" method="POST" style="margin-top: 25px;">
+              <input type="hidden" name="_csrf" value="" />
+              <div class="form-group">
+                <label for="naam">Naam *</label>
+                <input type="text" id="naam" name="naam" class="form-control" required autocomplete="name" placeholder="Uw volledige naam" aria-required="true" />
+              </div>
+              <div class="form-group">
+                <label for="email">E-mailadres *</label>
+                <input type="email" id="email" name="email" class="form-control" required autocomplete="email" placeholder="uw@email.nl" aria-required="true" />
+              </div>
+              <div class="form-group">
+                <label for="telefoon">Telefoonnummer</label>
+                <input type="tel" id="telefoon" name="telefoon" class="form-control" autocomplete="tel" placeholder="06 - 00 00 00 00" />
+              </div>
+              <div class="form-group">
+                <label for="bericht">Bericht *</label>
+                <textarea id="bericht" name="bericht" class="form-control" rows="5" required aria-required="true" placeholder="Waar kunnen wij u mee helpen?"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Verstuur Bericht</button>
+              <p style="margin-top: 15px; font-size: 0.85rem; color: var(--mc-grey);">Wij nemen zo spoedig mogelijk contact met u op. Uw gegevens worden niet gedeeld met derden.</p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

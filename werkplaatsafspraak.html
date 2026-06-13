@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Werkplaatsafspraak | Motorcentrum Almere Motorcentrum Almere</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+    <style>
+      :root {
+        --glass-bg: rgba(17, 17, 17, 0.95);
+        --glass-border: rgba(102, 255, 0, 0.2);
+      }
+      
+      .wizard-container {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-top: 5px solid var(--mc-orange);
+        padding: 50px;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      /* Progress Bar */
+      .progress-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+        position: relative;
+      }
+      .progress-container::after {
+        content: '';
+        position: absolute;
+        top: 15px; left: 0; right: 0; height: 2px;
+        background: var(--kw-grey-dark);
+        z-index: 1;
+      }
+      .progress-bar-fill {
+        position: absolute;
+        top: 15px; left: 0; height: 2px;
+        background: var(--mc-orange);
+        z-index: 2;
+        transition: width 0.4s ease;
+        width: 0%;
+      }
+      .step-indicator {
+        width: 35px; height: 35px;
+        background: var(--kw-black-soft);
+        border: 2px solid var(--kw-grey-dark);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--mc-grey);
+        font-weight: bold;
+        z-index: 3;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+      .step-indicator.active {
+        border-color: var(--mc-orange);
+        color: var(--mc-white);
+        box-shadow: 0 0 15px rgba(102, 255, 0, 0.4);
+      }
+      .step-indicator.completed {
+        background: var(--mc-orange);
+        border-color: var(--mc-orange);
+        color: var(--mc-black);
+      }
+      
+      /* Wizard Steps */
+      .wizard-step {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+      .wizard-step.active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .wizard-container .wizard-step h2 {
+        color: var(--mc-orange);
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+      }
+      .wizard-step p {
+        color: var(--kw-grey-light);
+        margin-bottom: 40px;
+      }
+      
+      .form-group { margin-bottom: 25px; }
+      .form-group label {
+        display: block; margin-bottom: 10px;
+        text-transform: uppercase; letter-spacing: 1px;
+        font-size: 0.85rem; color: var(--kw-grey-light);
+        font-weight: bold;
+      }
+      .form-group input, .form-group select, .form-group textarea {
+        width: 100%; padding: 15px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: var(--mc-white);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        border-radius: 4px;
+      }
+      .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+        outline: none; border-color: var(--mc-orange);
+        background: rgba(255,255,255,0.08);
+      }
+      
+      .wizard-nav {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .success-message {
+        text-align: center;
+        padding: 60px 20px;
+        display: none;
+      }
+      .success-message h2 { color: var(--mc-orange); font-size: 3rem; margin-bottom: 20px; }
+      .success-message p { font-size: 1.2rem; color: var(--mc-white); }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <section class="sub-hero" style="background-image: url('/headers/werkplaats-hero.webp');">
+      <div class="sub-hero-content" data-aos="zoom-in">
+        <h1>WERKPLAATSAFSPRAAK</h1>
+        <p style="font-size: 1.2rem; max-width: 600px;">Direct online inplannen bij de experts van Motorcentrum Almere.</p>
+      </div>
+    </section>
+
+    <section class="content-section" style="background: var(--mc-black);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 400px; gap: 60px;">
+          
+          <!-- Wizard Column -->
+          <div class="wizard-container" data-aos="fade-up">
+            
+            <!-- Progress Bar -->
+            <div class="progress-container">
+              <div class="progress-bar-fill" id="progress-bar"></div>
+              <div class="step-indicator active">1</div>
+              <div class="step-indicator">2</div>
+              <div class="step-indicator">3</div>
+              <div class="step-indicator">4</div>
+            </div>
+
+            <!-- Steps -->
+            <form id="afspraak-wizard">
+              
+              <!-- Step 1: Persoonlijke Gegevens -->
+              <div class="wizard-step active" data-step="1">
+                <h2>IDENTITEIT</h2>
+                <p>Met wie hebben we het genoegen? Vul uw contactgegevens in.</p>
+                <div class="form-group">
+                  <label>Volledige Naam*</label>
+                  <input type="text" id="naam" placeholder="bijv. Jan de Vries" required />
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                  <div class="form-group">
+                    <label>E-mailadres*</label>
+                    <input type="email" id="email" placeholder="naam@email.nl" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Telefoonnummer*</label>
+                    <input type="tel" id="telefoon" placeholder="06-12345678" required />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 2: Uw Motor -->
+              <div class="wizard-step" data-step="2">
+                <h2>DE MOTOR</h2>
+                <p>Vertel ons meer over uw machine voor de juiste voorbereiding.</p>
+                <div class="form-group">
+                  <label>Merk, Model & Bouwjaar*</label>
+                  <input type="text" id="motor" placeholder="bijv. Z900, 2022" required />
+                </div>
+                <div class="form-group">
+                  <label>Kenteken</label>
+                  <input type="text" id="kenteken" placeholder="XX-XXX-X" style="text-transform: uppercase;" />
+                </div>
+              </div>
+
+              <!-- Step 3: Werkzaamheden -->
+              <div class="wizard-step" data-step="3">
+                <h2>WERKZAAMHEDEN</h2>
+                <p>Wat mogen onze monteurs voor u betekenen?</p>
+                <div class="form-group">
+                  <label>Gewenste Dienst*</label>
+                  <select id="dienst" class="filter-select" required>
+                    <option value="">Selecteer een dienst</option>
+                    <option>Onderhoud en reparatie van alle merken</option>
+                    <option>Montage van accessoires</option>
+                    <option>Schade taxatie en schadeherstel alle merken</option>
+                    <option>Foutcodes uitlezen van diverse merken</option>
+                    <option>Aankoopkeuring</option>
+                    <option>Modificaties</option>
+                    <option>Winterstalling</option>
+                    <option>Bandenwissel (met en zonder velg)</option>
+                    <option>Poedercoaten en/of spuiten onderdelen</option>
+                    <option>Controle en /of vervanging van lagers, wielen en of balhoofd</option>
+                    <option>Voorjaarscheck en wintercheck</option>
+                    <option>Haal- en breng service</option>
+                    <option>Anders</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Aanvullende opmerkingen</label>
+                  <textarea id="opmerking" rows="4" placeholder="Beschrijf kort uw verzoek of eventuele gebreken..."></textarea>
+                </div>
+              </div>
+
+              <!-- Step 4: Planning -->
+              <div class="wizard-step" data-step="4">
+                <h2>PLANNING</h2>
+                <p>Wanneer komt het u het beste uit?</p>
+                <div class="form-group">
+                  <label>Gewenste Datum*</label>
+                  <input type="date" id="datum" required />
+                </div>
+                <div class="form-group">
+                  <label>Voorkeur Moment</label>
+                  <div style="display: flex; gap: 20px;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                      <input type="radio" name="moment" value="ochtend" checked style="width: auto;" /> Ochtend
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                      <input type="radio" name="moment" value="middag" style="width: auto;" /> Middag
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <!-- Success State -->
+            <div class="success-message" id="success-message">
+              <h2>AANVRAAG ONTVANGEN</h2>
+              <p>Bedankt voor uw aanvraag. Wij nemen binnen één werkdag contact met u op om de definitieve datum te bevestigen.</p>
+              <a href="/index.html" class="btn btn-primary" style="margin-top: 30px;">TERUG NAAR DE HOME</a>
+            </div>
+
+            <!-- Navigation -->
+            <div class="wizard-nav" id="wizard-nav">
+              <button type="button" class="btn btn-outline" id="prev-btn" style="visibility: hidden;">VORIGE</button>
+              <button type="button" class="btn btn-primary" id="next-btn">VOLGENDE</button>
+            </div>
+
+          </div>
+
+          <!-- Contact/Info Column -->
+          <div data-aos="fade-left">
+            <div style="background: var(--kw-black-soft); padding: 40px; border-radius: 4px; margin-bottom: 30px;">
+               <h3 style="color: var(--mc-white); margin-bottom: 20px; font-size: 1.5rem;">DIRECT HULP?</h3>
+               <p style="color: var(--kw-grey-light); margin-bottom: 25px;">Heeft u een spoedklus of pech onderweg? Bel dan direct met onze werkplaatsreceptie.</p>
+               <a href="tel:0365346886" style="color: var(--mc-orange); font-size: 1.8rem; font-family: var(--font-heading); font-weight: bold;">036-5346886</a>
+            </div>
+            <div style="padding: 0 20px;">
+              <h4 style="color: var(--mc-white); margin-bottom: 15px;">OPENINGSTIJDEN</h4>
+              <ul style="color: var(--kw-grey-light); line-height: 2;">
+                <li style="display: flex; justify-content: space-between;"><span>Ma - Vr</span> <span>08:30 - 17:30</span></li>
+                <li style="display: flex; justify-content: space-between; color: var(--mc-orange);"><span>Zaterdag</span> <span>09:00 - 15:00</span></li>
+                <li style="display: flex; justify-content: space-between;"><span>Zondag</span> <span style="color: #ff4444;">Gesloten</span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script type="module" src="/main.js"></script>
+    
+    <script>
+      // Wizard Logic
+      document.addEventListener('DOMContentLoaded', () => {
+        let currentStep = 1;
+        const totalSteps = 4;
+        
+        const steps = document.querySelectorAll('.wizard-step');
+        const indicators = document.querySelectorAll('.step-indicator');
+        const progressBar = document.getElementById('progress-bar');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const wizardForm = document.getElementById('afspraak-wizard');
+        const wizardNav = document.getElementById('wizard-nav');
+        const successMsg = document.getElementById('success-message');
+
+        function updateWizard() {
+          // Update Steps
+          steps.forEach(s => s.classList.remove('active'));
+          document.querySelector(`.wizard-step[data-step="${currentStep}"]`).classList.add('active');
+          
+          // Update Indicators
+          indicators.forEach((ind, i) => {
+            if (i + 1 < currentStep) ind.classList.add('completed');
+            else ind.classList.remove('completed');
+            
+            if (i + 1 === currentStep) ind.classList.add('active');
+            else ind.classList.remove('active');
+          });
+          
+          // Update Progress Bar
+          const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+          progressBar.style.width = `${progress}%`;
+          
+          // Update Buttons
+          prevBtn.style.visibility = currentStep === 1 ? 'hidden' : 'visible';
+          nextBtn.textContent = currentStep === totalSteps ? 'AFSPRAAK BEVESTIGEN' : 'VOLGENDE';
+        }
+
+        nextBtn.addEventListener('click', () => {
+          // Validation Check
+          const currentVisibleStep = document.querySelector(`.wizard-step[data-step="${currentStep}"]`);
+          const inputs = currentVisibleStep.querySelectorAll('input[required], select[required]');
+          let valid = true;
+          
+          inputs.forEach(input => {
+            if (!input.value) {
+              input.style.borderColor = '#ff4444';
+              valid = false;
+            } else {
+              input.style.borderColor = 'rgba(255,255,255,0.1)';
+            }
+          });
+
+          if (!valid) return;
+
+          if (currentStep < totalSteps) {
+            currentStep++;
+            updateWizard();
+          } else {
+            // Final Submit
+            wizardForm.style.display = 'none';
+            wizardNav.style.display = 'none';
+            successMsg.style.display = 'block';
+            document.querySelector('.progress-container').style.display = 'none';
+          }
+        });
+
+        prevBtn.addEventListener('click', () => {
+          if (currentStep > 1) {
+            currentStep--;
+            updateWizard();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

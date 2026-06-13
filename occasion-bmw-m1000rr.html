@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMW M1000RR 2022 | Motorcentrum Almere Occasions</title>
+    <meta name="description" content="BMW M1000RR uit 2022 met slechts 3.986 km. 1000cc superbike in topstaat. Nu beschikbaar bij Motorcentrum Almere voor € 28.500,-" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+    <style>
+      /* === Foto Viewer === */
+      .detail-viewer { background: var(--mc-black); }
+
+      .viewer-main {
+        position: relative; width: 100%; height: 100vh;
+        overflow: hidden; background: #000;
+      }
+      .viewer-main img {
+        width: 100%; height: 100%; object-fit: cover; object-position: center;
+        display: none;
+      }
+      .viewer-main img.active { display: block; }
+
+      /* Info Overlay over de foto */
+      .viewer-overlay {
+        position: absolute; bottom: 0; left: 0; right: 0;
+        padding: 120px 5% 60px;
+        background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 40%, transparent 100%);
+        z-index: 4; text-align: left;
+        pointer-events: none;
+      }
+      .viewer-overlay * { pointer-events: auto; }
+      .viewer-overlay h1 { color: var(--mc-white); font-size: 4.5rem; margin-bottom: 5px; text-shadow: 2px 2px 15px rgba(0,0,0,0.8); line-height: 1.1; }
+      .viewer-overlay .detail-price {
+        font-family: var(--font-heading); font-size: 3.2rem; color: var(--mc-orange); text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        margin-bottom: 5px;
+      }
+      .financing-tag {
+        color: var(--mc-white); font-size: 1.2rem; margin-bottom: 25px;
+        font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 1px;
+      }
+      .financing-tag span { color: var(--mc-orange); font-weight: bold; font-size: 1.4rem; }
+      
+      .detail-badge {
+        display: inline-block; background: var(--mc-orange); color: var(--mc-black);
+        padding: 8px 20px; font-family: var(--font-heading); font-size: 1rem;
+        text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 20px;
+      }
+      
+      /* Key Specs Pills */
+      .key-specs-pills {
+        display: flex; gap: 15px; margin-top: 15px;
+      }
+      .spec-pill {
+        background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+        color: var(--mc-white); padding: 10px 20px; border-radius: 50px;
+        font-family: var(--font-heading); font-size: 1.1rem; backdrop-filter: blur(10px);
+        display: flex; flex-direction: column; align-items: center; min-width: 100px;
+      }
+      .spec-pill span { font-size: 0.75rem; color: var(--mc-orange); text-transform: uppercase; margin-bottom: 2px; }
+
+      /* === Detail Body === */
+      .detail-body { max-width: 1400px; margin: 0 auto; padding: 60px 20px; }
+      .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+
+      .spec-table { width: 100%; border-collapse: collapse; }
+      .spec-table tr { border-bottom: 1px solid var(--kw-grey-dark); }
+      .spec-table td { padding: 18px 0; font-size: 1.05rem; }
+      .spec-table td:first-child {
+        font-family: var(--font-heading); text-transform: uppercase; letter-spacing: 1px;
+        color: var(--mc-grey); font-weight: 700; width: 45%;
+      }
+      .spec-table td:last-child { font-weight: bold; }
+
+      .detail-description { line-height: 1.8; font-size: 1.05rem; color: #333; }
+      .detail-description h2 { margin-bottom: 20px; }
+      .detail-description p { margin-bottom: 20px; }
+
+      .detail-cta {
+        background: var(--kw-black-soft); padding: 40px; margin-top: 40px; border-radius: 10px;
+        border: 1px solid rgba(232,93,4,0.1); text-align: center;
+      }
+      .detail-cta h3 { color: var(--mc-white); margin-bottom: 15px; font-size: 1.5rem; }
+      .detail-cta p { color: var(--kw-grey-light); margin-bottom: 25px; }
+      .detail-cta .btn { margin: 0 10px; }
+
+      /* === Viewer Nav Overwrite (Z-index fix) === */
+      .viewer-nav {
+        position: absolute; top: 50%; transform: translateY(-50%);
+        background: rgba(0,0,0,0.5); color: #fff; border: none;
+        font-size: 3rem; cursor: pointer; padding: 20px 22px; z-index: 10;
+        transition: background 0.3s ease, color 0.3s ease;
+        line-height: 1;
+      }
+      .viewer-nav:hover { background: rgba(232,93,4,0.4); color: var(--mc-orange); }
+      .viewer-nav.prev { left: 15px; border-radius: 6px; }
+      .viewer-nav.next { right: 15px; border-radius: 6px; }
+
+      .viewer-counter {
+        position: absolute; top: 20px; right: 25px; z-index: 10;
+        background: rgba(0,0,0,0.6); color: #fff; padding: 8px 18px;
+        font-family: var(--font-heading); font-size: 1rem; border-radius: 4px;
+      }
+
+      .viewer-thumbs {
+        display: flex; gap: 8px; padding: 15px 20px; overflow-x: auto;
+        background: var(--mc-black); justify-content: center;
+        border-bottom: 2px solid var(--mc-orange);
+      }
+      .viewer-thumbs img {
+        width: 100px; height: 68px; object-fit: cover; cursor: pointer;
+        border: 2px solid transparent; border-radius: 4px; opacity: 0.4;
+        transition: opacity 0.3s ease, border-color 0.3s ease;
+        flex-shrink: 0;
+      }
+      .detail-cta .btn { margin: 10px; }
+
+      /* Financiering Box */
+      .finance-box {
+        background: rgba(232,93,4,0.05); border: 1px solid var(--mc-orange);
+        padding: 30px; border-radius: 10px; margin-top: 30px;
+        text-align: left; position: relative; overflow: hidden;
+      }
+      .finance-box h3 { color: var(--mc-black); margin-bottom: 10px; }
+      .finance-box .price-sm { font-size: 2rem; color: var(--mc-orange); font-family: var(--font-heading); margin-bottom: 15px; }
+      .finance-box .btn { width: 100%; margin: 0; }
+      .finance-box::after {
+        content: '€'; position: absolute; right: -25px; bottom: -35px;
+        font-size: 10rem; color: rgba(232,93,4,0.08); font-family: var(--font-heading);
+        z-index: 0; pointer-events: none;
+      }
+      .finance-box * { position: relative; z-index: 1; }
+
+      @media (max-width: 768px) {
+        .detail-grid { grid-template-columns: 1fr; }
+        .viewer-main { height: 80vh; }
+        .viewer-overlay h1 { font-size: 2.8rem; }
+        .viewer-overlay .detail-price { font-size: 2rem; }
+        .key-specs-pills { flex-wrap: wrap; }
+        .spec-pill { min-width: 80px; padding: 8px 15px; font-size: 0.9rem; }
+        .viewer-thumbs img { width: 70px; height: 50px; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Foto Viewer -->
+    <section class="detail-viewer">
+      <div class="viewer-main" id="viewer-main">
+        <img src="/occasions/bmw-m1000rr/1.jpg" alt="BMW M1000RR foto 1" class="active" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/2.jpg" alt="BMW M1000RR foto 2" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/3.jpg" alt="BMW M1000RR foto 3" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/4.jpg" alt="BMW M1000RR foto 4" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/5.jpg" alt="BMW M1000RR foto 5" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/6.jpg" alt="BMW M1000RR foto 6" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/7.jpg" alt="BMW M1000RR foto 7" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/8.jpg" alt="BMW M1000RR foto 8" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/9.jpg" alt="BMW M1000RR foto 9" />
+        
+        <!-- Info Overlay -->
+        <div class="viewer-overlay">
+          <span class="detail-badge">Occasion</span>
+          <h1>BMW M1000RR</h1>
+          <div class="detail-price">€ 28.500,-</div>
+          <div class="financing-tag">Of rij hem al vanaf <span>€ 349,-</span> p/m</div>
+          
+          <div class="key-specs-pills">
+            <div class="spec-pill"><span>Bouwjaar</span>2022</div>
+            <div class="spec-pill"><span>KM-stand</span>3.986 km</div>
+            <div class="spec-pill"><span>Capaciteit</span>1.000 cc</div>
+            <div class="spec-pill"><span>Vermogen</span>212 pk</div>
+          </div>
+        </div>
+
+        <button class="viewer-nav prev" onclick="changeSlide(-1)">‹</button>
+        <button class="viewer-nav next" onclick="changeSlide(1)">›</button>
+        <div class="viewer-counter" id="viewer-counter">1 / 9</div>
+      </div>
+      <div class="viewer-thumbs" id="viewer-thumbs">
+        <img loading="lazy" src="/occasions/bmw-m1000rr/1.jpg" alt="Thumb 1" class="active" onclick="goToSlide(0)" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/2.jpg" alt="Thumb 2" onclick="goToSlide(1)" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/3.jpg" alt="Thumb 3" onclick="goToSlide(2)" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/4.jpg" alt="Thumb 4" onclick="goToSlide(3)" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/5.jpg" alt="Thumb 5" onclick="goToSlide(4)" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/6.jpg" alt="Thumb 6" onclick="goToSlide(5)" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/7.jpg" alt="Thumb 7" onclick="goToSlide(6)" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/8.jpg" alt="Thumb 8" onclick="goToSlide(7)" />
+        <img loading="lazy" src="/occasions/bmw-m1000rr/9.jpg" alt="Thumb 9" onclick="goToSlide(8)" />
+      </div>
+    </section>
+
+
+
+    <!-- Detail Body -->
+    <div class="detail-body">
+      <div class="detail-grid">
+
+        <!-- Specs -->
+        <div data-aos="fade-right">
+          <h2>Specificaties</h2>
+          <table class="spec-table">
+            <tr><td>Merk</td><td>BMW</td></tr>
+            <tr><td>Model</td><td>M1000RR</td></tr>
+            <tr><td>Bouwjaar</td><td>2022</td></tr>
+            <tr><td>Cilinderinhoud</td><td>1.000 cc</td></tr>
+            <tr><td>Kilometerstand</td><td>3.986 km</td></tr>
+            <tr><td>Vermogen</td><td>212 pk</td></tr>
+            <tr><td>Kleur</td><td>Zie foto</td></tr>
+            <tr><td>Type</td><td>Superbike</td></tr>
+            <tr><td>Conditie</td><td>Uitstekend</td></tr>
+          </table>
+        </div>
+
+        <!-- Description -->
+        <div data-aos="fade-left">
+          <div class="detail-description">
+            <h2>Over deze motor</h2>
+            <p>Deze BMW M1000RR uit 2022 is een absoluut toppunt van Duitse ingenieurskunst. Met slechts 3.986 kilometer op de teller is deze superbike nauwelijks ingereden en verkeert in een uitmuntende staat.</p>
+            <p>De M1000RR levert een imposante 212 pk en is uitgerust met de nieuwste elektronica, waaronder cornering ABS, traction control en meerdere rijmodi. Een machine die zowel op het circuit als op de openbare weg indruk maakt.</p>
+            <p>De motor is door onze werkplaats volledig geïnspecteerd en is direct rijklaar. Inclusief onderhoudshistorie en dealergarantie.</p>
+          </div>
+
+          <!-- CTA -->
+          <div class="detail-cta">
+            <h3>Interesse in deze motor?</h3>
+            <p>Plan een proefrit of neem direct contact met ons op voor meer informatie.</p>
+            <a href="/contact.html" class="btn btn-primary">Plan Een Proefrit</a>
+            <a href="/occasions.html" class="btn btn-outline">Terug Naar Occasions</a>
+          </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Extra Options Section -->
+      <div class="detail-grid" style="margin-top: 40px;">
+        <div data-aos="fade-up">
+           <div class="finance-box">
+             <h3>Financiering</h3>
+             <p>Betaal deze motor in termijnen met dealerfinanciering. Zonder grote hap uit je spaargeld direct op pad.</p>
+             <div class="price-sm">Vanaf € 349,- p/m</div>
+             <a href="/financiering.html" class="btn btn-primary">Bereken Jouw Bedrag</a>
+           </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100">
+           <div class="detail-cta" style="margin-top: 0; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+             <h3>Verzekering</h3>
+             <p>Bereken direct je premie voor de scherpste motorverzekering.</p>
+             <a href="/verzekering.html" class="btn btn-outline" style="width: 100%; margin: 0;">Bereken Premie</a>
+           </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script type="module" src="/main.js"></script>
+    <script>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('#viewer-main > img');
+      const thumbs = document.querySelectorAll('#viewer-thumbs > img');
+      const counter = document.getElementById('viewer-counter');
+      const total = slides.length;
+
+      function goToSlide(index) {
+        slides[currentSlide].classList.remove('active');
+        thumbs[currentSlide].classList.remove('active');
+        currentSlide = (index + total) % total;
+        slides[currentSlide].classList.add('active');
+        thumbs[currentSlide].classList.add('active');
+        counter.textContent = (currentSlide + 1) + ' / ' + total;
+      }
+
+      function changeSlide(dir) {
+        goToSlide(currentSlide + dir);
+      }
+
+      // Pijltjestoetsen support
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') changeSlide(-1);
+        if (e.key === 'ArrowRight') changeSlide(1);
+      });
+    </script>
+  </body>
+</html>

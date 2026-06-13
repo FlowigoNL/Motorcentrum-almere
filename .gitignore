@@ -1,0 +1,8 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+build_error.log
+build_error_utf8.log
+download_site.py
