@@ -4,67 +4,96 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact | Motorcentrum Almere</title>
-    <meta name="description" content="Neem contact op met Motorcentrum Almere. Bezoek onze showroom in Almere, bel ons of stuur een bericht. Wij helpen u graag." />
+    <meta name="description" content="Bezoek Motorcentrum Almere op Zeno van Citiumstraat 2 in Almere. Telefoon 036-5498036. Geopend di t/m vr 9-18u, za 9-17u." />
     <link rel="canonical" href="https://www.motorcentrum-almere.nl/contact.html" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+    <style>
+      .contact-table td { padding: 8px 20px 8px 0; }
+      .contact-table td:first-child { font-weight: bold; white-space: nowrap; color: var(--mc-grey); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+    </style>
   </head>
   <body>
     <div id="header-placeholder"></div>
 
-    <section class="sub-hero" style="background-image: url('/headers/werkplaats-hero.webp');">
+    <section class="sub-hero" style="background-image: url('/about-4.jpg');">
       <div class="sub-hero-content">
         <h1>CONTACT</h1>
-        <p>Wij zijn er voor u. Bezoek onze showroom, bel ons of stuur een bericht.</p>
+        <p>Wij helpen u graag. Bezoek onze showroom, bel ons of stuur een e-mail.</p>
       </div>
     </section>
 
     <section class="content-section">
       <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
 
           <div data-aos="fade-right">
-            <h2>Onze Gegevens</h2>
-            <table style="margin-top: 25px; font-size: 1.05rem; line-height: 2;">
-              <tr><td style="font-weight: bold; padding-right: 20px;">Adres</td><td>[ADRES INVULLEN], Almere</td></tr>
-              <tr><td style="font-weight: bold;">Telefoon</td><td><a href="tel:+310360000000">[TELEFOON INVULLEN]</a></td></tr>
-              <tr><td style="font-weight: bold;">E-mail</td><td><a href="mailto:info@motorcentrum-almere.nl">info@motorcentrum-almere.nl</a></td></tr>
+            <h2 style="margin-bottom: 30px;">Onze Gegevens</h2>
+            <table class="contact-table" style="font-size: 1.05rem; line-height: 1.8; width: 100%;">
+              <tr><td>Adres</td><td>Zeno van Citiumstraat 2<br>1349 GK Almere</td></tr>
+              <tr><td>Telefoon</td><td><a href="tel:036-5498036">036-5498036</a></td></tr>
+              <tr><td>E-mail</td><td><a href="mailto:info@motorcentrumalmere.nl">info@motorcentrumalmere.nl</a></td></tr>
+              <tr><td>Facebook</td><td><a href="https://www.facebook.com/motorcentrum-almere" target="_blank" rel="noopener">motorcentrum-almere</a></td></tr>
+              <tr><td>Instagram</td><td><a href="https://www.instagram.com/motorcentrumalmere/" target="_blank" rel="noopener">@motorcentrumalmere</a></td></tr>
             </table>
 
-            <h3 style="margin-top: 40px; margin-bottom: 15px;">Openingstijden</h3>
-            <table style="font-size: 1.05rem; line-height: 2;">
-              <tr><td style="font-weight: bold; padding-right: 20px;">Maandag</td><td>[INVULLEN]</td></tr>
-              <tr><td style="font-weight: bold;">Dinsdag t/m vrijdag</td><td>[INVULLEN]</td></tr>
-              <tr><td style="font-weight: bold;">Zaterdag</td><td>[INVULLEN]</td></tr>
-              <tr><td style="font-weight: bold;">Zondag</td><td>Gesloten</td></tr>
+            <h3 style="margin-top: 40px; margin-bottom: 20px;">Openingstijden</h3>
+            <table class="contact-table" style="font-size: 1.05rem; line-height: 1.8; width: 100%;">
+              <tr><td>Maandag</td><td>Gesloten</td></tr>
+              <tr><td>Di t/m Vrijdag</td><td>9:00 &ndash; 18:00</td></tr>
+              <tr><td>Zaterdag</td><td>9:00 &ndash; 17:00</td></tr>
+              <tr><td>Zondag</td><td>Gesloten</td></tr>
+              <tr><td colspan="2" style="font-size: 0.85rem; color: var(--mc-grey); padding-top: 10px;">Feest/vakantiedagen: bel ons even voor actuele tijden.</td></tr>
             </table>
+
+            <h3 style="margin-top: 40px; margin-bottom: 15px;">Routebeschrijving</h3>
+            <div style="border-radius: 4px; overflow: hidden; margin-top: 10px;">
+              <iframe
+                title="Locatie Motorcentrum Almere"
+                src="https://maps.google.com/maps?q=52.361747,5.180883&z=15&output=embed"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
           </div>
 
           <div data-aos="fade-left">
-            <h2>Stuur een Bericht</h2>
-            <form action="#" method="POST" style="margin-top: 25px;">
-              <input type="hidden" name="_csrf" value="" />
+            <h2 style="margin-bottom: 30px;">Stuur Ons Een Bericht</h2>
+            <form action="#" method="POST">
+              <input type="hidden" name="_csrf" value="" aria-hidden="true" />
               <div class="form-group">
-                <label for="naam">Naam *</label>
+                <label for="naam">Naam <span aria-hidden="true">*</span></label>
                 <input type="text" id="naam" name="naam" class="form-control" required autocomplete="name" placeholder="Uw volledige naam" aria-required="true" />
               </div>
               <div class="form-group">
-                <label for="email">E-mailadres *</label>
+                <label for="email">E-mailadres <span aria-hidden="true">*</span></label>
                 <input type="email" id="email" name="email" class="form-control" required autocomplete="email" placeholder="uw@email.nl" aria-required="true" />
               </div>
               <div class="form-group">
                 <label for="telefoon">Telefoonnummer</label>
-                <input type="tel" id="telefoon" name="telefoon" class="form-control" autocomplete="tel" placeholder="06 - 00 00 00 00" />
+                <input type="tel" id="telefoon" name="telefoon" class="form-control" autocomplete="tel" placeholder="036 - ..." />
               </div>
               <div class="form-group">
-                <label for="bericht">Bericht *</label>
+                <label for="onderwerp">Onderwerp</label>
+                <select id="onderwerp" name="onderwerp" class="form-control" style="background: white;">
+                  <option value="">Kies een onderwerp</option>
+                  <option value="occasion">Occasion / motor kopen</option>
+                  <option value="nieuw">Nieuwe CFMoto motor</option>
+                  <option value="werkplaats">Werkplaatsafspraak</option>
+                  <option value="verhuur">Motorverhuur</option>
+                  <option value="overig">Overig</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="bericht">Bericht <span aria-hidden="true">*</span></label>
                 <textarea id="bericht" name="bericht" class="form-control" rows="5" required aria-required="true" placeholder="Waar kunnen wij u mee helpen?"></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Verstuur Bericht</button>
-              <p style="margin-top: 15px; font-size: 0.85rem; color: var(--mc-grey);">Wij nemen zo spoedig mogelijk contact met u op. Uw gegevens worden niet gedeeld met derden.</p>
+              <p style="margin-top: 15px; font-size: 0.8rem; color: var(--mc-grey);">
+                Uw gegevens worden uitsluitend gebruikt om uw vraag te beantwoorden en niet gedeeld met derden.
+              </p>
             </form>
           </div>
 
