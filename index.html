@@ -4,112 +4,1449 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Motorcentrum Almere | Occasions & CFMoto Dealer</title>
-    <meta name="description" content="Motorcentrum Almere: uw specialist in occasions en nieuwe CFMoto motoren. Werkplaats voor alle merken, kleding en verhuur. Zeno van Citiumstraat 2, Almere. Bel 036-5498036." />
-    <link rel="canonical" href="https://www.motorcentrum-almere.nl/" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Motorcentrum Almere | Occasions & Officieel CFMoto Dealer</title>
+    <meta name="description" content="Motorcentrum Almere: specialist in occasions en nieuwe CFMoto motoren. Werkplaats voor alle merken, kleding en verhuur. Zeno van Citiumstraat 2, Almere. Bel 036-5498036." />
+    <link rel="canonical" href="https://www.motorcentrumalmere.nl/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
-    <link rel="preload" href="/headers/home-hero.webp" as="image" type="image/webp" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+    <style>
+      /* ============================
+         HERO
+      ============================ */
+      .hero-home {
+        position: relative;
+        height: 100vh;
+        min-height: 600px;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        background: #0a0a0a;
+      }
+      .hero-home video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.45;
+      }
+      .hero-home-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url('/showroom/MG_0202-HDR.jpg');
+        background-size: cover;
+        background-position: center 30%;
+        opacity: 0.45;
+      }
+      .hero-home::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.1) 0%,
+          rgba(0,0,0,0.3) 50%,
+          rgba(0,0,0,0.85) 100%
+        );
+      }
+      .hero-home-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 0 0 80px;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding-left: clamp(20px, 5vw, 80px);
+      }
+      .hero-home-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--mc-orange);
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 0.85rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .hero-home-eyebrow span {
+        display: inline-block;
+        width: 30px;
+        height: 1px;
+        background: var(--mc-orange);
+      }
+      .hero-home h1 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(3rem, 7vw, 7rem);
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1.0;
+        letter-spacing: -1px;
+        margin-bottom: 24px;
+        max-width: 800px;
+      }
+      .hero-home h1 em {
+        font-style: normal;
+        color: var(--mc-orange);
+      }
+      .hero-home-sub {
+        color: rgba(255,255,255,0.75);
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        font-weight: 300;
+        max-width: 500px;
+        line-height: 1.6;
+        margin-bottom: 40px;
+      }
+      .hero-home-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+      }
+      .hero-home-scroll {
+        position: absolute;
+        bottom: 30px;
+        right: clamp(20px, 5vw, 80px);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255,255,255,0.4);
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .hero-home-scroll .scroll-line {
+        width: 1px;
+        height: 50px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+        animation: scrollPulse 2s ease-in-out infinite;
+      }
+      @keyframes scrollPulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+
+      /* ============================
+         USP BAR
+      ============================ */
+      .usp-bar {
+        background: var(--mc-orange);
+        padding: 18px 0;
+        overflow: hidden;
+      }
+      .usp-bar-track {
+        display: flex;
+        gap: 60px;
+        white-space: nowrap;
+        animation: uspScroll 25s linear infinite;
+      }
+      @keyframes uspScroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+      .usp-bar-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .usp-bar-item svg {
+        width: 16px;
+        height: 16px;
+        fill: rgba(255,255,255,0.7);
+        flex-shrink: 0;
+      }
+
+      /* ============================
+         CFMOTO SHOWROOM CONFIGURATOR
+      ============================ */
+      .showroom-section {
+        background: #080808;
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .showroom-top {
+        padding: 80px clamp(20px, 5vw, 80px) 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 20px;
+        position: relative;
+        z-index: 5;
+      }
+      .showroom-label {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .showroom-label-line {
+        width: 50px;
+        height: 2px;
+        background: var(--mc-orange);
+      }
+      .showroom-label-text {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--mc-orange);
+      }
+      .showroom-title {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.1;
+        margin-top: 16px;
+        padding: 0 clamp(20px, 5vw, 80px);
+        position: relative;
+        z-index: 5;
+      }
+      .showroom-title span {
+        color: var(--mc-orange);
+      }
+
+      /* Stage area */
+      .showroom-stage {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 0;
+        position: relative;
+        padding: 40px clamp(20px, 5vw, 80px) 0;
+        min-height: 500px;
+        align-items: center;
+      }
+      @media (max-width: 900px) {
+        .showroom-stage {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto;
+        }
+      }
+
+      /* Model image */
+      .showroom-model-img-wrap {
+        position: relative;
+        height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .showroom-model-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        opacity: 1;
+        transform: scale(1);
+        filter: drop-shadow(0 20px 60px rgba(232,93,4,0.15));
+      }
+      .showroom-model-img.leaving {
+        opacity: 0;
+        transform: scale(0.96) translateX(-20px);
+      }
+      .showroom-model-img.entering {
+        opacity: 0;
+        transform: scale(0.96) translateX(20px);
+      }
+      .showroom-model-glow {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 60px;
+        background: radial-gradient(ellipse, rgba(232,93,4,0.25) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      /* Model info panel */
+      .showroom-info {
+        padding: 20px 0 20px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      @media (max-width: 900px) {
+        .showroom-info { padding: 20px 0; }
+      }
+      .showroom-info-tag {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--mc-orange);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .showroom-info-tag::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: rgba(232,93,4,0.3);
+      }
+      .showroom-model-name {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(2.5rem, 4vw, 4rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 8px;
+        transition: opacity 0.3s ease;
+      }
+      .showroom-model-slogan {
+        color: rgba(255,255,255,0.45);
+        font-size: 0.9rem;
+        font-weight: 300;
+        margin-bottom: 30px;
+        transition: opacity 0.3s ease;
+      }
+      .showroom-specs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+      .showroom-spec {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 8px;
+        padding: 14px 16px;
+        transition: opacity 0.3s ease;
+      }
+      .showroom-spec-label {
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.35);
+        margin-bottom: 4px;
+      }
+      .showroom-spec-value {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+      }
+      .showroom-features {
+        list-style: none;
+        margin: 0 0 32px;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        transition: opacity 0.3s ease;
+      }
+      .showroom-features li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.55);
+      }
+      .showroom-features li::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--mc-orange);
+        flex-shrink: 0;
+      }
+      .showroom-price {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.5rem;
+        color: var(--mc-orange);
+        font-weight: 600;
+        margin-bottom: 20px;
+        transition: opacity 0.3s ease;
+      }
+      .showroom-cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      /* Model picker tabs */
+      .showroom-tabs {
+        display: flex;
+        gap: 0;
+        padding: 0 clamp(20px, 5vw, 80px) 50px;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        margin-top: 40px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        position: relative;
+        z-index: 5;
+      }
+      .showroom-tabs::-webkit-scrollbar { display: none; }
+      .showroom-tab {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 24px 30px 24px 0;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: all 0.25s ease;
+        flex-shrink: 0;
+        margin-right: 30px;
+        background: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        text-align: left;
+      }
+      .showroom-tab:hover .tab-name { color: rgba(255,255,255,0.8); }
+      .showroom-tab.active {
+        border-bottom-color: var(--mc-orange);
+      }
+      .showroom-tab.active .tab-name { color: #fff; }
+      .showroom-tab.active .tab-type { color: var(--mc-orange); }
+      .tab-thumb {
+        width: 60px;
+        height: 36px;
+        object-fit: contain;
+        opacity: 0.5;
+        transition: opacity 0.25s;
+        filter: brightness(1.2);
+      }
+      .showroom-tab.active .tab-thumb { opacity: 1; }
+      .tab-info {}
+      .tab-name {
+        font-family: 'Oswald', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.4);
+        display: block;
+        line-height: 1.2;
+        transition: color 0.25s;
+      }
+      .tab-type {
+        font-size: 0.68rem;
+        font-weight: 400;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.25);
+        transition: color 0.25s;
+      }
+
+      /* Background number */
+      .showroom-bg-number {
+        position: absolute;
+        bottom: 100px;
+        right: clamp(20px, 8vw, 140px);
+        font-family: 'Oswald', sans-serif;
+        font-size: 20vw;
+        font-weight: 700;
+        color: rgba(255,255,255,0.02);
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+        transition: opacity 0.4s;
+        z-index: 1;
+      }
+
+      /* ============================
+         OCCASIONS PREVIEW
+      ============================ */
+      .occasions-preview {
+        background: #f7f7f7;
+        padding: 100px 0;
+      }
+      .occasions-preview .container {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 80px);
+      }
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .section-eyebrow {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--mc-orange);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-eyebrow::before {
+        content: '';
+        display: inline-block;
+        width: 25px;
+        height: 2px;
+        background: var(--mc-orange);
+      }
+      .section-title {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        font-weight: 700;
+        color: #111;
+        line-height: 1.1;
+      }
+      .occasion-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      @media (max-width: 1024px) {
+        .occasion-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 640px) {
+        .occasion-grid { grid-template-columns: 1fr; }
+      }
+      .occasion-card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+      .occasion-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      }
+      .occasion-img {
+        height: 210px;
+        overflow: hidden;
+        position: relative;
+        background: #0a0a0a;
+      }
+      .occasion-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        opacity: 0.85;
+      }
+      .occasion-card:hover .occasion-img img {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+      .occasion-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: var(--mc-orange);
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 4px;
+      }
+      .occasion-body {
+        padding: 20px;
+      }
+      .occasion-make {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--mc-orange);
+        margin-bottom: 4px;
+      }
+      .occasion-model {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #111;
+        margin-bottom: 10px;
+      }
+      .occasion-meta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+      }
+      .occasion-meta-item {
+        font-size: 0.78rem;
+        color: #888;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .occasion-meta-item svg {
+        width: 13px;
+        height: 13px;
+        fill: #bbb;
+      }
+      .occasion-price {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #111;
+      }
+      .occasion-price-sub {
+        font-size: 0.72rem;
+        color: #888;
+        font-weight: 400;
+        margin-left: 4px;
+      }
+
+      /* ============================
+         BRAND MARQUEE
+      ============================ */
+      .brand-marquee-section {
+        background: #0a0a0a;
+        padding: 70px 0;
+        overflow: hidden;
+      }
+      .brand-marquee-label {
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.3);
+        margin-bottom: 40px;
+      }
+      .brand-marquee-track-wrap {
+        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        overflow: hidden;
+      }
+      .brand-marquee-track {
+        display: flex;
+        gap: 70px;
+        align-items: center;
+        white-space: nowrap;
+        animation: brandScroll 30s linear infinite;
+      }
+      .brand-marquee-track:hover { animation-play-state: paused; }
+      @keyframes brandScroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+      .brand-logo-item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 120px;
+        height: 60px;
+      }
+      .brand-logo-item img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+        opacity: 0.4;
+        transition: opacity 0.3s;
+      }
+      .brand-marquee-track:hover .brand-logo-item img { opacity: 0.7; }
+
+      /* ============================
+         SPLIT FEATURE: AL ACTIEF SINDS 2006
+      ============================ */
+      .split-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 550px;
+      }
+      @media (max-width: 800px) {
+        .split-section {
+          grid-template-columns: 1fr;
+        }
+      }
+      .split-image {
+        background-size: cover;
+        background-position: center;
+        min-height: 350px;
+      }
+      .split-content {
+        background: #111;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(40px, 6vw, 90px);
+      }
+      .split-content .section-eyebrow { color: var(--mc-orange); }
+      .split-content .section-eyebrow::before { background: var(--mc-orange); }
+      .split-content .section-title { color: #fff; }
+      .split-content p {
+        color: rgba(255,255,255,0.55);
+        line-height: 1.7;
+        margin: 20px 0 30px;
+        font-size: 0.95rem;
+      }
+      .split-stats {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 36px;
+        flex-wrap: wrap;
+      }
+      .split-stat-number {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--mc-orange);
+        line-height: 1;
+      }
+      .split-stat-label {
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.35);
+        margin-top: 4px;
+      }
+
+      /* ============================
+         CTA STRIP
+      ============================ */
+      .cta-strip {
+        background: var(--mc-orange);
+        padding: 70px clamp(20px, 5vw, 80px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+      .cta-strip-text h2 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(1.8rem, 3vw, 2.8rem);
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 8px;
+      }
+      .cta-strip-text p {
+        color: rgba(255,255,255,0.8);
+        font-size: 1rem;
+      }
+      .btn-white {
+        background: #fff;
+        color: var(--mc-orange);
+        font-family: 'Oswald', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 14px 32px;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-block;
+        transition: background 0.2s, transform 0.2s;
+        white-space: nowrap;
+      }
+      .btn-white:hover {
+        background: #f0f0f0;
+        transform: translateY(-2px);
+      }
+      .btn-outline-white {
+        border: 2px solid rgba(255,255,255,0.6);
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 12px 28px;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-block;
+        transition: border-color 0.2s, background 0.2s;
+        white-space: nowrap;
+      }
+      .btn-outline-white:hover {
+        border-color: #fff;
+        background: rgba(255,255,255,0.1);
+      }
+
+      /* ============================
+         BUTTON OVERRIDES FOR DARK BG
+      ============================ */
+      .btn-dark {
+        background: var(--mc-orange);
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 13px 28px;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-block;
+        border: 2px solid var(--mc-orange);
+        transition: background 0.2s, transform 0.2s;
+      }
+      .btn-dark:hover {
+        background: var(--mc-orange-hover);
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: rgba(255,255,255,0.7);
+        font-family: 'Oswald', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 11px 24px;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-block;
+        border: 1.5px solid rgba(255,255,255,0.2);
+        transition: border-color 0.2s, color 0.2s;
+      }
+      .btn-ghost:hover {
+        border-color: rgba(255,255,255,0.5);
+        color: #fff;
+      }
+
+      /* ============================
+         SERVICE ROW
+      ============================ */
+      .service-row {
+        background: #fff;
+        padding: 90px 0;
+      }
+      .service-row .container {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 5vw, 80px);
+      }
+      .service-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: #e8e8e8;
+        margin-top: 50px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      @media (max-width: 800px) {
+        .service-cards { grid-template-columns: 1fr; }
+      }
+      .service-card {
+        background: #fff;
+        padding: 40px 36px;
+        text-decoration: none;
+        transition: background 0.2s;
+        display: block;
+      }
+      .service-card:hover { background: #fafafa; }
+      .service-card-icon {
+        width: 48px;
+        height: 48px;
+        background: rgba(232,93,4,0.08);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .service-card-icon svg {
+        width: 24px;
+        height: 24px;
+        fill: var(--mc-orange);
+      }
+      .service-card h3 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #111;
+        margin-bottom: 10px;
+      }
+      .service-card p {
+        font-size: 0.88rem;
+        color: #888;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .service-card-link {
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--mc-orange);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .service-card-link svg {
+        width: 14px;
+        height: 14px;
+        fill: var(--mc-orange);
+        transition: transform 0.2s;
+      }
+      .service-card:hover .service-card-link svg {
+        transform: translateX(4px);
+      }
+    </style>
   </head>
   <body>
     <div id="header-placeholder"></div>
 
-    <!-- Main Hero -->
-    <section class="hero" style="background-image: url('/shop-interior.jpg');">
-      <div class="hero-content">
-        <h1>Jouw Motor. Ons Vak.</h1>
-        <p>Bij ons kun je terecht voor verschillende zaken, of het nou onderhoud, aanschaf of verkoop van een motor betreft.</p>
-        <a href="/occasions.html" class="btn btn-primary">Bekijk Occasions</a>
-      </div>
-    </section>
-
-    <!-- USP blokken -->
-    <section class="shopping-tools">
-      <div class="container">
-        <div class="tools-grid">
-          <div class="tool-item" data-aos="fade-up" data-aos-delay="0">
-            <h3>Occasions Alle Merken</h3>
-            <p style="font-size: 0.95rem; color: var(--mc-grey); margin-top: 8px;">Op zoek naar een eerste motor? Jong gebruikt? Klassieker? Of nieuw? Bij ons kun je voor elke zoektocht terecht!</p>
-            <a href="/occasions.html">Bekijk aanbod</a>
-          </div>
-          <div class="tool-item" data-aos="fade-up" data-aos-delay="150">
-            <h3>Werkplaats Alle Merken</h3>
-            <p style="font-size: 0.95rem; color: var(--mc-grey); margin-top: 8px;">Klein onderhoud, groot onderhoud of preventief onderhoud, bij Motorcentrum Almere is je motor in goede handen!</p>
-            <a href="/werkplaats.html">Plan afspraak</a>
-          </div>
-          <div class="tool-item" data-aos="fade-up" data-aos-delay="300">
-            <h3>Snelservice</h3>
-            <p style="font-size: 0.95rem; color: var(--mc-grey); margin-top: 8px;">Service is voor ons belangrijk, vaak kun je voor kleine reparaties of problemen vrijwel zonder afspraak langskomen.</p>
-            <a href="/service.html">Meer over service</a>
-          </div>
+    <!-- ===== HERO ===== -->
+    <section class="hero-home">
+      <div class="hero-home-bg"></div>
+      <div class="hero-home-content">
+        <div class="hero-home-eyebrow">
+          <span></span>
+          Al actief sinds 2006
         </div>
-      </div>
-    </section>
-
-    <!-- Feature 1: Occasions -->
-    <section class="feature-section">
-      <div class="feature-text" data-aos="fade-right" data-aos-duration="800">
-        <h2>Occasions Van Alle Merken</h2>
-        <p>Of u nu zoekt naar een BMW, Ducati, Honda, Yamaha, KTM of CFMoto: ons wisselend aanbod tweedehands motoren is breed en eerlijk geprijsd. Elk exemplaar technisch gekeurd en rijklaar geleverd.</p>
-        <p style="color: var(--mc-orange); font-weight: bold; font-size: 1rem; margin-bottom: 30px;">3 tot 6 maanden garantie op motoren boven de &euro;2.500</p>
-        <a href="/occasions.html" class="btn btn-outline">Bekijk Al Onze Occasions</a>
-      </div>
-      <div class="feature-image" data-aos="fade-left" data-aos-duration="800" style="background-image: url('/occasions/occasion_8.jpg');"></div>
-    </section>
-
-    <!-- Feature 2: CFMoto dealer -->
-    <section class="feature-section">
-      <div class="feature-image" data-aos="fade-left" data-aos-duration="800" style="background-image: url('/about-1.jpg');"></div>
-      <div class="feature-text feature-text-light">
-        <h2>Officieel CFMoto Dealer</h2>
-        <p>Motorcentrum Almere is officieel CFMoto dealer. Wij leveren het complete modelprogramma inclusief de populaire 800 MT Sport, 675 NK en 450-serie. Betrouwbare kwaliteit voor een eerlijke prijs, met fabrieksgarantie.</p>
-        <a href="/nieuwe-motoren.html" class="btn btn-outline-dark">CFMoto Modellen</a>
-      </div>
-    </section>
-
-    <!-- Merkpartners -->
-    <section class="content-section" style="background-color: var(--mc-grey-light); padding: 60px 0; text-align: center;">
-      <div class="container">
-        <h2 data-aos="fade-down" style="margin-bottom: 40px;">Occasions Van Deze Merken En Meer</h2>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px;" data-aos="fade-up">
-          <img src="/brand-logos/cfmoto.jpg" alt="CFMoto" loading="lazy" height="50" style="object-fit: contain; filter: grayscale(20%);" />
-          <img src="/brand-logos/yamaha.png" alt="Yamaha" loading="lazy" height="50" style="object-fit: contain; filter: grayscale(20%);" />
-          <img src="/brand-logos/ktm.jpg" alt="KTM" loading="lazy" height="50" style="object-fit: contain; filter: grayscale(20%);" />
-          <img src="/brand-logos/ducati.png" alt="Ducati" loading="lazy" height="50" style="object-fit: contain; filter: grayscale(20%);" />
-          <img src="/brand-logos/honda.jpg" alt="Honda" loading="lazy" height="50" style="object-fit: contain; filter: grayscale(20%);" />
-          <img src="/brand-logos/bmw.jpg" alt="BMW" loading="lazy" height="50" style="object-fit: contain; filter: grayscale(20%);" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Over ons preview -->
-    <section class="feature-section">
-      <div class="feature-text" data-aos="fade-right">
-        <h2>Al Actief Sinds 2006</h2>
-        <p>Motorcentrum Almere is opgericht door Marco en Dries, samen goed voor ruim 19 jaar ervaring in de motorbranche voordat zij hun eigen zaak startten. U profiteert van die kennis en het persoonlijke contact dat wij bieden in een ongedwongen sfeer.</p>
-        <a href="/over-ons.html" class="btn btn-outline">Over Motorcentrum Almere</a>
-      </div>
-      <div class="feature-image" data-aos="fade-left" style="background-image: url('/about-2.jpg');"></div>
-    </section>
-
-    <!-- CTA -->
-    <section style="position: relative; background-image: url('/about-3.jpg'); background-size: cover; background-position: center; min-height: 600px; display: flex; align-items: center; justify-content: center; text-align: center;">
-      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.3)); z-index: 1;"></div>
-      <div style="position: relative; z-index: 2; padding: 60px 20px;">
-        <h2 style="color: var(--mc-white); margin-bottom: 15px; font-size: 3.2rem;">VIND UW DROOMMOTOR</h2>
-        <p style="color: var(--mc-grey-light); max-width: 600px; margin: 0 auto 35px; font-size: 1.15rem;">Bezoek onze showroom op Zeno van Citiumstraat 2 in Almere, of bel 036-5498036 voor een vrijblijvend gesprek.</p>
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <h1>Jouw Motor.<br><em>Ons Vak.</em></h1>
+        <p class="hero-home-sub">Occasions van alle merken, officieel CFMoto dealer, werkplaats en verhuur. Alles onder een dak in Almere.</p>
+        <div class="hero-home-cta">
           <a href="/occasions.html" class="btn btn-primary">Bekijk Occasions</a>
-          <a href="/contact.html" class="btn btn-outline">Neem Contact Op</a>
+          <a href="/nieuwe-motoren.html" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);">CFMoto Modellen</a>
         </div>
+      </div>
+      <div class="hero-home-scroll">
+        Scroll
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ===== USP BAR ===== -->
+    <div class="usp-bar" aria-hidden="true">
+      <div class="usp-bar-track">
+        <!-- items (duplicated for seamless loop) -->
+        <div class="usp-bar-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          3-6 Maanden Garantie
+        </div>
+        <div class="usp-bar-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Officieel CFMoto Dealer
+        </div>
+        <div class="usp-bar-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Werkplaats Alle Merken
+        </div>
+        <div class="usp-bar-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Snelservice Zonder Afspraak
+        </div>
+        <div class="usp-bar-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Verhuur CFMoto Motoren
+        </div>
+        <div class="usp-bar-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Ophaalservice Kapotte Motorfiets
+        </div>
+        <!-- duplicate -->
+        <div class="usp-bar-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          3-6 Maanden Garantie
+        </div>
+        <div class="usp-bar-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Officieel CFMoto Dealer
+        </div>
+        <div class="usp-bar-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Werkplaats Alle Merken
+        </div>
+        <div class="usp-bar-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Snelservice Zonder Afspraak
+        </div>
+        <div class="usp-bar-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Verhuur CFMoto Motoren
+        </div>
+        <div class="usp-bar-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Ophaalservice Kapotte Motorfiets
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CFMOTO SHOWROOM CONFIGURATOR ===== -->
+    <section class="showroom-section" id="showroom" aria-label="CFMoto modellen showroom">
+      <div class="showroom-top" data-aos="fade-down">
+        <div>
+          <div class="showroom-label">
+            <div class="showroom-label-line"></div>
+            <div class="showroom-label-text">Officieel CFMoto Dealer</div>
+          </div>
+        </div>
+        <a href="/nieuwe-motoren.html" class="btn-ghost" style="margin-bottom:4px;">Alle modellen &rarr;</a>
+      </div>
+      <div class="showroom-title" data-aos="fade-right" data-aos-delay="100">
+        Ontdek de <span>CFMoto</span><br>Modellenrange
+      </div>
+
+      <div class="showroom-stage">
+        <!-- BG number -->
+        <div class="showroom-bg-number" id="showroom-bg-num">800</div>
+
+        <!-- Model afbeelding -->
+        <div class="showroom-model-img-wrap">
+          <img
+            id="showroom-img"
+            src="/cfmoto/CFmoto-800MTsport.jpg"
+            alt="CFMoto 800 MT Sport"
+            class="showroom-model-img"
+            width="700"
+            height="420"
+          />
+          <div class="showroom-model-glow"></div>
+        </div>
+
+        <!-- Info panel -->
+        <div class="showroom-info">
+          <div class="showroom-info-tag" id="showroom-tag">AVONTURIER</div>
+          <div class="showroom-model-name" id="showroom-name">800 MT Sport</div>
+          <div class="showroom-model-slogan" id="showroom-slogan">De meest veelzijdige avonturier</div>
+
+          <div class="showroom-specs">
+            <div class="showroom-spec">
+              <div class="showroom-spec-label">Motorinhoud</div>
+              <div class="showroom-spec-value" id="spec-cc">799 cc</div>
+            </div>
+            <div class="showroom-spec">
+              <div class="showroom-spec-label">Vermogen</div>
+              <div class="showroom-spec-value" id="spec-power">95 pk</div>
+            </div>
+            <div class="showroom-spec">
+              <div class="showroom-spec-label">Rijbewijs</div>
+              <div class="showroom-spec-value" id="spec-license">A</div>
+            </div>
+            <div class="showroom-spec">
+              <div class="showroom-spec-label">Type</div>
+              <div class="showroom-spec-value" id="spec-type">Adventure</div>
+            </div>
+          </div>
+
+          <ul class="showroom-features" id="showroom-features">
+            <li>Quick Shifter</li>
+            <li>Traction Control</li>
+            <li>Rijmodi</li>
+            <li>Navigatie Ready</li>
+          </ul>
+
+          <div class="showroom-price" id="showroom-price">Vanaf &euro;11.499</div>
+
+          <div class="showroom-cta">
+            <a href="/contact.html?interesse=cfmoto-800mt" class="btn-dark">Plan een proefrit</a>
+            <a href="/nieuwe-motoren.html" class="btn-ghost">Meer info</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Model tabs -->
+      <div class="showroom-tabs" role="tablist" aria-label="CFMoto modellen">
+        <button class="showroom-tab active" role="tab" aria-selected="true" data-model="0">
+          <img src="/cfmoto/CFmoto-800MTsport.jpg" alt="" class="tab-thumb" loading="lazy" />
+          <div class="tab-info">
+            <span class="tab-name">800 MT Sport</span>
+            <span class="tab-type">Adventure &bull; A</span>
+          </div>
+        </button>
+        <button class="showroom-tab" role="tab" aria-selected="false" data-model="1">
+          <img src="/cfmoto/CFmoto-675NK.jpg" alt="" class="tab-thumb" loading="lazy" />
+          <div class="tab-info">
+            <span class="tab-name">675 NK</span>
+            <span class="tab-type">Naked &bull; A</span>
+          </div>
+        </button>
+        <button class="showroom-tab" role="tab" aria-selected="false" data-model="2">
+          <img src="/cfmoto/CFmoto-450NK.jpg" alt="" class="tab-thumb" loading="lazy" />
+          <div class="tab-info">
+            <span class="tab-name">450 NK</span>
+            <span class="tab-type">Naked &bull; A2</span>
+          </div>
+        </button>
+        <button class="showroom-tab" role="tab" aria-selected="false" data-model="3">
+          <img src="/cfmoto/CFmoto-450MT.jpg" alt="" class="tab-thumb" loading="lazy" />
+          <div class="tab-info">
+            <span class="tab-name">450 MT</span>
+            <span class="tab-type">Adventure &bull; A2</span>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== OCCASIONS PREVIEW ===== -->
+    <section class="occasions-preview">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-eyebrow">Tweedehands</div>
+            <h2 class="section-title">Actuele Occasions</h2>
+          </div>
+          <a href="/occasions.html" class="btn btn-outline" style="color:#111;border-color:#ccc;">Bekijk alles &rarr;</a>
+        </div>
+        <div class="occasion-grid">
+          <!-- Card 1 -->
+          <a href="/occasions.html" class="occasion-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="occasion-img">
+              <img src="/showroom/MG_0208-HDR.jpg" alt="Motor in showroom" loading="lazy" width="400" height="210" />
+              <div class="occasion-badge">Occasion</div>
+            </div>
+            <div class="occasion-body">
+              <div class="occasion-make">Honda</div>
+              <div class="occasion-model">CB 650 R</div>
+              <div class="occasion-meta">
+                <span class="occasion-meta-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  Almere
+                </span>
+                <span class="occasion-meta-item">2021 &bull; 12.400 km &bull; A</span>
+              </div>
+              <div class="occasion-price">&euro; 7.950 <span class="occasion-price-sub">incl. BTW</span></div>
+            </div>
+          </a>
+          <!-- Card 2 -->
+          <a href="/occasions.html" class="occasion-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="occasion-img">
+              <img src="/showroom/MG_0214-HDR.jpg" alt="Motor in showroom" loading="lazy" width="400" height="210" />
+              <div class="occasion-badge">Occasion</div>
+            </div>
+            <div class="occasion-body">
+              <div class="occasion-make">Yamaha</div>
+              <div class="occasion-model">MT-07</div>
+              <div class="occasion-meta">
+                <span class="occasion-meta-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  Almere
+                </span>
+                <span class="occasion-meta-item">2020 &bull; 18.200 km &bull; A</span>
+              </div>
+              <div class="occasion-price">&euro; 8.250 <span class="occasion-price-sub">incl. BTW</span></div>
+            </div>
+          </a>
+          <!-- Card 3 -->
+          <a href="/occasions.html" class="occasion-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="occasion-img">
+              <img src="/showroom/MG_0220-HDR.jpg" alt="Motor in showroom" loading="lazy" width="400" height="210" />
+              <div class="occasion-badge">Occasion</div>
+            </div>
+            <div class="occasion-body">
+              <div class="occasion-make">BMW</div>
+              <div class="occasion-model">F 900 R</div>
+              <div class="occasion-meta">
+                <span class="occasion-meta-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  Almere
+                </span>
+                <span class="occasion-meta-item">2022 &bull; 9.800 km &bull; A</span>
+              </div>
+              <div class="occasion-price">&euro; 11.950 <span class="occasion-price-sub">incl. BTW</span></div>
+            </div>
+          </a>
+        </div>
+        <p style="text-align:center;margin-top:30px;font-size:0.82rem;color:#999;">
+          Ons aanbod wisselt regelmatig. Bel voor de meest actuele voorraad: <a href="tel:0365498036" style="color:var(--mc-orange);font-weight:600;">036-5498036</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== BRAND MARQUEE ===== -->
+    <section class="brand-marquee-section" aria-label="Merken die wij voeren">
+      <div class="brand-marquee-label">Occasions van alle merken</div>
+      <div class="brand-marquee-track-wrap">
+        <div class="brand-marquee-track">
+          <div class="brand-logo-item">
+            <img src="/brand-logos/cfmoto.jpg" alt="CFMoto" loading="lazy" width="120" height="60" />
+          </div>
+          <div class="brand-logo-item">
+            <img src="/brand-logos/yamaha.png" alt="Yamaha" loading="lazy" width="120" height="60" />
+          </div>
+          <div class="brand-logo-item">
+            <img src="/brand-logos/ktm.jpg" alt="KTM" loading="lazy" width="120" height="60" />
+          </div>
+          <div class="brand-logo-item">
+            <img src="/brand-logos/ducati.png" alt="Ducati" loading="lazy" width="120" height="60" />
+          </div>
+          <div class="brand-logo-item">
+            <img src="/brand-logos/honda.jpg" alt="Honda" loading="lazy" width="120" height="60" />
+          </div>
+          <div class="brand-logo-item">
+            <img src="/brand-logos/bmw.jpg" alt="BMW Motorrad" loading="lazy" width="120" height="60" />
+          </div>
+          <!-- duplicate for loop -->
+          <div class="brand-logo-item">
+            <img src="/brand-logos/cfmoto.jpg" alt="CFMoto" loading="lazy" width="120" height="60" />
+          </div>
+          <div class="brand-logo-item">
+            <img src="/brand-logos/yamaha.png" alt="Yamaha" loading="lazy" width="120" height="60" />
+          </div>
+          <div class="brand-logo-item">
+            <img src="/brand-logos/ktm.jpg" alt="KTM" loading="lazy" width="120" height="60" />
+          </div>
+          <div class="brand-logo-item">
+            <img src="/brand-logos/ducati.png" alt="Ducati" loading="lazy" width="120" height="60" />
+          </div>
+          <div class="brand-logo-item">
+            <img src="/brand-logos/honda.jpg" alt="Honda" loading="lazy" width="120" height="60" />
+          </div>
+          <div class="brand-logo-item">
+            <img src="/brand-logos/bmw.jpg" alt="BMW Motorrad" loading="lazy" width="120" height="60" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICE ROW ===== -->
+    <section class="service-row">
+      <div class="container">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;">
+          <div>
+            <div class="section-eyebrow" data-aos="fade-right">Meer dan alleen verkoop</div>
+            <h2 class="section-title" data-aos="fade-right" data-aos-delay="100">Alles Voor Uw Motor</h2>
+          </div>
+        </div>
+        <div class="service-cards" data-aos="fade-up" data-aos-delay="200">
+          <a href="/werkplaats.html" class="service-card">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+            </div>
+            <h3>Werkplaats</h3>
+            <p>Klein of groot onderhoud voor alle merken. Van APK-keuring tot motorrevisiefase, bij ons is uw motor in deskundige handen.</p>
+            <div class="service-card-link">
+              Meer over werkplaats
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+          </a>
+          <a href="/verhuur-motoren.html" class="service-card">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 6.5l-4-4-9 9-2 4 4-2 9-9zm-14.12 8.71l-1.59-1.59 7.71-7.71 1.59 1.59-7.71 7.71zM5.5 18c-.83 0-1.5-.67-1.5-1.5S4.67 15 5.5 15 7 15.67 7 16.5 6.33 18 5.5 18zM18.5 6c-.39 0-.77-.16-1.06-.44L15.85 4l1.41-1.41 1.59 1.59c.29.29.44.67.44 1.06 0 .83-.67 1.76-1.5 1.76h-.29z"/></svg>
+            </div>
+            <h3>Motorverhuur</h3>
+            <p>Huur een van onze CFMoto modellen per dag. De 800 MT Sport, 675 NK, 450 NK en 450 MT staan voor u klaar. Vanaf &euro;90 per dag.</p>
+            <div class="service-card-link">
+              Bekijk beschikbare motoren
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+          </a>
+          <a href="/kleding.html" class="service-card">
+            <div class="service-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            </div>
+            <h3>Kleding &amp; Helmen</h3>
+            <p>Een ruim assortiment motorkleding van Modeka, Bering en Buse. Helmen van Scorpion. Alles voor veilig rijden, op voorraad.</p>
+            <div class="service-card-link">
+              Bekijk kleding aanbod
+              <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AL ACTIEF SINDS 2006 ===== -->
+    <section class="split-section">
+      <div class="split-image" style="background-image: url('/showroom/MG_0229-HDR.jpg');" role="img" aria-label="Motorcentrum Almere showroom"></div>
+      <div class="split-content" data-aos="fade-left">
+        <div class="section-eyebrow">Ons verhaal</div>
+        <h2 class="section-title">Al Actief<br>Sinds 2006</h2>
+        <p>Motorcentrum Almere is in 2006 door Marco en Dries opgestart op De Binderij in Almere. Hiervoor waren we al ruim 19 jaar actief in de motorbranche bij verschillende dealers in de regio. Anno 2026 zijn we nog altijd eigenhandig gerund, met passie voor motorfietsen als drijfveer.</p>
+        <div class="split-stats">
+          <div>
+            <div class="split-stat-number">19+</div>
+            <div class="split-stat-label">Jaar ervaring</div>
+          </div>
+          <div>
+            <div class="split-stat-number">3</div>
+            <div class="split-stat-label">Locaties</div>
+          </div>
+          <div>
+            <div class="split-stat-number">100%</div>
+            <div class="split-stat-label">Eigen beheer</div>
+          </div>
+        </div>
+        <a href="/over-ons.html" class="btn-dark">Lees ons verhaal</a>
+      </div>
+    </section>
+
+    <!-- ===== CTA STRIP ===== -->
+    <section class="cta-strip">
+      <div class="cta-strip-text">
+        <h2>Klaar voor uw volgende motor?</h2>
+        <p>Kom langs in onze showroom in Almere of neem direct contact op.</p>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <a href="/occasions.html" class="btn-white">Bekijk Occasions</a>
+        <a href="/contact.html" class="btn-outline-white">Neem Contact Op</a>
       </div>
     </section>
 
     <div id="footer-placeholder"></div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="/src/components/header.js"></script>
+    <script type="module" src="/src/components/footer.js"></script>
+    <script>
+      AOS.init({ once: true, duration: 700, offset: 80 });
+
+      // ===== CFMoto Showroom Configurator =====
+      const models = [
+        {
+          tag: 'AVONTURIER',
+          name: '800 MT Sport',
+          slogan: 'De meest veelzijdige avonturier',
+          cc: '799 cc',
+          power: '95 pk',
+          license: 'A',
+          type: 'Adventure',
+          features: ['Quick Shifter', 'Traction Control', 'Rijmodi', 'Navigatie Ready'],
+          price: 'Vanaf €11.499',
+          img: '/cfmoto/CFmoto-800MTsport.jpg',
+          bgNum: '800',
+          contactHref: '/contact.html?interesse=cfmoto-800mt'
+        },
+        {
+          tag: 'NAKED',
+          name: '675 NK',
+          slogan: 'Krachtig, minimalistisch, puur',
+          cc: '675 cc',
+          power: '77 pk',
+          license: 'A',
+          type: 'Naked',
+          features: ['TFT Display', 'LED Verlichting', 'Slipper Koppeling', 'Compact Design'],
+          price: 'Vanaf €8.199',
+          img: '/cfmoto/CFmoto-675NK.jpg',
+          bgNum: '675',
+          contactHref: '/contact.html?interesse=cfmoto-675nk'
+        },
+        {
+          tag: 'A2 NAKED',
+          name: '450 NK',
+          slogan: 'Krachtig rijgenot voor elke rijder',
+          cc: '449 cc',
+          power: '46 pk',
+          license: 'A2',
+          type: 'Naked',
+          features: ['Paralleltwin Motor', 'USB Lading', 'Instelbare Vering', 'A2 Geschikt'],
+          price: 'Vanaf €6.499',
+          img: '/cfmoto/CFmoto-450NK.jpg',
+          bgNum: '450',
+          contactHref: '/contact.html?interesse=cfmoto-450nk'
+        },
+        {
+          tag: 'A2 AVONTURIER',
+          name: '450 MT',
+          slogan: 'Avontuur zonder grenzen voor A2',
+          cc: '449 cc',
+          power: '46 pk',
+          license: 'A2',
+          type: 'Adventure',
+          features: ['21" Voorwiel', 'Lange Veerweg', 'USB Lading', 'Hoog Zitcomfort'],
+          price: 'Vanaf €7.499',
+          img: '/cfmoto/CFmoto-450MT.jpg',
+          bgNum: '450',
+          contactHref: '/contact.html?interesse=cfmoto-450mt'
+        }
+      ];
+
+      let current = 0;
+      let animating = false;
+
+      const img = document.getElementById('showroom-img');
+      const bgNum = document.getElementById('showroom-bg-num');
+      const elTag = document.getElementById('showroom-tag');
+      const elName = document.getElementById('showroom-model-name') || document.querySelector('.showroom-model-name');
+      const elSlogan = document.getElementById('showroom-slogan');
+      const elCc = document.getElementById('spec-cc');
+      const elPower = document.getElementById('spec-power');
+      const elLicense = document.getElementById('spec-license');
+      const elType = document.getElementById('spec-type');
+      const elFeatures = document.getElementById('showroom-features');
+      const elPrice = document.getElementById('showroom-price');
+      const elCta = document.querySelector('.showroom-cta a');
+      const tabs = document.querySelectorAll('.showroom-tab');
+
+      // Get showroom-model-name by id
+      const elNameEl = document.querySelector('.showroom-model-name');
+
+      function switchModel(idx) {
+        if (idx === current || animating) return;
+        animating = true;
+
+        img.classList.add('leaving');
+        elNameEl.style.opacity = '0';
+        elSlogan.style.opacity = '0';
+        document.querySelectorAll('.showroom-spec').forEach(s => s.style.opacity = '0');
+        elFeatures.style.opacity = '0';
+        elPrice.style.opacity = '0';
+
+        setTimeout(() => {
+          const m = models[idx];
+          img.src = m.img;
+          img.alt = 'CFMoto ' + m.name;
+          bgNum.textContent = m.bgNum;
+          elTag.textContent = m.tag;
+          elNameEl.textContent = m.name;
+          elSlogan.textContent = m.slogan;
+          elCc.textContent = m.cc;
+          elPower.textContent = m.power;
+          elLicense.textContent = m.license;
+          elType.textContent = m.type;
+          elFeatures.innerHTML = m.features.map(f => '<li>' + f + '</li>').join('');
+          elPrice.innerHTML = m.price;
+          if (elCta) elCta.href = m.contactHref;
+
+          img.classList.remove('leaving');
+          img.classList.add('entering');
+
+          setTimeout(() => {
+            img.classList.remove('entering');
+            elNameEl.style.opacity = '1';
+            elSlogan.style.opacity = '1';
+            document.querySelectorAll('.showroom-spec').forEach(s => s.style.opacity = '1');
+            elFeatures.style.opacity = '1';
+            elPrice.style.opacity = '1';
+            animating = false;
+          }, 50);
+
+          current = idx;
+          tabs.forEach((t, i) => {
+            t.classList.toggle('active', i === idx);
+            t.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+          });
+        }, 350);
+      }
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => switchModel(i));
+      });
+
+      // Auto-advance every 6 seconds
+      setInterval(() => {
+        switchModel((current + 1) % models.length);
+      }, 6000);
+    </script>
   </body>
 </html>

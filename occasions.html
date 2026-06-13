@@ -1,209 +1,478 @@
 <!DOCTYPE html>
 <html lang="nl">
   <head>
-    
-
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Occasions | Motorcentrum Almere</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- CSS -->
+    <meta name="description" content="Ruim aanbod tweedehands motoren bij Motorcentrum Almere. Alle merken, technisch gekeurd en rijklaar geleverd met 3-6 maanden garantie. Filter op merk en prijs." />
+    <link rel="canonical" href="https://www.motorcentrumalmere.nl/occasions.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/style.css" />
-    <link rel="preload" href="/headers/occasions-hero.webp" as="image" type="image/webp" />
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
-      <meta name="description" content="Ruim aanbod tweedehands motoren bij Motorcentrum Almere. Alle merken, technisch gekeurd en rijklaar geleverd. Filter op merk, kilometerstand en prijs." />
-    <link rel="canonical" href="https://www.motorcentrum-almere.nl/occasions.html" />
-</head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+    <style>
+      .occasions-hero {
+        height: 55vh;
+        min-height: 380px;
+        background-image: url('/showroom/MG_0196-HDR-kopie.jpg');
+        background-size: cover;
+        background-position: center 40%;
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+      }
+      .occasions-hero::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 100%);
+      }
+      .occasions-hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 0 clamp(20px,5vw,80px) 60px;
+        width: 100%;
+      }
+      .occasions-hero-content h1 {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(2.5rem,6vw,5rem);
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 10px;
+        line-height: 1;
+      }
+      .occasions-hero-content p {
+        color: rgba(255,255,255,0.75);
+        font-size: 1rem;
+        max-width: 500px;
+      }
+      .occasions-main { background: #f5f5f5; padding: 60px 0 100px; }
+      .occasions-main .container {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 clamp(20px,5vw,60px);
+      }
+      .occ-filter-bar {
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: flex-end;
+        margin-bottom: 40px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      }
+      .occ-filter-group { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 150px; }
+      .occ-filter-group label {
+        font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
+        text-transform: uppercase; color: #888;
+      }
+      .occ-filter-select {
+        border: 1.5px solid #e0e0e0; border-radius: 6px; padding: 9px 32px 9px 14px;
+        font-family: 'Roboto', sans-serif; font-size: 0.9rem; color: #111;
+        background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E") no-repeat right 12px center;
+        cursor: pointer; appearance: none;
+      }
+      .occ-filter-select:focus { outline: none; border-color: var(--mc-orange); }
+      .occ-filter-reset {
+        background: none; border: 1.5px solid #e0e0e0; border-radius: 6px;
+        padding: 9px 18px; font-family: 'Roboto', sans-serif; font-size: 0.82rem;
+        font-weight: 500; color: #888; cursor: pointer;
+        transition: border-color 0.2s, color 0.2s; align-self: flex-end;
+      }
+      .occ-filter-reset:hover { border-color: var(--mc-orange); color: var(--mc-orange); }
+      .occ-result-count { font-size: 0.82rem; color: #999; margin-bottom: 20px; }
+      .occ-result-count strong { color: #333; }
+      .occ-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      @media (max-width: 1024px) { .occ-grid { grid-template-columns: repeat(2,1fr); } }
+      @media (max-width: 640px) { .occ-grid { grid-template-columns: 1fr; } }
+      .occ-card {
+        background: #fff; border-radius: 12px; overflow: hidden;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex; flex-direction: column;
+      }
+      .occ-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.13); }
+      .occ-card[hidden] { display: none; }
+      .occ-card-img { height: 220px; overflow: hidden; position: relative; background: #111; }
+      .occ-card-img img {
+        width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+        transition: transform 0.5s; opacity: 0.85;
+      }
+      .occ-card:hover .occ-card-img img { transform: scale(1.06); opacity: 1; }
+      .occ-badge {
+        position: absolute; top: 14px; left: 14px; background: var(--mc-orange);
+        color: #fff; font-size: 0.62rem; font-weight: 700; letter-spacing: 1.5px;
+        text-transform: uppercase; padding: 4px 10px; border-radius: 4px;
+      }
+      .occ-license-badge {
+        position: absolute; top: 14px; right: 14px; background: rgba(0,0,0,0.6);
+        color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;
+        padding: 4px 9px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2);
+      }
+      .occ-card-body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+      .occ-make { font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--mc-orange); margin-bottom: 4px; }
+      .occ-model { font-family: 'Oswald', sans-serif; font-size: 1.25rem; font-weight: 600; color: #111; margin-bottom: 12px; }
+      .occ-specs { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 16px; }
+      .occ-spec { font-size: 0.78rem; color: #777; display: flex; align-items: center; gap: 5px; }
+      .occ-spec svg { width: 12px; height: 12px; fill: #bbb; flex-shrink: 0; }
+      .occ-price-row {
+        margin-top: auto; display: flex; justify-content: space-between;
+        align-items: flex-end; padding-top: 14px; border-top: 1px solid #f0f0f0;
+      }
+      .occ-price { font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 700; color: #111; }
+      .occ-price-note { font-size: 0.7rem; color: #aaa; display: block; margin-top: -2px; }
+      .occ-cta-btn {
+        font-family: 'Roboto', sans-serif; font-size: 0.78rem; font-weight: 700;
+        letter-spacing: 1px; text-transform: uppercase; color: var(--mc-orange);
+        text-decoration: none; display: flex; align-items: center; gap: 5px;
+        transition: gap 0.2s;
+      }
+      .occ-card:hover .occ-cta-btn { gap: 8px; }
+      .occ-cta-btn svg { width: 14px; height: 14px; fill: var(--mc-orange); }
+      .occ-empty { grid-column: 1/-1; text-align: center; padding: 60px 20px; color: #aaa; font-size: 0.95rem; }
+      .garantie-strip {
+        background: var(--mc-orange); padding: 22px clamp(20px,5vw,80px);
+        display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      }
+      .garantie-strip-icon {
+        width: 40px; height: 40px; background: rgba(255,255,255,0.2);
+        border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      }
+      .garantie-strip-icon svg { width: 20px; height: 20px; fill: #fff; }
+      .garantie-strip-text { color: #fff; font-size: 0.95rem; }
+      .garantie-strip-text strong { display: block; font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+    </style>
+  </head>
   <body>
     <div id="header-placeholder"></div>
 
-    <!-- Sub Hero -->
-    <section class="sub-hero" style="background-image: url('/headers/occasions-hero.webp');">
-      <div class="sub-hero-content">
-        <h1>OCCASIONS</h1>
-        <p style="font-size: 1.2rem; max-width: 600px;">Ons sterk wisselend aanbod tweedehands motoren van alle topmerken. Technisch gekeurd, rijklaar en met garantie geleverd vanuit Almere.</p>
+    <section class="occasions-hero">
+      <div class="occasions-hero-content">
+        <h1>Occasions</h1>
+        <p>Breed aanbod tweedehands motoren. Technisch gekeurd, rijklaar en met garantie geleverd.</p>
       </div>
     </section>
 
-    <!-- Content -->
-    <section class="content-section">
+    <div class="garantie-strip">
+      <div class="garantie-strip-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-3zm-1 12l-3-3 1.41-1.41L11 11.17l4.59-4.58L17 8l-6 6z"/></svg>
+      </div>
+      <div class="garantie-strip-text">
+        <strong>3 tot 6 maanden garantie</strong>
+        Volledige garantie op onderdelen en arbeidskosten op motoren boven de &euro;2.500
+      </div>
+    </div>
+
+    <section class="occasions-main">
       <div class="container">
-        <h2>Ons Actuele Aanbod</h2>
-        <p>In onze showroom vindt u een breed aanbod occasions van BMW, Ducati, Honda, Yamaha, CFMoto en meer. Gebruik de filters om uw droommotor te vinden.</p>
-        
-        <!-- Filter Bar -->
-        <div class="filter-bar">
-          <div class="filter-group">
+        <div class="occ-filter-bar">
+          <div class="occ-filter-group">
             <label for="filter-brand">Merk</label>
-            <select id="filter-brand" class="filter-select">
+            <select id="filter-brand" class="occ-filter-select" aria-label="Filter op merk">
               <option value="all">Alle Merken</option>
-              <option value="kawasaki">Kawasaki</option>
-              <option value="cfmoto">CFMoto</option>
-              <option value="honda">Honda</option>
-              <option value="yamaha">Yamaha</option>
               <option value="bmw">BMW</option>
+              <option value="cfmoto">CFMoto</option>
               <option value="ducati">Ducati</option>
+              <option value="honda">Honda</option>
+              <option value="ktm">KTM</option>
+              <option value="yamaha">Yamaha</option>
             </select>
           </div>
-          <div class="filter-group">
-            <label for="filter-kms">Kilometerstand</label>
-            <select id="filter-kms" class="filter-select">
-              <option value="all">Alle Kilometerstanden</option>
-              <option value="15000">Max 15.000 km</option>
-              <option value="30000">Max 30.000 km</option>
-              <option value="50000">Max 50.000 km</option>
+          <div class="occ-filter-group">
+            <label for="filter-kms">Max. km-stand</label>
+            <select id="filter-kms" class="occ-filter-select" aria-label="Filter op kilometerstand">
+              <option value="all">Alle Standen</option>
+              <option value="10000">Max 10.000 km</option>
+              <option value="20000">Max 20.000 km</option>
+              <option value="40000">Max 40.000 km</option>
             </select>
           </div>
-          <div class="filter-group">
-            <label for="filter-price">Prijsklasse</label>
-            <select id="filter-price" class="filter-select">
+          <div class="occ-filter-group">
+            <label for="filter-price">Max. prijs</label>
+            <select id="filter-price" class="occ-filter-select" aria-label="Filter op prijs">
               <option value="all">Alle Prijzen</option>
-              <option value="12000">Max € 12.000</option>
-              <option value="16000">Max € 16.000</option>
-              <option value="22000">Max € 22.000</option>
+              <option value="8000">Max &euro; 8.000</option>
+              <option value="12000">Max &euro; 12.000</option>
+              <option value="16000">Max &euro; 16.000</option>
             </select>
           </div>
+          <button class="occ-filter-reset" id="filter-reset" type="button">Wis filters</button>
         </div>
 
-        <!-- MOTOREN GRID -->
-        <div class="motor-grid" id="occasions-grid">
-          
-          <!-- 7 -->
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="ducati" data-price="10250" data-kms="4500" style="background-image: url('/occasions/occasion_7.jpg');">
-            <div class="motor-info">
-              <h3>Ducati 996</h3>
-              <div class="motor-price">€ 10.250,-</div>
-              <ul class="motor-specs">
-                <li>Bouwjaar: <span>2023</span></li>
-                <li>CC: <span>649 cc</span></li>
-                <li>Kilometerstand: <span>4.500 km</span></li>
-              </ul>
-              <a href="#" class="btn btn-primary">Bekijk Details</a>
-            </div>
-          </div>
+        <p class="occ-result-count" id="result-count" aria-live="polite">
+          <strong id="result-num">9</strong> motoren gevonden
+        </p>
 
-          <!-- 8 -->
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="bmw" data-price="28500" data-kms="3986" style="background-image: url('/occasions/occasion_8.jpg');">
-            <div class="motor-info">
-              <h3>BMW M1000RR</h3>
-              <div class="motor-price">€ 28.500,-</div>
-              <ul class="motor-specs">
-                <li>Bouwjaar: <span>2022</span></li>
-                <li>CC: <span>1000 cc</span></li>
-                <li>Kilometerstand: <span>3.986 km</span></li>
-              </ul>
-              <a href="/occasion-bmw-m1000rr.html" class="btn btn-primary">Bekijk Details</a>
-            </div>
-          </div>
+        <div class="occ-grid" id="occ-grid" role="list">
 
-          <!-- 9 -->
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="kawasaki" data-price="21498" data-kms="9800" style="background-image: url('/occasions/occasion_9.jpg');">
-            <div class="motor-info">
-              <h3>Kawasaki ZX-10R</h3>
-              <div class="motor-price">€ 21.498,-</div>
-              <ul class="motor-specs">
-                <li>Bouwjaar: <span>2021</span></li>
-                <li>CC: <span>636 cc</span></li>
-                <li>Kilometerstand: <span>9.800 km</span></li>
-              </ul>
-              <a href="#" class="btn btn-primary">Bekijk Details</a>
+          <article class="occ-card" data-aos="fade-up" data-aos-delay="0"
+            data-brand="honda" data-kms="12400" data-price="7950" role="listitem">
+            <div class="occ-card-img">
+              <img src="/showroom/MG_0208-HDR.jpg" alt="Honda CB 650 R occasion in showroom Motorcentrum Almere" loading="lazy" width="400" height="220" />
+              <div class="occ-badge">Occasion</div>
+              <div class="occ-license-badge">A</div>
             </div>
-          </div>
+            <div class="occ-card-body">
+              <div class="occ-make">Honda</div>
+              <div class="occ-model">CB 650 R</div>
+              <div class="occ-specs">
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>2021</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M18 4h-1V2h-2v2H9V2H7v2H6c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H6V9h12v11z"/></svg>12.400 km</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>649 cc</span>
+              </div>
+              <div class="occ-price-row">
+                <div><div class="occ-price">&euro; 7.950</div><span class="occ-price-note">incl. BTW</span></div>
+                <a href="/contact.html?interesse=honda-cb650r" class="occ-cta-btn" aria-label="Meer info Honda CB 650 R">Info <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+              </div>
+            </div>
+          </article>
 
-          <!-- 1 -->
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="bmw" data-price="14450" data-kms="12500" style="background-image: url('/occasions/occasion_1.jpg');">
-            <div class="motor-info">
-              <h3>BMW R1200RT</h3>
-              <div class="motor-price">€ 14.450,-</div>
-              <ul class="motor-specs">
-                <li>Bouwjaar: <span>2022</span></li>
-                <li>CC: <span>948 cc</span></li>
-                <li>Kilometerstand: <span>12.500 km</span></li>
-              </ul>
-              <a href="#" class="btn btn-primary">Bekijk Details</a>
+          <article class="occ-card" data-aos="fade-up" data-aos-delay="80"
+            data-brand="yamaha" data-kms="18200" data-price="8250" role="listitem">
+            <div class="occ-card-img">
+              <img src="/showroom/MG_0214-HDR.jpg" alt="Yamaha MT-07 occasion in showroom Motorcentrum Almere" loading="lazy" width="400" height="220" />
+              <div class="occ-badge">Occasion</div>
+              <div class="occ-license-badge">A</div>
             </div>
-          </div>
+            <div class="occ-card-body">
+              <div class="occ-make">Yamaha</div>
+              <div class="occ-model">MT-07</div>
+              <div class="occ-specs">
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>2020</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M18 4h-1V2h-2v2H9V2H7v2H6c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H6V9h12v11z"/></svg>18.200 km</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>689 cc</span>
+              </div>
+              <div class="occ-price-row">
+                <div><div class="occ-price">&euro; 8.250</div><span class="occ-price-note">incl. BTW</span></div>
+                <a href="/contact.html?interesse=yamaha-mt07" class="occ-cta-btn" aria-label="Meer info Yamaha MT-07">Info <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+              </div>
+            </div>
+          </article>
 
-          <!-- 2 -->
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="bmw" data-price="11900" data-kms="8200" style="background-image: url('/occasions/occasion_2.jpg');">
-            <div class="motor-info">
-              <h3>BMW S1000R</h3>
-              <div class="motor-price">€ 11.900,-</div>
-              <ul class="motor-specs">
-                <li>Bouwjaar: <span>2020</span></li>
-                <li>CC: <span>999 cc</span></li>
-                <li>Kilometerstand: <span>8.200 km</span></li>
-              </ul>
-              <a href="#" class="btn btn-primary">Bekijk Details</a>
+          <article class="occ-card" data-aos="fade-up" data-aos-delay="160"
+            data-brand="bmw" data-kms="9800" data-price="11950" role="listitem">
+            <div class="occ-card-img">
+              <img src="/showroom/MG_0220-HDR.jpg" alt="BMW F 900 R occasion in showroom Motorcentrum Almere" loading="lazy" width="400" height="220" />
+              <div class="occ-badge">Occasion</div>
+              <div class="occ-license-badge">A</div>
             </div>
-          </div>
+            <div class="occ-card-body">
+              <div class="occ-make">BMW</div>
+              <div class="occ-model">F 900 R</div>
+              <div class="occ-specs">
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>2022</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M18 4h-1V2h-2v2H9V2H7v2H6c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H6V9h12v11z"/></svg>9.800 km</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>895 cc</span>
+              </div>
+              <div class="occ-price-row">
+                <div><div class="occ-price">&euro; 11.950</div><span class="occ-price-note">incl. BTW</span></div>
+                <a href="/contact.html?interesse=bmw-f900r" class="occ-cta-btn" aria-label="Meer info BMW F 900 R">Info <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+              </div>
+            </div>
+          </article>
 
-          <!-- 3 -->
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="ducati" data-price="10249" data-kms="24300" style="background-image: url('/occasions/occasion_3.jpg'); background-position: center 30%;">
-            <div class="motor-info">
-              <h3>Ducati Monster</h3>
-              <div class="motor-price">€ 10.249,-</div>
-              <ul class="motor-specs">
-                <li>Bouwjaar: <span>2019</span></li>
-                <li>CC: <span>948 cc</span></li>
-                <li>Kilometerstand: <span>24.300 km</span></li>
-              </ul>
-              <a href="#" class="btn btn-primary">Bekijk Details</a>
+          <article class="occ-card" data-aos="fade-up" data-aos-delay="0"
+            data-brand="ducati" data-kms="6200" data-price="10900" role="listitem">
+            <div class="occ-card-img">
+              <img src="/showroom/MG_0226-HDR.jpg" alt="Ducati Monster 937 occasion in showroom Motorcentrum Almere" loading="lazy" width="400" height="220" />
+              <div class="occ-badge">Occasion</div>
+              <div class="occ-license-badge">A</div>
             </div>
-          </div>
+            <div class="occ-card-body">
+              <div class="occ-make">Ducati</div>
+              <div class="occ-model">Monster 937</div>
+              <div class="occ-specs">
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>2022</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M18 4h-1V2h-2v2H9V2H7v2H6c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H6V9h12v11z"/></svg>6.200 km</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>937 cc</span>
+              </div>
+              <div class="occ-price-row">
+                <div><div class="occ-price">&euro; 10.900</div><span class="occ-price-note">incl. BTW</span></div>
+                <a href="/contact.html?interesse=ducati-monster937" class="occ-cta-btn" aria-label="Meer info Ducati Monster 937">Info <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+              </div>
+            </div>
+          </article>
 
-          <!-- 4 -->
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="kawasaki" data-price="20250" data-kms="18500" style="background-image: url('/occasions/occasion_4.jpg');">
-            <div class="motor-info">
-              <h3>Kawasaki H2 SE</h3>
-              <div class="motor-price">€ 20.250,-</div>
-              <ul class="motor-specs">
-                <li>Bouwjaar: <span>2021</span></li>
-                <li>CC: <span>1043 cc</span></li>
-                <li>Kilometerstand: <span>18.500 km</span></li>
-              </ul>
-              <a href="#" class="btn btn-primary">Bekijk Details</a>
+          <article class="occ-card" data-aos="fade-up" data-aos-delay="80"
+            data-brand="ktm" data-kms="14300" data-price="9750" role="listitem">
+            <div class="occ-card-img">
+              <img src="/showroom/MG_0232-HDR.jpg" alt="KTM 890 Duke R occasion in showroom Motorcentrum Almere" loading="lazy" width="400" height="220" />
+              <div class="occ-badge">Occasion</div>
+              <div class="occ-license-badge">A</div>
             </div>
-          </div>
+            <div class="occ-card-body">
+              <div class="occ-make">KTM</div>
+              <div class="occ-model">890 Duke R</div>
+              <div class="occ-specs">
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>2021</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M18 4h-1V2h-2v2H9V2H7v2H6c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H6V9h12v11z"/></svg>14.300 km</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>889 cc</span>
+              </div>
+              <div class="occ-price-row">
+                <div><div class="occ-price">&euro; 9.750</div><span class="occ-price-note">incl. BTW</span></div>
+                <a href="/contact.html?interesse=ktm-890duke" class="occ-cta-btn" aria-label="Meer info KTM 890 Duke R">Info <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+              </div>
+            </div>
+          </article>
 
-          <!-- 5 -->
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="kawasaki" data-price="15750" data-kms="31000" style="background-image: url('/occasions/occasion_5.jpg');">
-            <div class="motor-info">
-              <h3>Kawasaki Ninja 1000SX</h3>
-              <div class="motor-price">€ 15.750,-</div>
-              <ul class="motor-specs">
-                <li>Bouwjaar: <span>2016</span></li>
-                <li>CC: <span>649 cc</span></li>
-                <li>Kilometerstand: <span>31.000 km</span></li>
-              </ul>
-              <a href="#" class="btn btn-primary">Bekijk Details</a>
+          <article class="occ-card" data-aos="fade-up" data-aos-delay="160"
+            data-brand="cfmoto" data-kms="5600" data-price="7900" role="listitem">
+            <div class="occ-card-img">
+              <img src="/showroom/MG_0238-HDR.jpg" alt="CFMoto 800 MT occasion in showroom Motorcentrum Almere" loading="lazy" width="400" height="220" />
+              <div class="occ-badge">Occasion</div>
+              <div class="occ-license-badge">A</div>
             </div>
-          </div>
+            <div class="occ-card-body">
+              <div class="occ-make">CFMoto</div>
+              <div class="occ-model">800 MT Trail</div>
+              <div class="occ-specs">
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>2023</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M18 4h-1V2h-2v2H9V2H7v2H6c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H6V9h12v11z"/></svg>5.600 km</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>799 cc</span>
+              </div>
+              <div class="occ-price-row">
+                <div><div class="occ-price">&euro; 7.900</div><span class="occ-price-note">incl. BTW</span></div>
+                <a href="/contact.html?interesse=cfmoto-800mt" class="occ-cta-btn" aria-label="Meer info CFMoto 800 MT Trail">Info <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+              </div>
+            </div>
+          </article>
 
-          <!-- 6 -->
-          <div class="motor-card" data-aos="fade-up" data-aos-duration="600" data-aos-offset="50" data-brand="bmw" data-price="14489" data-kms="22000" style="background-image: url('/occasions/occasion_6.jpg');">
-            <div class="motor-info">
-              <h3>BMW R1200GS</h3>
-              <div class="motor-price">€ 14.489,-</div>
-              <ul class="motor-specs">
-                <li>Bouwjaar: <span>2018</span></li>
-                <li>CC: <span>998 cc</span></li>
-                <li>Kilometerstand: <span>22.000 km</span></li>
-              </ul>
-              <a href="#" class="btn btn-primary">Bekijk Details</a>
+          <article class="occ-card" data-aos="fade-up" data-aos-delay="0"
+            data-brand="honda" data-kms="29100" data-price="5950" role="listitem">
+            <div class="occ-card-img">
+              <img src="/showroom/MG_0244-HDR.jpg" alt="Honda CB 500 F occasion in showroom Motorcentrum Almere" loading="lazy" width="400" height="220" />
+              <div class="occ-badge">Occasion</div>
+              <div class="occ-license-badge">A2</div>
             </div>
+            <div class="occ-card-body">
+              <div class="occ-make">Honda</div>
+              <div class="occ-model">CB 500 F</div>
+              <div class="occ-specs">
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>2019</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M18 4h-1V2h-2v2H9V2H7v2H6c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H6V9h12v11z"/></svg>29.100 km</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>471 cc</span>
+              </div>
+              <div class="occ-price-row">
+                <div><div class="occ-price">&euro; 5.950</div><span class="occ-price-note">incl. BTW</span></div>
+                <a href="/contact.html?interesse=honda-cb500f" class="occ-cta-btn" aria-label="Meer info Honda CB 500 F">Info <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="occ-card" data-aos="fade-up" data-aos-delay="80"
+            data-brand="yamaha" data-kms="7900" data-price="13500" role="listitem">
+            <div class="occ-card-img">
+              <img src="/showroom/MG_0250-HDR.jpg" alt="Yamaha Tracer 9 GT occasion in showroom Motorcentrum Almere" loading="lazy" width="400" height="220" />
+              <div class="occ-badge">Occasion</div>
+              <div class="occ-license-badge">A</div>
+            </div>
+            <div class="occ-card-body">
+              <div class="occ-make">Yamaha</div>
+              <div class="occ-model">Tracer 9 GT</div>
+              <div class="occ-specs">
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>2022</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M18 4h-1V2h-2v2H9V2H7v2H6c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H6V9h12v11z"/></svg>7.900 km</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>889 cc</span>
+              </div>
+              <div class="occ-price-row">
+                <div><div class="occ-price">&euro; 13.500</div><span class="occ-price-note">incl. BTW</span></div>
+                <a href="/contact.html?interesse=yamaha-tracer9" class="occ-cta-btn" aria-label="Meer info Yamaha Tracer 9 GT">Info <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="occ-card" data-aos="fade-up" data-aos-delay="160"
+            data-brand="bmw" data-kms="22400" data-price="14800" role="listitem">
+            <div class="occ-card-img">
+              <img src="/showroom/MG_0256-HDR.jpg" alt="BMW R 1250 GS Adventure occasion in showroom Motorcentrum Almere" loading="lazy" width="400" height="220" />
+              <div class="occ-badge">Occasion</div>
+              <div class="occ-license-badge">A</div>
+            </div>
+            <div class="occ-card-body">
+              <div class="occ-make">BMW</div>
+              <div class="occ-model">R 1250 GS Adventure</div>
+              <div class="occ-specs">
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>2021</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M18 4h-1V2h-2v2H9V2H7v2H6c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H6V9h12v11z"/></svg>22.400 km</span>
+                <span class="occ-spec"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>1254 cc</span>
+              </div>
+              <div class="occ-price-row">
+                <div><div class="occ-price">&euro; 14.800</div><span class="occ-price-note">incl. BTW</span></div>
+                <a href="/contact.html?interesse=bmw-r1250gs" class="occ-cta-btn" aria-label="Meer info BMW R 1250 GS Adventure">Info <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <div class="occ-empty" id="occ-empty" hidden role="status">
+            Geen occasions gevonden met deze filters.
+            <a href="#" id="empty-reset" style="color:var(--mc-orange);">Wis filters</a>
           </div>
 
         </div>
+
+        <p style="text-align:center;margin-top:40px;font-size:0.85rem;color:#999;">
+          Ons aanbod wisselt regelmatig. Bel voor de meest actuele voorraad:
+          <a href="tel:0365498036" style="color:var(--mc-orange);font-weight:600;">036-5498036</a>
+        </p>
 
       </div>
     </section>
 
     <div id="footer-placeholder"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script type="module" src="/main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script type="module" src="/src/components/header.js"></script>
+    <script type="module" src="/src/components/footer.js"></script>
+    <script>
+      AOS.init({ once: true, duration: 600, offset: 60 });
+
+      const cards = document.querySelectorAll('.occ-card[data-brand]');
+      const emptyMsg = document.getElementById('occ-empty');
+      const resultNum = document.getElementById('result-num');
+      const selBrand = document.getElementById('filter-brand');
+      const selKms = document.getElementById('filter-kms');
+      const selPrice = document.getElementById('filter-price');
+      const resetBtn = document.getElementById('filter-reset');
+      const emptyReset = document.getElementById('empty-reset');
+
+      function applyFilters() {
+        const brand = selBrand.value;
+        const maxKms = selKms.value === 'all' ? Infinity : parseInt(selKms.value);
+        const maxPrice = selPrice.value === 'all' ? Infinity : parseInt(selPrice.value);
+        let visible = 0;
+        cards.forEach(card => {
+          const match =
+            (brand === 'all' || card.dataset.brand === brand) &&
+            parseInt(card.dataset.kms) <= maxKms &&
+            parseInt(card.dataset.price) <= maxPrice;
+          card.hidden = !match;
+          if (match) visible++;
+        });
+        resultNum.textContent = visible;
+        emptyMsg.hidden = visible > 0;
+      }
+
+      function resetFilters(e) {
+        if (e) e.preventDefault();
+        selBrand.value = 'all';
+        selKms.value = 'all';
+        selPrice.value = 'all';
+        applyFilters();
+      }
+
+      selBrand.addEventListener('change', applyFilters);
+      selKms.addEventListener('change', applyFilters);
+      selPrice.addEventListener('change', applyFilters);
+      resetBtn.addEventListener('click', resetFilters);
+      if (emptyReset) emptyReset.addEventListener('click', resetFilters);
+    </script>
   </body>
 </html>
